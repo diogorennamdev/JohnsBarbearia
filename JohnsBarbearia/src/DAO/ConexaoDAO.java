@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexaoDAO {
 
     Connection conn;
-
+//testando//
     public Connection conectaBD() {
         try {
             String url = "jdbc:mysql://localhost:3306/JohnsBarbearia?user=root&password=";
