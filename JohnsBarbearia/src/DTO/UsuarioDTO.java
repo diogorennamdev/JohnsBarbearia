@@ -2,13 +2,6 @@ package DTO;
 
 public class UsuarioDTO {
 
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-
-    }
     private String nome;
     private String email;
     private String tipo;

@@ -2,14 +2,14 @@ package DTO;
 
 import java.util.Date;
 
-public class AgendamnetDTO {
+public class AgendamnetoDTO {
 
     private String nome_cliente;
     private Date data;
     private String servico;
     private float valor_servico;
 
-    public AgendamnetDTO(String nome_cliente, Date data, String servico, float valor_servico) {
+    public AgendamnetoDTO(String nome_cliente, Date data, String servico, float valor_servico) {
         this.nome_cliente = nome_cliente;
         this.data = data;
         this.servico = servico;
