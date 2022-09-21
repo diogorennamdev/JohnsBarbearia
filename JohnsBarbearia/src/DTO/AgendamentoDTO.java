@@ -3,6 +3,7 @@ package DTO;
 import java.util.Date;
 
 public class AgendamentoDTO {
+
     private String nome_cliente;
     private Date data;
     private String servico;
@@ -46,6 +47,5 @@ public class AgendamentoDTO {
     public void setValor_servico(float valor_servico) {
         this.valor_servico = valor_servico;
     }
-    
-    
+
 }
