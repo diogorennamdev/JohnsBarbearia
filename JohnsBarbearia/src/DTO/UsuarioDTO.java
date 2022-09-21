@@ -2,6 +2,10 @@ package DTO;
 
 public class UsuarioDTO {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
     }
