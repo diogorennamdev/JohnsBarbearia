@@ -2,6 +2,9 @@ package DTO;
 
 public class UsuarioDTO {
 
+    public static void main(String[] args) {
+
+    }
     private String nome;
     private String email;
     private String tipo;
@@ -55,4 +58,5 @@ public class UsuarioDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }
