@@ -6,4 +6,5 @@ public class TelaLogin {
         new JframeTelaLogin().setVisible(true);
 
     }
+
 }

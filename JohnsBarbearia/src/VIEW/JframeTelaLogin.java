@@ -11,33 +11,107 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         loginJPanel = new javax.swing.JPanel();
+        sejabemvindoJLabel1 = new javax.swing.JLabel();
         imagem = new javax.swing.JLabel();
+        emailJLabel = new javax.swing.JLabel();
         emailJTextField = new javax.swing.JTextField();
+        senhaJLabel = new javax.swing.JLabel();
         senhaJPassword = new javax.swing.JPasswordField();
         entrarJButton = new javax.swing.JButton();
+        tracejado1 = new javax.swing.JLabel();
+        tracejado2 = new javax.swing.JLabel();
+        ouJLabel = new javax.swing.JLabel();
+        criarcontaJButton = new javax.swing.JButton();
+        esqueceuJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TelaLogin");
         setBackground(new java.awt.Color(65, 65, 65));
-        setMaximumSize(new java.awt.Dimension(1450, 960));
 
         loginJPanel.setBackground(new java.awt.Color(65, 65, 65));
 
-        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/Group 19.png"))); // NOI18N
+        sejabemvindoJLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        sejabemvindoJLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        sejabemvindoJLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sejabemvindoJLabel1.setLabelFor(entrarJButton);
+        sejabemvindoJLabel1.setText("SEJA BEM VINDO!");
+        sejabemvindoJLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        sejabemvindoJLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/John's Barbearia.png"))); // NOI18N
+
+        emailJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        emailJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        emailJLabel.setText("Email");
+
+        emailJTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        emailJTextField.setForeground(new java.awt.Color(65, 65, 65));
+        emailJTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        emailJTextField.setAutoscrolls(false);
         emailJTextField.setBorder(null);
+        emailJTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         emailJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailJTextFieldActionPerformed(evt);
             }
         });
 
-        senhaJPassword.setText("jPasswordField1");
+        senhaJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        senhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        senhaJLabel.setText("Senha");
 
+        senhaJPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        senhaJPassword.setForeground(new java.awt.Color(65, 65, 65));
+
+        entrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        entrarJButton.setForeground(new java.awt.Color(65, 65, 65));
         entrarJButton.setText("ENTRAR");
+        entrarJButton.setToolTipText("");
+        entrarJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        entrarJButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         entrarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarJButtonActionPerformed(evt);
+            }
+        });
+
+        tracejado1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tracejado1.setForeground(new java.awt.Color(255, 255, 255));
+        tracejado1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tracejado1.setText("...............................................................................................................................................................................................");
+        tracejado1.setMinimumSize(new java.awt.Dimension(891, 25));
+
+        tracejado2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tracejado2.setForeground(new java.awt.Color(255, 255, 255));
+        tracejado2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tracejado2.setText("...............................................................................................................................................................................................");
+
+        ouJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ouJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ouJLabel.setText("OU");
+        ouJLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        ouJLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ouJLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        criarcontaJButton.setBackground(new java.awt.Color(65, 65, 65));
+        criarcontaJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        criarcontaJButton.setForeground(new java.awt.Color(255, 255, 255));
+        criarcontaJButton.setText("CRIE SUA CONTA COM EMAIL");
+        criarcontaJButton.setBorder(null);
+        criarcontaJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarcontaJButtonActionPerformed(evt);
+            }
+        });
+
+        esqueceuJButton.setBackground(new java.awt.Color(65, 65, 65));
+        esqueceuJButton.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        esqueceuJButton.setForeground(new java.awt.Color(255, 255, 255));
+        esqueceuJButton.setText("Esqueceu sua Senha?");
+        esqueceuJButton.setBorder(null);
+        esqueceuJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                esqueceuJButtonActionPerformed(evt);
             }
         });
 
@@ -49,40 +123,83 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                 .addComponent(imagem)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailJTextField)
-                            .addComponent(senhaJPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)))
+                        .addGap(74, 74, 74)
+                        .addComponent(entrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(75, 75, 75))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(entrarJButton)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(criarcontaJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(senhaJPassword)
+                            .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                            .addComponent(emailJTextField)
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailJLabel)
+                                    .addComponent(senhaJLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addGap(51, 51, 51)
+                                .addComponent(ouJLabel)
+                                .addGap(69, 69, 69)
+                                .addComponent(tracejado2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                            .addComponent(esqueceuJButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(emailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(senhaJPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(entrarJButton)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagem)
+                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(sejabemvindoJLabel1)
+                        .addGap(73, 73, 73)
+                        .addComponent(emailJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(emailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(senhaJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(senhaJPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(esqueceuJButton)
+                        .addGap(33, 33, 33)
+                        .addComponent(entrarJButton)
+                        .addGap(32, 32, 32)
+                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tracejado2)
+                            .addComponent(ouJLabel))
+                        .addGap(43, 43, 43)
+                        .addComponent(criarcontaJButton)))
+                .addGap(0, 0, 0))
         );
 
         getContentPane().add(loginJPanel, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 814, 607);
+        setBounds(0, 0, 834, 607);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void emailJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailJTextFieldActionPerformed
-        // TODO add your handling code here:  
-    }//GEN-LAST:event_emailJTextFieldActionPerformed
 
     private void entrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entrarJButtonActionPerformed
+
+    private void emailJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailJTextFieldActionPerformed
+
+    private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
+        JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
+        janelaJframeTelaCadastro.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_criarcontaJButtonActionPerformed
+
+    private void esqueceuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_esqueceuJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,10 +237,18 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton criarcontaJButton;
+    private javax.swing.JLabel emailJLabel;
     private javax.swing.JTextField emailJTextField;
     private javax.swing.JButton entrarJButton;
+    private javax.swing.JButton esqueceuJButton;
     private javax.swing.JLabel imagem;
     private javax.swing.JPanel loginJPanel;
+    private javax.swing.JLabel ouJLabel;
+    private javax.swing.JLabel sejabemvindoJLabel1;
+    private javax.swing.JLabel senhaJLabel;
     private javax.swing.JPasswordField senhaJPassword;
+    private javax.swing.JLabel tracejado1;
+    private javax.swing.JLabel tracejado2;
     // End of variables declaration//GEN-END:variables
 }
