@@ -2,16 +2,16 @@ package DTO;
 
 import java.util.Date;
 
-public class AgendamnetoDTO {
+public class AgendamentoDTO {
 
     private String nome_cliente;
-    private Date data;
+    private Date data_agendamento;
     private String servico;
     private float valor_servico;
 
-    public AgendamnetoDTO(String nome_cliente, Date data, String servico, float valor_servico) {
+    public AgendamentoDTO(String nome_cliente, Date data_agendamento, String servico, float valor_servico) {
         this.nome_cliente = nome_cliente;
-        this.data = data;
+        this.data_agendamento = data_agendamento;
         this.servico = servico;
         this.valor_servico = valor_servico;
     }
@@ -21,7 +21,7 @@ public class AgendamnetoDTO {
     }
 
     public Date getData() {
-        return data;
+        return data_agendamento;
     }
 
     public String getServico() {
@@ -36,8 +36,8 @@ public class AgendamnetoDTO {
         this.nome_cliente = nome_cliente;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData(Date data_agendamento) {
+        this.data_agendamento = data_agendamento;
     }
 
     public void setServico(String servico) {

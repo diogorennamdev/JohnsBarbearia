@@ -57,9 +57,9 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="criarcontaJButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="senhaJPassword" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtSenhaUsuario" alignment="0" max="32767" attributes="0"/>
                               <Component id="sejabemvindoJLabel1" alignment="0" pref="397" max="32767" attributes="0"/>
-                              <Component id="emailJTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEmailUsuario" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="emailJLabel" min="-2" max="-2" attributes="0"/>
@@ -93,11 +93,11 @@
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Component id="emailJLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="emailJTextField" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtEmailUsuario" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="senhaJLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="senhaJPassword" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="txtSenhaUsuario" min="-2" pref="26" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="esqueceuJButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -153,7 +153,7 @@
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="emailJTextField">
+        <Component class="javax.swing.JTextField" name="txtEmailUsuario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -171,7 +171,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailJTextFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailUsuarioActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="senhaJLabel">
@@ -185,7 +185,7 @@
             <Property name="text" type="java.lang.String" value="Senha"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="senhaJPassword">
+        <Component class="javax.swing.JPasswordField" name="txtSenhaUsuario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>

@@ -2,58 +2,59 @@ package DTO;
 
 public class UsuarioDTO {
 
-    private String nome;
-    private String email;
-    private String tipo;
-    private int id;
-    private String senha;
+    private String nome_usuario;
+    private String email_usuario;
+    private String tipo_usuario;
+    private int id_usuario;
+    private String senha_usuario;
 
-    public UsuarioDTO(String nome, String email, String tipo, int id, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.tipo = tipo;
-        this.id = id;
-        this.senha = senha;
+    public UsuarioDTO(String nome_usuario, String email_usuario, String tipo_usuario, int id_usuario, String senha_usuario) {
+        this.nome_usuario = nome_usuario;
+        this.email_usuario = email_usuario;
+        this.tipo_usuario = tipo_usuario;
+        this.id_usuario = id_usuario;
+        this.senha_usuario = senha_usuario;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome_usuario() {
+        return nome_usuario;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail_usuario() {
+        return email_usuario;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipo_usuario() {
+        return tipo_usuario;
     }
 
-    public int getId() {
-        return id;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public String getsenha() {
-        return senha;
+    public String getSenha_usuario() {
+        return senha_usuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_usuario(String nome_usuario) {
+        this.nome_usuario = nome_usuario;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail_usuario(String email_usuario) {
+        this.email_usuario = email_usuario;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenha_usuario(String senha_usuario) {
+        this.senha_usuario = senha_usuario;
     }
 
+   
 }

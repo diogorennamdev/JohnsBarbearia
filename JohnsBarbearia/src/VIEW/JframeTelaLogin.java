@@ -14,9 +14,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         sejabemvindoJLabel1 = new javax.swing.JLabel();
         imagem = new javax.swing.JLabel();
         emailJLabel = new javax.swing.JLabel();
-        emailJTextField = new javax.swing.JTextField();
+        txtEmailUsuario = new javax.swing.JTextField();
         senhaJLabel = new javax.swing.JLabel();
-        senhaJPassword = new javax.swing.JPasswordField();
+        txtSenhaUsuario = new javax.swing.JPasswordField();
         entrarJButton = new javax.swing.JButton();
         tracejado1 = new javax.swing.JLabel();
         tracejado2 = new javax.swing.JLabel();
@@ -44,15 +44,15 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         emailJLabel.setForeground(new java.awt.Color(255, 255, 255));
         emailJLabel.setText("Email");
 
-        emailJTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        emailJTextField.setForeground(new java.awt.Color(65, 65, 65));
-        emailJTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        emailJTextField.setAutoscrolls(false);
-        emailJTextField.setBorder(null);
-        emailJTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        emailJTextField.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmailUsuario.setForeground(new java.awt.Color(65, 65, 65));
+        txtEmailUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtEmailUsuario.setAutoscrolls(false);
+        txtEmailUsuario.setBorder(null);
+        txtEmailUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtEmailUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailJTextFieldActionPerformed(evt);
+                txtEmailUsuarioActionPerformed(evt);
             }
         });
 
@@ -60,8 +60,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         senhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
         senhaJLabel.setText("Senha");
 
-        senhaJPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        senhaJPassword.setForeground(new java.awt.Color(65, 65, 65));
+        txtSenhaUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSenhaUsuario.setForeground(new java.awt.Color(65, 65, 65));
 
         entrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         entrarJButton.setForeground(new java.awt.Color(65, 65, 65));
@@ -130,9 +130,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(criarcontaJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(senhaJPassword)
+                            .addComponent(txtSenhaUsuario)
                             .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                            .addComponent(emailJTextField)
+                            .addComponent(txtEmailUsuario)
                             .addGroup(loginJPanelLayout.createSequentialGroup()
                                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(emailJLabel)
@@ -158,11 +158,11 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(emailJLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
                         .addComponent(senhaJLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senhaJPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(esqueceuJButton)
                         .addGap(33, 33, 33)
@@ -183,12 +183,12 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButtonActionPerformed
-        // TODO add your handling code here:
+           
     }//GEN-LAST:event_entrarJButtonActionPerformed
 
-    private void emailJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailJTextFieldActionPerformed
+    private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailJTextFieldActionPerformed
+    }//GEN-LAST:event_txtEmailUsuarioActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
         JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
@@ -239,7 +239,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton criarcontaJButton;
     private javax.swing.JLabel emailJLabel;
-    private javax.swing.JTextField emailJTextField;
     private javax.swing.JButton entrarJButton;
     private javax.swing.JButton esqueceuJButton;
     private javax.swing.JLabel imagem;
@@ -247,8 +246,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel ouJLabel;
     private javax.swing.JLabel sejabemvindoJLabel1;
     private javax.swing.JLabel senhaJLabel;
-    private javax.swing.JPasswordField senhaJPassword;
     private javax.swing.JLabel tracejado1;
     private javax.swing.JLabel tracejado2;
+    private javax.swing.JTextField txtEmailUsuario;
+    private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 }
