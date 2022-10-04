@@ -1,7 +1,6 @@
 package VIEW;
-
+import VIEW.TelaLogin;
 public class JframeTelaLogin extends javax.swing.JFrame {
-
     public JframeTelaLogin() {
         initComponents();
     }
@@ -183,7 +182,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButtonActionPerformed
-           
+         TelaLogin.fazerlogin();
     }//GEN-LAST:event_entrarJButtonActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
@@ -235,6 +234,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton criarcontaJButton;
@@ -251,4 +251,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmailUsuario;
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
+
+    
 }
