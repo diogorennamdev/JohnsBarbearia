@@ -1,6 +1,11 @@
 package VIEW;
+
 import VIEW.TelaLogin;
+
+
+
 public class JframeTelaLogin extends javax.swing.JFrame {
+
     public JframeTelaLogin() {
         initComponents();
     }
@@ -47,7 +52,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         txtEmailUsuario.setForeground(new java.awt.Color(65, 65, 65));
         txtEmailUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtEmailUsuario.setAutoscrolls(false);
-        txtEmailUsuario.setBorder(null);
         txtEmailUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtEmailUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +100,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         criarcontaJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         criarcontaJButton.setForeground(new java.awt.Color(255, 255, 255));
         criarcontaJButton.setText("CRIE SUA CONTA COM EMAIL");
-        criarcontaJButton.setBorder(null);
         criarcontaJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criarcontaJButtonActionPerformed(evt);
@@ -107,7 +110,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         esqueceuJButton.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         esqueceuJButton.setForeground(new java.awt.Color(255, 255, 255));
         esqueceuJButton.setText("Esqueceu sua Senha?");
-        esqueceuJButton.setBorder(null);
         esqueceuJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 esqueceuJButtonActionPerformed(evt);
@@ -120,17 +122,17 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
                 .addComponent(imagem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(entrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(75, 75, 75))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(criarcontaJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtSenhaUsuario)
-                            .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                            .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                             .addComponent(txtEmailUsuario)
                             .addGroup(loginJPanelLayout.createSequentialGroup()
                                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,40 +151,40 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagem)
-                    .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(sejabemvindoJLabel1)
-                        .addGap(73, 73, 73)
-                        .addComponent(emailJLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(senhaJLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(esqueceuJButton)
-                        .addGap(33, 33, 33)
-                        .addComponent(entrarJButton)
-                        .addGap(32, 32, 32)
-                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tracejado2)
-                            .addComponent(ouJLabel))
-                        .addGap(43, 43, 43)
-                        .addComponent(criarcontaJButton)))
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(sejabemvindoJLabel1)
+                .addGap(73, 73, 73)
+                .addComponent(emailJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(senhaJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(esqueceuJButton)
+                .addGap(33, 33, 33)
+                .addComponent(entrarJButton)
+                .addGap(32, 32, 32)
+                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tracejado2)
+                    .addComponent(ouJLabel))
+                .addGap(43, 43, 43)
+                .addComponent(criarcontaJButton)
+                .addGap(279, 279, 279))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
+                .addComponent(imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(loginJPanel, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 834, 607);
+        setBounds(0, 0, 840, 605);
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButtonActionPerformed
-         TelaLogin.fazerlogin(email_usuario, senha_usuario);
+       
     }//GEN-LAST:event_entrarJButtonActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
@@ -200,15 +202,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_esqueceuJButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -225,16 +220,14 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JframeTelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JframeTelaLogin().setVisible(true);
             }
         });
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton criarcontaJButton;
@@ -252,5 +245,5 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 
-    
+   
 }

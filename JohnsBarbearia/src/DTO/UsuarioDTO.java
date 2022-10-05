@@ -8,14 +8,10 @@ public class UsuarioDTO {
     private int id_usuario;
     private String senha_usuario;
 
-    public UsuarioDTO(String nome_usuario, String email_usuario, String tipo_usuario, int id_usuario, String senha_usuario) {
-        this.nome_usuario = nome_usuario;
-        this.email_usuario = email_usuario;
-        this.tipo_usuario = tipo_usuario;
-        this.id_usuario = id_usuario;
-        this.senha_usuario = senha_usuario;
+    public UsuarioDTO() {
+       
     }
-
+    
     public String getNome_usuario() {
         return nome_usuario;
     }
