@@ -1,8 +1,11 @@
 package VIEW;
 
+import DAO.UsuarioDAO;
+import DTO.UsuarioDTO;
 import VIEW.TelaLogin;
-
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
@@ -21,7 +24,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         txtEmailUsuario = new javax.swing.JTextField();
         senhaJLabel = new javax.swing.JLabel();
         txtSenhaUsuario = new javax.swing.JPasswordField();
-        entrarJButton = new javax.swing.JButton();
+        entrarsistema = new javax.swing.JButton();
         tracejado1 = new javax.swing.JLabel();
         tracejado2 = new javax.swing.JLabel();
         ouJLabel = new javax.swing.JLabel();
@@ -37,7 +40,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         sejabemvindoJLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         sejabemvindoJLabel1.setForeground(new java.awt.Color(255, 255, 255));
         sejabemvindoJLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sejabemvindoJLabel1.setLabelFor(entrarJButton);
+        sejabemvindoJLabel1.setLabelFor(entrarsistema);
         sejabemvindoJLabel1.setText("SEJA BEM VINDO!");
         sejabemvindoJLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         sejabemvindoJLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -66,15 +69,15 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         txtSenhaUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtSenhaUsuario.setForeground(new java.awt.Color(65, 65, 65));
 
-        entrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        entrarJButton.setForeground(new java.awt.Color(65, 65, 65));
-        entrarJButton.setText("ENTRAR");
-        entrarJButton.setToolTipText("");
-        entrarJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        entrarJButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        entrarJButton.addActionListener(new java.awt.event.ActionListener() {
+        entrarsistema.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        entrarsistema.setForeground(new java.awt.Color(65, 65, 65));
+        entrarsistema.setText("ENTRAR");
+        entrarsistema.setToolTipText("");
+        entrarsistema.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        entrarsistema.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        entrarsistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrarJButtonActionPerformed(evt);
+                entrarsistemaActionPerformed(evt);
             }
         });
 
@@ -126,7 +129,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addComponent(entrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(entrarsistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(75, 75, 75))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +167,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(esqueceuJButton)
                 .addGap(33, 33, 33)
-                .addComponent(entrarJButton)
+                .addComponent(entrarsistema)
                 .addGap(32, 32, 32)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,9 +186,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         setBounds(0, 0, 840, 605);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void entrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButtonActionPerformed
-       
-    }//GEN-LAST:event_entrarJButtonActionPerformed
+    private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
+        this.entrar();
+    }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
         // TODO add your handling code here:
@@ -195,7 +198,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
         janelaJframeTelaCadastro.setVisible(true);
         this.dispose();
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
 
     private void esqueceuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuJButtonActionPerformed
@@ -232,7 +235,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton criarcontaJButton;
     private javax.swing.JLabel emailJLabel;
-    private javax.swing.JButton entrarJButton;
+    private javax.swing.JButton entrarsistema;
     private javax.swing.JButton esqueceuJButton;
     private javax.swing.JLabel imagem;
     private javax.swing.JPanel loginJPanel;
@@ -245,5 +248,33 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 
-   
+    private void entrar() {
+        try {
+
+            String email_usuario, senha_usuario;
+            email_usuario = txtEmailUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getText();
+
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+            objusuariodto.setEmail_usuario(email_usuario);
+            objusuariodto.setSenha_usuario(senha_usuario);
+
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+
+            if (rsusuariodao.next()) {
+                // chama tela que eu quero abrir    
+                JFrameTelaAgendamento objJframeTelaAgendamento = new JFrameTelaAgendamento();
+                objJframeTelaAgendamento.setVisible(true);
+                dispose();
+            } else {
+                // enviar mensagem dizendo incorreto   
+                JOptionPane.showMessageDialog(null, "usuario ou senha invalido");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao logar" + erro);
+        }
+    }
+
 }

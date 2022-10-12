@@ -54,7 +54,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="entrarJButton" max="32767" attributes="0"/>
+                          <Component id="entrarsistema" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -101,7 +101,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="esqueceuJButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="entrarJButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="entrarsistema" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tracejado1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="entrarJButton"/>
+              <ComponentRef name="entrarsistema"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SEJA BEM VINDO!"/>
             <Property name="verticalAlignment" type="int" value="3"/>
@@ -194,7 +194,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="entrarJButton">
+        <Component class="javax.swing.JButton" name="entrarsistema">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
@@ -208,7 +208,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entrarJButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entrarsistemaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="tracejado1">
