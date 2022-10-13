@@ -15,14 +15,13 @@ public class ControlTelaCadastro {
 
         objUsuariodto.setNome_usuario(nome_usuario);
         objUsuariodto.setEmail_usuario(email_usuario);
-        objUsuariodto.setSenha_usuario(criptografarSenha(senha_usuario));
-
+        objUsuariodto.setSenha_usuario(criptografiaDaSenha(senha_usuario));
         UsuarioDAO objUsuariodao = new UsuarioDAO();
         objUsuariodao.CadastrarUsuario(objUsuariodto);
     }
 
     //Criptografia da senha no padrão SHA-256
-    public static String criptografarSenha(String senha_usuario) {
+    public static String criptografiaDaSenha(String senha_usuario) {
         String cript = senha_usuario;
         MessageDigest md;
         try {

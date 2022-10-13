@@ -2,7 +2,6 @@ package VIEW;
 
 import CONTROL.ControlTelaCadastro;
 
-
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     /**
@@ -305,6 +304,5 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         NomeJText.setText("");
         EmailJText.setText("");
         SenhaJText.setText("");
-
     }
 }
