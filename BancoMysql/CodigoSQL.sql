@@ -3,7 +3,7 @@ use JohnsBarbearia;
 create table if not exists usuario(
   id_usuario int auto_increment primary key,
   email_usuario varchar (30) ,
-  senha_usuario varchar (15),
+  senha_usuario varchar (90),
   nome_usuario varchar (30),
   tipo_usuario varchar (15)
   );
