@@ -120,17 +120,12 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
                 .addComponent(imagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(entrarsistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(75, 75, 75))
-                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(criarcontaJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtSenhaUsuario)
-                            .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                             .addComponent(txtEmailUsuario)
                             .addGroup(loginJPanelLayout.createSequentialGroup()
                                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,37 +138,42 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                                 .addComponent(ouJLabel)
                                 .addGap(69, 69, 69)
                                 .addComponent(tracejado2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                            .addComponent(esqueceuJButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
+                            .addComponent(esqueceuJButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(entrarsistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(72, 72, 72))))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sejabemvindoJLabel1)
-                .addGap(73, 73, 73)
-                .addComponent(emailJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(senhaJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(esqueceuJButton)
-                .addGap(33, 33, 33)
-                .addComponent(entrarsistema)
-                .addGap(32, 32, 32)
-                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tracejado2)
-                    .addComponent(ouJLabel))
-                .addGap(43, 43, 43)
-                .addComponent(criarcontaJButton)
-                .addGap(279, 279, 279))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
-                .addComponent(imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(sejabemvindoJLabel1)
+                        .addGap(53, 53, 53)
+                        .addComponent(emailJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(senhaJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(esqueceuJButton)
+                        .addGap(50, 50, 50)
+                        .addComponent(entrarsistema)
+                        .addGap(55, 55, 55)
+                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tracejado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tracejado2)
+                            .addComponent(ouJLabel))
+                        .addGap(43, 43, 43)
+                        .addComponent(criarcontaJButton))
+                    .addComponent(imagem, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
 
         getContentPane().add(loginJPanel, java.awt.BorderLayout.CENTER);
@@ -184,7 +184,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
         ControlTelaLogin.entrarsistemaActionPerformed(email(), senha());
         this.dispose();
-
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
@@ -194,7 +193,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
         ControlTelaLogin.criarcontaJButtonActionPerformed();
         this.dispose();
-
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
 
     private void esqueceuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuJButtonActionPerformed
