@@ -11,7 +11,7 @@ create table if not exists Agendamento(
 	nome_cliente varchar (20) NOT NULL, 
   	data_agendamento DATE,
   	servico varchar (30),
-      valor_servico varchar (20) 
+    valor_servico varchar (20) 
 );
 
 
