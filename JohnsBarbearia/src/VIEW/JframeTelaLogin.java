@@ -1,11 +1,6 @@
 package VIEW;
 
-import DAO.UsuarioDAO;
-import DTO.UsuarioDTO;
-import VIEW.TelaLogin;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import CONTROL.ControlTelaLogin;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
@@ -187,7 +182,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        this.entrar();
+        ControlTelaLogin.entrarsistemaActionPerformed(email(), senha());
+        this.dispose();
+
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
@@ -195,8 +192,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailUsuarioActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
-        JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
-        janelaJframeTelaCadastro.setVisible(true);
+        ControlTelaLogin.criarcontaJButtonActionPerformed();
         this.dispose();
 
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
@@ -248,33 +244,14 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 
-    private void entrar() {
-        try {
+    public String email() {
+        String nome_email = txtEmailUsuario.getText();
+        return nome_email;
+    }
 
-            String email_usuario, senha_usuario;
-            email_usuario = txtEmailUsuario.getText();
-            senha_usuario = txtSenhaUsuario.getText();
-
-            UsuarioDTO objusuariodto = new UsuarioDTO();
-            objusuariodto.setEmail_usuario(email_usuario);
-            objusuariodto.setSenha_usuario(senha_usuario);
-
-            UsuarioDAO objusuariodao = new UsuarioDAO();
-            ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
-
-            if (rsusuariodao.next()) {
-                // chama tela que eu quero abrir    
-                JFrameTelaAgendamento objJframeTelaAgendamento = new JFrameTelaAgendamento();
-                objJframeTelaAgendamento.setVisible(true);
-                dispose();
-            } else {
-                // enviar mensagem dizendo incorreto   
-                JOptionPane.showMessageDialog(null, "usuario ou senha invalido");
-            }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro ao logar" + erro);
-        }
+    public String senha() {
+        String nome_senha = txtSenhaUsuario.getText();
+        return nome_senha;
     }
 
 }
