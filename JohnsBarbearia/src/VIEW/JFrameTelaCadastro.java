@@ -1,7 +1,7 @@
 package VIEW;
 
-import DAO.UsuarioDAO;
-import DTO.UsuarioDTO;
+import CONTROL.ControlTelaCadastro;
+
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -22,181 +22,181 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        txtNome = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtEmailConfimacao = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
-        txtSenhaConfirmacao = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
-        btnCadastrar = new javax.swing.JButton();
-        sejabemvindoJLabel1 = new javax.swing.JLabel();
+        JPanelCabecalho = new javax.swing.JPanel();
+        JohnsBarbeariaJLabel = new javax.swing.JLabel();
+        SairJButton = new javax.swing.JButton();
+        sejabemvindoJLabel = new javax.swing.JLabel();
+        NomeJText = new javax.swing.JTextField();
+        NomeJLabel = new javax.swing.JLabel();
+        EmailJText = new javax.swing.JTextField();
+        EmailJLabel = new javax.swing.JLabel();
+        EmailConfimacaoJText = new javax.swing.JTextField();
+        EmailConfimacaoJLabel = new javax.swing.JLabel();
+        SenhaJText = new javax.swing.JPasswordField();
+        SenhaJLabel = new javax.swing.JLabel();
+        SenhaConfirmacaoJPassword = new javax.swing.JPasswordField();
+        SenhaConfirmacaoJLabel = new javax.swing.JLabel();
+        CadastrarJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(65, 65, 65));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(820, 60));
+        JPanelCabecalho.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelCabecalho.setPreferredSize(new java.awt.Dimension(820, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
+        JohnsBarbeariaJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
 
-        jButton1.setForeground(new java.awt.Color(65, 65, 65));
-        jButton1.setText("SAIR ✖");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        SairJButton.setForeground(new java.awt.Color(65, 65, 65));
+        SairJButton.setText("SAIR ✖");
+        SairJButton.setBorder(null);
+        SairJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        SairJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SairJButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout JPanelCabecalhoLayout = new javax.swing.GroupLayout(JPanelCabecalho);
+        JPanelCabecalho.setLayout(JPanelCabecalhoLayout);
+        JPanelCabecalhoLayout.setHorizontalGroup(
+            JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(JohnsBarbeariaJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(SairJButton)
                 .addGap(42, 42, 42))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        JPanelCabecalhoLayout.setVerticalGroup(
+            JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCabecalhoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(JohnsBarbeariaJLabel)
                 .addGap(16, 16, 16))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(SairJButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtNome.setForeground(new java.awt.Color(65, 65, 65));
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        sejabemvindoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sejabemvindoJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        sejabemvindoJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sejabemvindoJLabel.setText("CADASTRO");
+        sejabemvindoJLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        sejabemvindoJLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        NomeJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        NomeJText.setForeground(new java.awt.Color(65, 65, 65));
+        NomeJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                NomeJTextActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nome");
+        NomeJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        NomeJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        NomeJLabel.setText("Nome");
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(65, 65, 65));
+        EmailJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        EmailJText.setForeground(new java.awt.Color(65, 65, 65));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Email");
+        EmailJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        EmailJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EmailJLabel.setText("Email");
 
-        txtEmailConfimacao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtEmailConfimacao.setForeground(new java.awt.Color(65, 65, 65));
-        txtEmailConfimacao.addActionListener(new java.awt.event.ActionListener() {
+        EmailConfimacaoJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        EmailConfimacaoJText.setForeground(new java.awt.Color(65, 65, 65));
+        EmailConfimacaoJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailConfimacaoActionPerformed(evt);
+                EmailConfimacaoJTextActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Confirme seu email");
+        EmailConfimacaoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        EmailConfimacaoJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        EmailConfimacaoJLabel.setText("Confirme seu email");
 
-        txtSenha.setForeground(new java.awt.Color(65, 65, 65));
+        SenhaJText.setForeground(new java.awt.Color(65, 65, 65));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Senha");
+        SenhaJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SenhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SenhaJLabel.setText("Senha");
 
-        txtSenhaConfirmacao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtSenhaConfirmacao.setForeground(new java.awt.Color(65, 65, 65));
+        SenhaConfirmacaoJPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SenhaConfirmacaoJPassword.setForeground(new java.awt.Color(65, 65, 65));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Corfime sua senha");
+        SenhaConfirmacaoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SenhaConfirmacaoJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SenhaConfirmacaoJLabel.setText("Corfime sua senha");
 
-        btnCadastrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(65, 65, 65));
-        btnCadastrar.setText("CADASTRAR");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        CadastrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CadastrarJButton.setForeground(new java.awt.Color(65, 65, 65));
+        CadastrarJButton.setText("CADASTRAR");
+        CadastrarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                CadastrarJButtonActionPerformed(evt);
             }
         });
-
-        sejabemvindoJLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        sejabemvindoJLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        sejabemvindoJLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sejabemvindoJLabel1.setText("CADASTRO");
-        sejabemvindoJLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        sejabemvindoJLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
+                    .addComponent(SenhaConfirmacaoJLabel)
+                    .addComponent(SenhaJLabel)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2)
-                        .addComponent(txtNome)
-                        .addComponent(txtEmail)
-                        .addComponent(txtEmailConfimacao)
-                        .addComponent(txtSenha)
-                        .addComponent(txtSenhaConfirmacao)))
+                        .addComponent(EmailConfimacaoJLabel)
+                        .addComponent(EmailJLabel)
+                        .addComponent(NomeJLabel)
+                        .addComponent(NomeJText)
+                        .addComponent(EmailJText)
+                        .addComponent(EmailConfimacaoJText)
+                        .addComponent(SenhaJText)
+                        .addComponent(SenhaConfirmacaoJPassword)))
                 .addGap(116, 116, 116))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sejabemvindoJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(345, 345, 345)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                .addComponent(CadastrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                 .addGap(354, 354, 354))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(sejabemvindoJLabel1)
+                .addComponent(sejabemvindoJLabel)
                 .addGap(58, 58, 58)
-                .addComponent(jLabel2)
+                .addComponent(NomeJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NomeJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addComponent(EmailJLabel)
                 .addGap(5, 5, 5)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmailJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addComponent(jLabel4)
+                .addComponent(EmailConfimacaoJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmailConfimacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmailConfimacaoJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(SenhaJLabel)
                 .addGap(3, 3, 3)
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SenhaJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(jLabel6)
+                .addComponent(SenhaConfirmacaoJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaConfirmacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SenhaConfirmacaoJPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addComponent(btnCadastrar)
+                .addComponent(CadastrarJButton)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
@@ -214,27 +214,23 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
-        janelaJframeTelaLogin.setVisible(true);
+    private void SairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairJButtonActionPerformed
+        ControlTelaCadastro.SairJButtonActionPerformed();
         this.dispose();
+    }//GEN-LAST:event_SairJButtonActionPerformed
+
+    private void NomeJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeJTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_NomeJTextActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void EmailConfimacaoJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailConfimacaoJTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_EmailConfimacaoJTextActionPerformed
 
-    private void txtEmailConfimacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailConfimacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailConfimacaoActionPerformed
-
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        this.Cadastrar_usuario();
-     
-      
-
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
+        ControlTelaCadastro.CadastrarJButtonActionPerformed(nome_usuario(), email_usuario(), senha_usuario());
+        this.dispose();
+    }//GEN-LAST:event_CadastrarJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,45 +268,43 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton CadastrarJButton;
+    private javax.swing.JLabel EmailConfimacaoJLabel;
+    private javax.swing.JTextField EmailConfimacaoJText;
+    private javax.swing.JLabel EmailJLabel;
+    private javax.swing.JTextField EmailJText;
+    private javax.swing.JPanel JPanelCabecalho;
+    private javax.swing.JLabel JohnsBarbeariaJLabel;
+    private javax.swing.JLabel NomeJLabel;
+    private javax.swing.JTextField NomeJText;
+    private javax.swing.JButton SairJButton;
+    private javax.swing.JLabel SenhaConfirmacaoJLabel;
+    private javax.swing.JPasswordField SenhaConfirmacaoJPassword;
+    private javax.swing.JLabel SenhaJLabel;
+    private javax.swing.JPasswordField SenhaJText;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel sejabemvindoJLabel1;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEmailConfimacao;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JPasswordField txtSenhaConfirmacao;
+    private javax.swing.JLabel sejabemvindoJLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void Cadastrar_usuario() {
-        String nome_usuario, email_usuario, senha_usuario;
-        nome_usuario = txtNome.getText();
-        email_usuario = txtEmail.getText();
-        senha_usuario = txtSenha.getText();
-
-        UsuarioDTO objUsuariodto = new UsuarioDTO();
-        
-        objUsuariodto.setNome_usuario(nome_usuario);
-        objUsuariodto.setEmail_usuario(email_usuario);
-        objUsuariodto.setSenha_usuario(senha_usuario);
-        
-        UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.CadastrarUsuario(objUsuariodto);
-        
-        limpaCampos();
+    public String nome_usuario() {
+        String nome_email = NomeJText.getText();
+        return nome_email;
     }
-    
-    public void limpaCampos(){
-        txtEmail.setText("");
-        txtNome.setText("");
-        txtSenha.setText("");
+
+    public String email_usuario() {
+        String nome_senha = EmailJText.getText();
+        return nome_senha;
+    }
+
+    public String senha_usuario() {
+        String nome_email = SenhaJText.getText();
+        return nome_email;
+    }
+
+    public void limpaCampos() {
+        NomeJText.setText("");
+        EmailJText.setText("");
+        SenhaJText.setText("");
+
     }
 }

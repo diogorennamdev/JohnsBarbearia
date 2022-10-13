@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class ControlTelaLogin {
 
-    public static void entrarsistemaActionPerformed (String email, String senha) {
+    public static void entrarsistemaActionPerformed(String email, String senha) {
         try {
 
             UsuarioDTO objusuariodto = new UsuarioDTO();
@@ -38,6 +38,5 @@ public class ControlTelaLogin {
     public static void criarcontaJButtonActionPerformed() {
         JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
         janelaJframeTelaCadastro.setVisible(true);
-
     }
 }

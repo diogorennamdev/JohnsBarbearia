@@ -17,12 +17,12 @@ public class UsuarioDAO {
 
         try {
             String sql = "select * from usuario where email_usuario= ? and senha_usuario=?";
-            
+
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, objUsuarioDTO.getEmail_usuario());
             pstm.setString(2, objUsuarioDTO.getSenha_usuario());
-            
-            ResultSet rs= pstm.executeQuery();
+
+            ResultSet rs = pstm.executeQuery();
             return rs;
 
         } catch (SQLException erro) {
@@ -40,7 +40,7 @@ public class UsuarioDAO {
             pstm.setString(1, objUsuariodto.getNome_usuario());
             pstm.setString(2, objUsuariodto.getEmail_usuario());
             pstm.setString(3, objUsuariodto.getSenha_usuario());
-
+            
             pstm.execute();
             pstm.close();
 
