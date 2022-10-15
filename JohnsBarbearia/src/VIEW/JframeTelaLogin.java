@@ -187,16 +187,16 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtEmailUsuarioActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
-        ControlTelaLogin.criarcontaJButtonActionPerformed();
+        ControlTelaLogin.chamarTelaCadastro();
         this.dispose();
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
 
     private void esqueceuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuJButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_esqueceuJButtonActionPerformed
 
     public static void main(String args[]) {

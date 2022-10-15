@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 public class ControlTelaCadastro {
 
-    public static void cadastrar(String CPF_usuario, 
-            String nome_usuario, 
-            String email_usuario, 
+    public static void cadastrar(String CPF_usuario,
+            String nome_usuario,
+            String email_usuario,
             String senha_usuario) {
 
         UsuarioDTO objUsuariodto = new UsuarioDTO();
@@ -22,26 +22,22 @@ public class ControlTelaCadastro {
                 Cliptografia.criptografiaDaSenha(senha_usuario));
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        if (Validacoes.validarCPF(CPF_usuario)==true){
-            JOptionPane.showMessageDialog(null, 
+        if (Validacoes.validarCPF(CPF_usuario) == true) {
+            JOptionPane.showMessageDialog(null,
                     "CADATRO REALIZADO\n");
-             objUsuariodao.CadastrarUsuario(objUsuariodto);
-        }else{
-            JOptionPane.showMessageDialog(null, 
-                    "ERRO, CPF INVÁLIDO!\n");       
+            objUsuariodao.CadastrarUsuario(objUsuariodto);
+            chamarTelaLogin();
+        } else {
+
+            JOptionPane.showMessageDialog(null,
+                    "ERRO, CPF INVÁLIDO!\n");
+            ControlTelaLogin.chamarTelaCadastro();
         }
     }
-     
-    //Butão cadastrar na tela de cadastro que retorna para tela de login
-    public static void CadastrarJButtonActionPerformed() {
+
+    //Metodo que retorna JframeTelaLogin
+    public static void chamarTelaLogin() {
         JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
         janelaJframeTelaLogin.setVisible(true);
     }
-
-    //Butão sair na tela de cadastro que retorna para tela de login
-    public static void SairJButtonActionPerformed() {
-        JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
-        janelaJframeTelaLogin.setVisible(true);
-    }
-
 }

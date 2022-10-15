@@ -21,11 +21,13 @@ public class ControlTelaLogin {
                     Cliptografia.criptografiaDaSenha(senha_usuario));
 
             UsuarioDAO objusuariodao = new UsuarioDAO();
-            ResultSet usuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+            ResultSet usuariodao = objusuariodao.autenticacaoUsuario(
+                    objusuariodto);
 
             if (usuariodao.next()) {
                 // chama tela que eu quero abrir    
-                JFrameTelaAgendamento objJframeTelaAgendamento = new JFrameTelaAgendamento();
+                JFrameTelaAgendamento objJframeTelaAgendamento
+                        = new JFrameTelaAgendamento();
                 objJframeTelaAgendamento.setVisible(true);
 
             } else {
@@ -41,7 +43,8 @@ public class ControlTelaLogin {
         }
     }
 
-    public static void criarcontaJButtonActionPerformed() {
+    //Metodo que retorna JframeTelaCadastro
+    public static void chamarTelaCadastro() {
         JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
         janelaJframeTelaCadastro.setVisible(true);
     }
