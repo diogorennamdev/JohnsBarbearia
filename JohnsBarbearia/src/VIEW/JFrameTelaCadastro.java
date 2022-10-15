@@ -1,6 +1,6 @@
 package VIEW;
 
-import CONTROL.ControlTelaCadastro;
+import CONTROLS.ControlTelaCadastro;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -29,17 +29,16 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         NomeJLabel = new javax.swing.JLabel();
         EmailJText = new javax.swing.JTextField();
         EmailJLabel = new javax.swing.JLabel();
-        EmailConfimacaoJText = new javax.swing.JTextField();
-        EmailConfimacaoJLabel = new javax.swing.JLabel();
         SenhaJText = new javax.swing.JPasswordField();
         SenhaJLabel = new javax.swing.JLabel();
-        SenhaConfirmacaoJPassword = new javax.swing.JPasswordField();
-        SenhaConfirmacaoJLabel = new javax.swing.JLabel();
+        CPFJText = new javax.swing.JTextField();
+        CPFJLabel = new javax.swing.JLabel();
         CadastrarJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(65, 65, 65));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         JPanelCabecalho.setBackground(new java.awt.Color(255, 255, 255));
         JPanelCabecalho.setPreferredSize(new java.awt.Dimension(820, 60));
@@ -105,30 +104,22 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         EmailJLabel.setForeground(new java.awt.Color(255, 255, 255));
         EmailJLabel.setText("Email");
 
-        EmailConfimacaoJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        EmailConfimacaoJText.setForeground(new java.awt.Color(65, 65, 65));
-        EmailConfimacaoJText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailConfimacaoJTextActionPerformed(evt);
-            }
-        });
-
-        EmailConfimacaoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        EmailConfimacaoJLabel.setForeground(new java.awt.Color(255, 255, 255));
-        EmailConfimacaoJLabel.setText("Confirme seu email");
-
         SenhaJText.setForeground(new java.awt.Color(65, 65, 65));
 
         SenhaJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SenhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
         SenhaJLabel.setText("Senha");
 
-        SenhaConfirmacaoJPassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        SenhaConfirmacaoJPassword.setForeground(new java.awt.Color(65, 65, 65));
+        CPFJText.setDisabledTextColor(new java.awt.Color(65, 65, 65));
+        CPFJText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CPFJTextActionPerformed(evt);
+            }
+        });
 
-        SenhaConfirmacaoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        SenhaConfirmacaoJLabel.setForeground(new java.awt.Color(255, 255, 255));
-        SenhaConfirmacaoJLabel.setText("Corfime sua senha");
+        CPFJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CPFJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CPFJLabel.setText("CPF");
 
         CadastrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarJButton.setForeground(new java.awt.Color(65, 65, 65));
@@ -145,28 +136,28 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SenhaConfirmacaoJLabel)
-                    .addComponent(SenhaJLabel)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EmailConfimacaoJLabel)
-                        .addComponent(EmailJLabel)
-                        .addComponent(NomeJLabel)
-                        .addComponent(NomeJText)
-                        .addComponent(EmailJText)
-                        .addComponent(EmailConfimacaoJText)
-                        .addComponent(SenhaJText)
-                        .addComponent(SenhaConfirmacaoJPassword)))
-                .addGap(116, 116, 116))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sejabemvindoJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(345, 345, 345)
-                .addComponent(CadastrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                .addGap(354, 354, 354))
+                .addGap(275, 275, 275)
+                .addComponent(CadastrarJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CPFJText)
+                    .addComponent(NomeJText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                    .addComponent(EmailJText, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SenhaJText, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CPFJLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SenhaJLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EmailJLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NomeJLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(116, 116, 116))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,21 +173,17 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 .addComponent(EmailJLabel)
                 .addGap(5, 5, 5)
                 .addComponent(EmailJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(EmailConfimacaoJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EmailConfimacaoJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SenhaJLabel)
-                .addGap(3, 3, 3)
-                .addComponent(SenhaJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(SenhaConfirmacaoJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SenhaConfirmacaoJPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addComponent(SenhaJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CPFJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CPFJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(CadastrarJButton)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,14 +209,19 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeJTextActionPerformed
 
-    private void EmailConfimacaoJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailConfimacaoJTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmailConfimacaoJTextActionPerformed
-
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        ControlTelaCadastro.CadastrarJButtonActionPerformed(nome_usuario(), email_usuario(), senha_usuario());
+        ControlTelaCadastro.cadastrar(CPF_usuario(),
+                nome_usuario(),
+                email_usuario(),
+                senha_usuario());
+
+        ControlTelaCadastro.CadastrarJButtonActionPerformed();
         this.dispose();
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
+
+    private void CPFJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFJTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CPFJTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +259,9 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CPFJLabel;
+    private javax.swing.JTextField CPFJText;
     private javax.swing.JButton CadastrarJButton;
-    private javax.swing.JLabel EmailConfimacaoJLabel;
-    private javax.swing.JTextField EmailConfimacaoJText;
     private javax.swing.JLabel EmailJLabel;
     private javax.swing.JTextField EmailJText;
     private javax.swing.JPanel JPanelCabecalho;
@@ -277,30 +269,33 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel NomeJLabel;
     private javax.swing.JTextField NomeJText;
     private javax.swing.JButton SairJButton;
-    private javax.swing.JLabel SenhaConfirmacaoJLabel;
-    private javax.swing.JPasswordField SenhaConfirmacaoJPassword;
     private javax.swing.JLabel SenhaJLabel;
     private javax.swing.JPasswordField SenhaJText;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel sejabemvindoJLabel;
     // End of variables declaration//GEN-END:variables
 
+    public String CPF_usuario() {
+        return CPFJText.getText();
+    }
+
     public String nome_usuario() {
-        String nome_email = NomeJText.getText();
-        return nome_email;
+        String nome_usuario = NomeJText.getText();
+        return nome_usuario;
     }
 
     public String email_usuario() {
-        String nome_senha = EmailJText.getText();
-        return nome_senha;
+        String email_usuario = EmailJText.getText();
+        return email_usuario;
     }
 
     public String senha_usuario() {
-        String nome_email = SenhaJText.getText();
-        return nome_email;
+        String senha_usuario = SenhaJText.getText();
+        return senha_usuario;
     }
 
     public void limpaCampos() {
+        CPFJText.setText("");
         NomeJText.setText("");
         EmailJText.setText("");
         SenhaJText.setText("");

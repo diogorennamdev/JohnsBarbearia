@@ -16,7 +16,8 @@ public class UsuarioDAO {
         conn = new ConexaoDAO().conectaBD();
 
         try {
-            String sql = "select * from usuario where email_usuario= ? and senha_usuario=?";
+            String sql = "select * from usuario "
+                    + "where email_usuario= ? and senha_usuario=?";
 
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, objUsuarioDTO.getEmail_usuario());
@@ -26,26 +27,29 @@ public class UsuarioDAO {
             return rs;
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "UsuarioDAO:" + erro);
+            JOptionPane.showMessageDialog(null,"UsuarioDAO:" + erro);
             return null;
         }
     }
 
     public void CadastrarUsuario(UsuarioDTO objUsuariodto) {
-        String sql = "insert into usuario(nome_usuario, email_usuario, senha_usuario) values(?,?,?)";
+        String sql = "insert into "
+                + "usuario(CPF_usuario, nome_usuario,"
+                + "email_usuario, senha_usuario) values(?,?,?,?)";
         conn = new ConexaoDAO().conectaBD();
 
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objUsuariodto.getNome_usuario());
-            pstm.setString(2, objUsuariodto.getEmail_usuario());
-            pstm.setString(3, objUsuariodto.getSenha_usuario());
-            
+            pstm.setString(1, objUsuariodto.getCPF_usuario());
+            pstm.setString(2, objUsuariodto.getNome_usuario());
+            pstm.setString(3, objUsuariodto.getEmail_usuario());
+            pstm.setString(4, objUsuariodto.getSenha_usuario());
             pstm.execute();
             pstm.close();
 
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "Não foi possivél cadastrar usuário" + erro);
+        } catch (Exception erro) { //testar se esse erro aparece
+            JOptionPane.showMessageDialog(null, 
+                    "Não foi possivél cadastrar usuário" + erro);
         }
     }
 

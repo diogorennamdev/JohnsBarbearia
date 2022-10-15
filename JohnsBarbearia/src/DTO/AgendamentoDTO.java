@@ -9,7 +9,10 @@ public class AgendamentoDTO {
     private String servico;
     private float valor_servico;
 
-    public AgendamentoDTO(String nome_cliente, Date data_agendamento, String servico, float valor_servico) {
+    public AgendamentoDTO(String nome_cliente, 
+            Date data_agendamento, 
+            String servico, 
+            float valor_servico) {
         this.nome_cliente = nome_cliente;
         this.data_agendamento = data_agendamento;
         this.servico = servico;

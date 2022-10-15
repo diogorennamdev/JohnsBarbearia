@@ -1,7 +1,8 @@
-package CONTROL;
+package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
+import HELPERS.Cliptografia;
 import VIEW.JFrameTelaAgendamento;
 import VIEW.JFrameTelaCadastro;
 import java.sql.ResultSet;
@@ -10,28 +11,33 @@ import javax.swing.JOptionPane;
 
 public class ControlTelaLogin {
 
-    public static void entrarsistemaActionPerformed(String email, String senha) {
-        try {
+    public static void entrarSistema(String email_usuario,
+            String senha_usuario) {
 
+        try {
             UsuarioDTO objusuariodto = new UsuarioDTO();
-            objusuariodto.setEmail_usuario(email);
-            objusuariodto.setSenha_usuario(senha);
+            objusuariodto.setEmail_usuario(email_usuario);
+            objusuariodto.setSenha_usuario( //verificar se está chamAndo senha criptografada
+                    Cliptografia.criptografiaDaSenha(senha_usuario));
 
             UsuarioDAO objusuariodao = new UsuarioDAO();
-            ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+            ResultSet usuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
 
-            if (rsusuariodao.next()) {
+            if (usuariodao.next()) {
                 // chama tela que eu quero abrir    
                 JFrameTelaAgendamento objJframeTelaAgendamento = new JFrameTelaAgendamento();
                 objJframeTelaAgendamento.setVisible(true);
 
             } else {
                 // enviar mensagem dizendo incorreto   
-                JOptionPane.showMessageDialog(null, "usuario ou senha invalido");
+                JOptionPane.showMessageDialog(null,
+                        //criar um metodo que diferncie o usario inválido da senha inválida
+                        "usuario ou senha inválido");
             }
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "erro ao entrar" + erro);
+            JOptionPane.showMessageDialog(null,
+                    "erro ao entrar" + erro);
         }
     }
 

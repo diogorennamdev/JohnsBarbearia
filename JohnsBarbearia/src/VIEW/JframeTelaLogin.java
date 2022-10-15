@@ -1,6 +1,6 @@
 package VIEW;
 
-import CONTROL.ControlTelaLogin;
+import CONTROLS.ControlTelaLogin;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
@@ -182,7 +182,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        ControlTelaLogin.entrarsistemaActionPerformed(email(), senha());
+        ControlTelaLogin.entrarSistema(email_usuario(), senha_usuario());
         this.dispose();
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
@@ -242,14 +242,14 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public String email() {
-        String nome_email = txtEmailUsuario.getText();
-        return nome_email;
+    public String email_usuario() {
+        String email_usuario = txtEmailUsuario.getText();
+        return email_usuario;
     }
 
-    public String senha() {
-        String nome_senha = txtSenhaUsuario.getText();
-        return nome_senha;
+    public String senha_usuario() {
+        String senha_usuario = txtSenhaUsuario.getText();
+        return senha_usuario;
     }
 
 }
