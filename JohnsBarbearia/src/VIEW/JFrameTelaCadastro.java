@@ -1,6 +1,8 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
+import HELPERS.Validacoes;
+import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -133,8 +135,8 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(275, 275, 275)
-                .addComponent(CadastrarJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(CadastrarJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(285, 285, 285))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,18 +204,27 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeJTextActionPerformed
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        ControlTelaCadastro.cadastrar(CPF_usuario(),
-                nome_usuario(),
-                email_usuario(),
-                senha_usuario());
-        this.dispose();
+        if (Validacoes.validarCPF(CPF_usuario()) == true) {
+            ControlTelaCadastro.cadastrar(CPF_usuario(),
+                    nome_usuario(),
+                    email_usuario(),
+                    senha_usuario());
+            JOptionPane.showMessageDialog(null,
+                    "CPF CADASTRADO!\n");
+            ControlTelaCadastro.chamarTelaLogin();
+            this.dispose();
+        } else if (Validacoes.validarCPF(CPF_usuario()) == false) {
+            JOptionPane.showMessageDialog(null,
+                    "ERRO, CPF INVÁLIDO!\n");
+            limparApenasCpf();
+        }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 
     private void CPFJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFJTextActionPerformed
 
     }//GEN-LAST:event_CPFJTextActionPerformed
 
-    public static void main(String args[]) {
+    public static void main(String args[]) {       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFrameTelaCadastro().setVisible(true);
@@ -262,5 +273,9 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         NomeJText.setText("");
         EmailJText.setText("");
         SenhaJText.setText("");
+    }
+
+    public void limparApenasCpf() {
+        CPFJText.setText("");
     }
 }

@@ -3,9 +3,7 @@ package CONTROLS;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import HELPERS.Cliptografia;
-import HELPERS.Validacoes;
 import VIEW.JframeTelaLogin;
-import javax.swing.JOptionPane;
 
 public class ControlTelaCadastro {
 
@@ -22,17 +20,7 @@ public class ControlTelaCadastro {
                 Cliptografia.criptografiaDaSenha(senha_usuario));
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        if (Validacoes.validarCPF(CPF_usuario) == true) {
-            JOptionPane.showMessageDialog(null,
-                    "CADATRO REALIZADO\n");
-            objUsuariodao.CadastrarUsuario(objUsuariodto);
-            chamarTelaLogin();
-        } else {
-
-            JOptionPane.showMessageDialog(null,
-                    "ERRO, CPF INVÁLIDO!\n");
-            ControlTelaLogin.chamarTelaCadastro();
-        }
+        objUsuariodao.CadastrarUsuario(objUsuariodto);
     }
 
     //Metodo que retorna JframeTelaLogin
