@@ -224,7 +224,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CPFJTextActionPerformed
 
-    public static void main(String args[]) {   
+    public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {

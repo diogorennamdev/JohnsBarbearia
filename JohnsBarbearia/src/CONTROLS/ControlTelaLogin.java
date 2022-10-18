@@ -25,7 +25,7 @@ public class ControlTelaLogin {
                     objusuariodto);
 
             if (usuariodao.next() == true) {
-              chamarTelaAgendamento();
+                chamarTelaAgendamento();
             } else if (usuariodao.next() == false) {
                 // enviar mensagem dizendo incorreto   
                 JOptionPane.showMessageDialog(null,

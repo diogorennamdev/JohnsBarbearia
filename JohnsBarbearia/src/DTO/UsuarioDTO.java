@@ -32,7 +32,7 @@ public class UsuarioDTO {
     }
 
     public void setCPF_usuario(String CPF_usuario) {
-        this.CPF_usuario = CPF_usuario;    
+        this.CPF_usuario = CPF_usuario;
     }
 
     public void setNome_usuario(String nome_usuario) {

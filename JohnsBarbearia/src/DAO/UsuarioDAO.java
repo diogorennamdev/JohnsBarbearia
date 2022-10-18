@@ -27,7 +27,7 @@ public class UsuarioDAO {
             return rs;
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null,"UsuarioDAO:" + erro);
+            JOptionPane.showMessageDialog(null, "UsuarioDAO:" + erro);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class UsuarioDAO {
             pstm.close();
 
         } catch (Exception erro) { //testar se esse erro aparece
-            JOptionPane.showMessageDialog(null, 
+            JOptionPane.showMessageDialog(null,
                     "Não foi possivél cadastrar usuário" + erro);
         }
     }

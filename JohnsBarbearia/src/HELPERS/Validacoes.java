@@ -8,13 +8,13 @@ public class Validacoes {
         // considera-se erro CPF's formados por uma sequencia de numeros iguais
         if (validarCPF.equals("00000000000")
                 || validarCPF.equals("11111111111")
-                || validarCPF.equals("22222222222") 
+                || validarCPF.equals("22222222222")
                 || validarCPF.equals("33333333333")
-                || validarCPF.equals("44444444444") 
+                || validarCPF.equals("44444444444")
                 || validarCPF.equals("55555555555")
-                || validarCPF.equals("66666666666") 
+                || validarCPF.equals("66666666666")
                 || validarCPF.equals("77777777777")
-                || validarCPF.equals("88888888888") 
+                || validarCPF.equals("88888888888")
                 || validarCPF.equals("99999999999")
                 || (validarCPF.length() != 11)) {
             return (false);
@@ -60,7 +60,7 @@ public class Validacoes {
             }
 
             // Verifica se os digitos calculados conferem com os digitos informados.
-            if ((dig10 == validarCPF.charAt(9)) 
+            if ((dig10 == validarCPF.charAt(9))
                     && (dig11 == validarCPF.charAt(10))) {
                 return (true);
             } else {
