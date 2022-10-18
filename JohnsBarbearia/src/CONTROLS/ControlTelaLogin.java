@@ -24,13 +24,9 @@ public class ControlTelaLogin {
             ResultSet usuariodao = objusuariodao.autenticacaoUsuario(
                     objusuariodto);
 
-            if (usuariodao.next()) {
-                // chama tela que eu quero abrir    
-                JFrameTelaAgendamento objJframeTelaAgendamento
-                        = new JFrameTelaAgendamento();
-                objJframeTelaAgendamento.setVisible(true);
-
-            } else {
+            if (usuariodao.next() == true) {
+              chamarTelaAgendamento();
+            } else if (usuariodao.next() == false) {
                 // enviar mensagem dizendo incorreto   
                 JOptionPane.showMessageDialog(null,
                         //criar um metodo que diferncie o usario inválido da senha inválida
@@ -47,5 +43,10 @@ public class ControlTelaLogin {
     public static void chamarTelaCadastro() {
         JFrameTelaCadastro janelaJframeTelaCadastro = new JFrameTelaCadastro();
         janelaJframeTelaCadastro.setVisible(true);
+    }
+
+    public static void chamarTelaAgendamento() {
+        JFrameTelaAgendamento telaJframeTelaAgendamento = new JFrameTelaAgendamento();
+        telaJframeTelaAgendamento.setVisible(true);
     }
 }
