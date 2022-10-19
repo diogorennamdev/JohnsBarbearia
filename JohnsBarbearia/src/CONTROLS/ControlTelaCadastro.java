@@ -2,7 +2,7 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import HELPERS.Cliptografia;
+import HELPERS.Criptografia;
 import VIEW.JframeTelaLogin;
 
 public class ControlTelaCadastro {
@@ -17,7 +17,7 @@ public class ControlTelaCadastro {
         objUsuariodto.setNome_usuario(nome_usuario);
         objUsuariodto.setEmail_usuario(email_usuario);
         objUsuariodto.setSenha_usuario(
-                Cliptografia.criptografiaDaSenha(senha_usuario));
+                Criptografia.criptografiaDaSenha(senha_usuario));
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
         objUsuariodao.CadastrarUsuario(objUsuariodto);

@@ -169,8 +169,16 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        ControlTelaLogin.entrarSistema(email_usuario(), senha_usuario());
-        this.dispose();
+        if (email_usuario().equals("")
+                || senha_usuario().equals("")) {
+            JOptionPane.showMessageDialog(
+                    rootPane,
+                    " CAMPOS VAZIOS!\n Por favor insira os dados");
+        } else if (!"".equals(email_usuario())
+                || !"".equals(senha_usuario())) {
+            ControlTelaLogin.entrarSistema(email_usuario(),
+                    senha_usuario());
+        }
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void txtEmailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUsuarioActionPerformed

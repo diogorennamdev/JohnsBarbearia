@@ -12,8 +12,9 @@ public class UsuarioDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public ResultSet autenticacaoUsuario(UsuarioDTO objUsuarioDTO) {
+    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) {
         conn = new ConexaoDAO().conectaBD();
+        boolean checar = false;
 
         try {
             String sql = "select * from usuario "
@@ -24,12 +25,14 @@ public class UsuarioDAO {
             pstm.setString(2, objUsuarioDTO.getSenha_usuario());
 
             ResultSet rs = pstm.executeQuery();
-            return rs;
+            if (rs.next()) {
+                checar = true;
+            }
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "UsuarioDAO:" + erro);
-            return null;
         }
+        return checar;
     }
 
     public void CadastrarUsuario(UsuarioDTO objUsuariodto) {

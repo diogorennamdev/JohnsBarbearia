@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Cliptografia {
+public class Criptografia {
 
     //Criptografia da senha no padrão SHA-256 - alterar denominações para não ficar igual o de aleef
     public static String criptografiaDaSenha(String senha_usuario) {

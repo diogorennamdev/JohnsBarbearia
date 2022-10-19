@@ -204,17 +204,24 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeJTextActionPerformed
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        if (Validacoes.validarCPF(CPF_usuario()) == true) {
+        if (CPF_usuario().equals("")
+                || nome_usuario().equals("")
+                || email_usuario().equals("")
+                || senha_usuario().equals("")) {
+            JOptionPane.showMessageDialog(
+                    rootPane,
+                    " CAMPOS VAZIOS!\n Por favor insira os dados");
+        } else if (Validacoes.validarCPF(CPF_usuario()) == true) {
             ControlTelaCadastro.cadastrar(CPF_usuario(),
                     nome_usuario(),
                     email_usuario(),
                     senha_usuario());
-            JOptionPane.showMessageDialog(null,
+            JOptionPane.showMessageDialog(rootPane,
                     "CPF CADASTRADO!\n");
             ControlTelaCadastro.chamarTelaLogin();
             this.dispose();
         } else if (Validacoes.validarCPF(CPF_usuario()) == false) {
-            JOptionPane.showMessageDialog(null,
+            JOptionPane.showMessageDialog(rootPane,
                     "ERRO, CPF INVÁLIDO!\n");
             limparApenasCpf();
         }
