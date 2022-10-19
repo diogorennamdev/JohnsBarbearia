@@ -1,4 +1,4 @@
-<h1 align="center"> Johns' Barbearia </h1>
+<h1 align="center"> John's Barbearia </h1>
 
 <p align="center">
 Projeto de um sistema para barbearia 
