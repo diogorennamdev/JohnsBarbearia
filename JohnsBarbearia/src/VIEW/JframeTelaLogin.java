@@ -174,10 +174,13 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                     rootPane,
                     " CAMPOS VAZIOS!\n Por favor insira os dados");
-        } else if (!"".equals(email_usuario())
-                || !"".equals(senha_usuario())) {
+        } else if (ControlTelaLogin.entrarSistema(email_usuario(),
+                senha_usuario()) == true) {
             ControlTelaLogin.entrarSistema(email_usuario(),
                     senha_usuario());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Email não cadastrado\n");
+            limpaCampos();
         }
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
@@ -241,6 +244,10 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     public String senha_usuario() {
         String senha_usuario = txtSenhaUsuario.getText();
         return senha_usuario;
+    }
+    public void limpaCampos() {
+        txtEmailUsuario.setText("");
+        txtSenhaUsuario.setText("");
     }
 
 }

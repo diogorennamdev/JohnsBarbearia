@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class ControlTelaLogin {
 
-    public static void entrarSistema(String email_usuario,
+    public static boolean entrarSistema(String email_usuario,
             String senha_usuario) {
 
         UsuarioDTO objusuariodto = new UsuarioDTO();
@@ -20,11 +20,12 @@ public class ControlTelaLogin {
         UsuarioDAO objusuariodao = new UsuarioDAO();
         objusuariodao.autenticacaoUsuario(
                 objusuariodto);
+        boolean fechar = false;
         if (objusuariodao.autenticacaoUsuario(objusuariodto) == true){
         chamarTelaAgendamento();
-        } else {
-            JOptionPane.showMessageDialog(null, "Email não cadastrado");
+        fechar =true;
         }
+        return fechar;
     }
 
     //Metodo que retorna JframeTelaCadastro
