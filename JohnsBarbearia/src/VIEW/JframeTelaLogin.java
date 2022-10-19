@@ -179,7 +179,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             ControlTelaLogin.entrarSistema(email_usuario(),
                     senha_usuario());
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Email não cadastrado\n");
+            JOptionPane.showMessageDialog(rootPane, "EMAIL NÃO CADASTRADO\n");
             limpaCampos();
         }
     }//GEN-LAST:event_entrarsistemaActionPerformed
