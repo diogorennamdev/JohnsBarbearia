@@ -53,7 +53,9 @@ public class UsuarioDAO {
         } catch (Exception erro) { //testar se esse erro aparece
             JOptionPane.showMessageDialog(null,
                     "Não foi possivél cadastrar usuário" + erro);
+            
         }
+        
     }
 
 }

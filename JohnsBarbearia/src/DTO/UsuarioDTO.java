@@ -8,6 +8,13 @@ public class UsuarioDTO {
     private String senha_usuario;
     private String tipo_usuario;
 
+    public UsuarioDTO(String CPF_usuario, String nome_usuario, String email_usuario, String senha_usuario) {
+        this.CPF_usuario = CPF_usuario;
+        this.nome_usuario = nome_usuario;
+        this.email_usuario = email_usuario;
+        this.senha_usuario = senha_usuario;
+    }
+
     public UsuarioDTO() {
     }
 

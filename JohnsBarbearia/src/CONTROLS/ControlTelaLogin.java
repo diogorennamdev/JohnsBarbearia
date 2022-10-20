@@ -12,7 +12,7 @@ public class ControlTelaLogin {
     public static boolean entrarSistema(String email_usuario,
             String senha_usuario) {
 
-        UsuarioDTO objusuariodto = new UsuarioDTO();
+        UsuarioDTO objusuariodto = new UsuarioDTO("54752635124", "Diogo", "diogo@gmail.com", "1234");
         objusuariodto.setEmail_usuario(email_usuario);
         objusuariodto.setSenha_usuario( //verificar se está chamAndo senha criptografada
                 Criptografia.criptografiaDaSenha(senha_usuario));
