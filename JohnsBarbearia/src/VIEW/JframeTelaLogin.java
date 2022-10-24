@@ -1,6 +1,7 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
@@ -169,17 +170,20 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
+//        retira logica daqui e chmar metodo map
+        
         if (email_usuario().equals("")
                 || senha_usuario().equals("")) {
             JOptionPane.showMessageDialog(
                     rootPane,
-                    " CAMPOS VAZIOS!\n Por favor insira os dados");
+                    " CAMPOS VAZIOS!\n Por favor insira os dados.");
         } else if (ControlTelaLogin.entrarSistema(email_usuario(),
                 senha_usuario()) == true) {
             ControlTelaLogin.entrarSistema(email_usuario(),
                     senha_usuario());
         } else {
-            JOptionPane.showMessageDialog(rootPane, "EMAIL NÃO CADASTRADO\n");
+            JOptionPane.showMessageDialog(rootPane,
+                    " EMAIL NÃO CADASTRADO!\n Por favor tente novamente.");
             limpaCampos();
         }
     }//GEN-LAST:event_entrarsistemaActionPerformed
@@ -245,6 +249,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         String senha_usuario = txtSenhaUsuario.getText();
         return senha_usuario;
     }
+
     public void limpaCampos() {
         txtEmailUsuario.setText("");
         txtSenhaUsuario.setText("");
