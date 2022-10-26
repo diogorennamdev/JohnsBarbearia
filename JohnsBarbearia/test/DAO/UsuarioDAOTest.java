@@ -1,7 +1,9 @@
 package DAO;
 
+import CONTROLS.ControlTelaCadastro;
 import DTO.UsuarioDTO;
 import DAO.UsuarioDAO;
+import HELPERS.Validacoes;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,9 +14,9 @@ import static org.junit.Assert.*;
 public class UsuarioDAOTest {
 
     private static final String SENHA = "1234";
-    private static final String EMAIL = "diogo@gmail.com";
+    private static final String EMAIL = "diogorenam@gmail";
     private static final String NAME = "Diogo";
-    private static final String CPF = "0124789";
+    private static final String CPF = "05281720563";
 
     private UsuarioDTO usuario = new UsuarioDTO();
     private UsuarioDAO usuariodao = new UsuarioDAO();
@@ -30,6 +32,7 @@ public class UsuarioDAOTest {
     @Before
     public void setUp() {
         startUser();
+       
     }
 
     @After
@@ -39,26 +42,30 @@ public class UsuarioDAOTest {
     @Test
     public void testAutenticacaoUsuario() {
         usuariodao.autenticacaoUsuario(usuario);
-        assertNotNull(usuario);
-        assertEquals(EMAIL, usuario.getEmail_usuario());
-        assertEquals(SENHA,usuario.getSenha_usuario());
+        
+        assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
+        assertEquals("1234",usuario.getSenha_usuario());
     }
 
     @Test
     public void TesteCadastrarUsuario() {
-        usuariodao.CadastrarUsuario(usuario);
-   
+        
+        if (Validacoes.validarCPF(CPF) == true) {
+            usuariodao.CadastrarUsuario(usuario);
+        }else{
+            fail();
+        }   
+        
         assertEquals(CPF, usuario.getCPF_usuario());
-        assertEquals(NAME, usuario.getNome_usuario());
+        assertEquals("Diogo", usuario.getNome_usuario());
         assertEquals(EMAIL, usuario.getEmail_usuario());
-        assertEquals(SENHA, usuario.getSenha_usuario());
-
+        assertEquals("1234", usuario.getSenha_usuario());
     }
 
     private void startUser() {
         usuario = new UsuarioDTO(CPF, NAME,
                 EMAIL, SENHA);
-
+         
     }
 
 }
