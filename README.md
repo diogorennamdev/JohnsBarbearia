@@ -24,7 +24,7 @@ Esse projeto foi desenvolvido para uma barbearia onde o cabeleleiro terá o cont
 ##  Dependencias 
 Para a instalação do projeto no computador é necessário seguir os seguintes passos:
 
- - Para executar o java no seu computador Instale o [JDK11](https://www.oracle.com/br/java/technologies/downloads/#java11)
+ - Para executar o java no seu computador Instale o [JDK11](https://www.oracle.com/br/java/technologies/downloads/#java11). Selecione  a aba **Windows** e depois baixe o arquivo **x64 Installer**.
  
  - Com o JDK instalado faça o download da [Apache NetBeans IDE 15](https://netbeans.apache.org/download/index.html)
  
