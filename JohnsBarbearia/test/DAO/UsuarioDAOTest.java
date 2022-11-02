@@ -1,6 +1,6 @@
 package DAO;
 
-import CONTROLS.ControlTelaCadastro;
+
 import DTO.UsuarioDTO;
 import DAO.UsuarioDAO;
 import HELPERS.Validacoes;
@@ -16,7 +16,7 @@ public class UsuarioDAOTest {
     private static final String SENHA = "1234";
     private static final String EMAIL = "diogorenam@gmail";
     private static final String NAME = "Diogo";
-    private static final String CPF = "05281720563";
+    private static final String CPF = "36568248002";
 
     private UsuarioDTO usuario = new UsuarioDTO();
     private UsuarioDAO usuariodao = new UsuarioDAO();
@@ -50,7 +50,7 @@ public class UsuarioDAOTest {
     @Test
     public void TesteCadastrarUsuario() {
         
-        if (Validacoes.validarCPF(CPF) == true) {
+        if (Validacoes.validarCPF(CPF) == true){
             usuariodao.CadastrarUsuario(usuario);
         }else{
             fail();
