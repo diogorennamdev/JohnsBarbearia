@@ -4,6 +4,8 @@ package DAO;
 import DTO.UsuarioDTO;
 import DAO.UsuarioDAO;
 import HELPERS.Validacoes;
+import javax.swing.JOptionPane;
+import java.lang.Exception;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,7 +18,7 @@ public class UsuarioDAOTest {
     private static final String SENHA = "1234";
     private static final String EMAIL = "diogorenam@gmail";
     private static final String NAME = "Diogo";
-    private static final String CPF = "36568248002";
+    private static final String CPF = "05281720503";
 
     private UsuarioDTO usuario = new UsuarioDTO();
     private UsuarioDAO usuariodao = new UsuarioDAO();
@@ -41,26 +43,31 @@ public class UsuarioDAOTest {
 
     @Test
     public void testAutenticacaoUsuario() {
-        usuariodao.autenticacaoUsuario(usuario);
+        assertTrue( usuariodao.autenticacaoUsuario(usuario));
+       
         
-        assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
-        assertEquals("1234",usuario.getSenha_usuario());
+       assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
+       assertEquals("1234",usuario.getSenha_usuario());
     }
 
     @Test
     public void TesteCadastrarUsuario() {
-        
-        if (Validacoes.validarCPF(CPF) == true){
+        assertTrue(Validacoes.validarCPF(CPF));
             usuariodao.CadastrarUsuario(usuario);
-        }else{
-            fail();
-        }   
-        
+  
         assertEquals(CPF, usuario.getCPF_usuario());
         assertEquals("Diogo", usuario.getNome_usuario());
         assertEquals(EMAIL, usuario.getEmail_usuario());
         assertEquals("1234", usuario.getSenha_usuario());
     }
+//    
+//    @Test
+//    public void TesteParaVerificarSeEstarEnviandoMensagemDeErroNoCadastro(){
+//     Exception erro = assertThrows(Exception.class, ()->
+//                usuariodao.CadastrarUsuario(usuario));
+//         
+//      assertEquals("Não foi possivél cadastrar usuário"+ erro, erro);
+//    }
 
     private void startUser() {
         usuario = new UsuarioDTO(CPF, NAME,
