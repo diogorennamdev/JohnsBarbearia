@@ -1,17 +1,12 @@
 package DAO;
 
-
 import DTO.UsuarioDTO;
-import DAO.UsuarioDAO;
 import HELPERS.Validacoes;
-import javax.swing.JOptionPane;
-import java.lang.Exception;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 
 public class UsuarioDAOTest {
 
@@ -34,7 +29,7 @@ public class UsuarioDAOTest {
     @Before
     public void setUp() {
         startUser();
-       
+
     }
 
     @After
@@ -43,18 +38,15 @@ public class UsuarioDAOTest {
 
     @Test
     public void testAutenticacaoUsuario() {
-        assertTrue( usuariodao.autenticacaoUsuario(usuario));
-       
-        
-       assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
-       assertEquals("1234",usuario.getSenha_usuario());
+        assertTrue(usuariodao.autenticacaoUsuario(usuario));
+        assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
+        assertEquals("1234", usuario.getSenha_usuario());
     }
 
     @Test
     public void TesteCadastrarUsuario() {
         assertTrue(Validacoes.validarCPF(CPF));
-            usuariodao.CadastrarUsuario(usuario);
-  
+        usuariodao.CadastrarUsuario(usuario);
         assertEquals(CPF, usuario.getCPF_usuario());
         assertEquals("Diogo", usuario.getNome_usuario());
         assertEquals(EMAIL, usuario.getEmail_usuario());
@@ -72,7 +64,7 @@ public class UsuarioDAOTest {
     private void startUser() {
         usuario = new UsuarioDTO(CPF, NAME,
                 EMAIL, SENHA);
-         
+
     }
 
 }
