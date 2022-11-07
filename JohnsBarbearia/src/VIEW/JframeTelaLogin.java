@@ -174,7 +174,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                 = ControlTelaLogin.validarDadosLogin(email_usuario(),
                         senha_usuario());
         if (result != null) {
-            JOptionPane.showMessageDialog(rootPane, result);
+            JOptionPane.showMessageDialog(rootPane,
+                    result);
             limpaCampos();
         } else {
             this.dispose();

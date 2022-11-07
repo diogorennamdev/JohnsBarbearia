@@ -20,7 +20,7 @@ public class UsuarioDAO {
             String sql = "select * from usuario "
                     + "where email_usuario= ? and senha_usuario=?";
 
-            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm = conn.prepareStatement(sql);
             pstm.setString(1, objUsuarioDTO.getEmail_usuario());
             pstm.setString(2, objUsuarioDTO.getSenha_usuario());
 
@@ -30,32 +30,38 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "UsuarioDAO:" + erro);
+            JOptionPane.showMessageDialog(null, "UsuarioDAO" + erro);
         }
         return checar;
     }
 
-    public void CadastrarUsuario(UsuarioDTO objUsuariodto) {
-        String sql = "insert into "
-                + "usuario(CPF_usuario, nome_usuario,"
-                + "email_usuario, senha_usuario) values(?,?,?,?)";
+    public boolean CadastrarUsuario(UsuarioDTO objUsuariodto) {
         conn = new ConexaoDAO().conectaBD();
+        boolean cadastrar = false;
 
         try {
+            String sql = "insert into "
+                    + "usuario(CPF_usuario, nome_usuario,"
+                    + "email_usuario, senha_usuario) values(?,?,?,?)";
+
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objUsuariodto.getCPF_usuario());
             pstm.setString(2, objUsuariodto.getNome_usuario());
             pstm.setString(3, objUsuariodto.getEmail_usuario());
             pstm.setString(4, objUsuariodto.getSenha_usuario());
-            pstm.execute();
-            pstm.close();
 
-        } catch (Exception erro) { //testar se esse erro aparece
-            JOptionPane.showMessageDialog(null,
-                    "Não foi possivél cadastrar usuário" + erro);
-            
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                cadastrar = true;
+
+            }
+
+        } catch (SQLException erro) { //testar se esse erro aparece
+            JOptionPane.showMessageDialog(null, "Não foi possivél cadastrar usuário" + erro);
+
         }
-        
+        return cadastrar;
+
     }
 
 }

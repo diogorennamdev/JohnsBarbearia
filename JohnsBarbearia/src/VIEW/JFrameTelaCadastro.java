@@ -1,7 +1,6 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
-import HELPERS.Validacoes;
 import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
@@ -204,26 +203,17 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeJTextActionPerformed
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        if (CPF_usuario().equals("")
-                || nome_usuario().equals("")
-                || email_usuario().equals("")
-                || senha_usuario().equals("")) {
-            JOptionPane.showMessageDialog(
-                    rootPane,
-                    " CAMPOS VAZIOS!\n Por favor insira os dados");
-        } else if (Validacoes.validarCPF(CPF_usuario()) == true) {
-            ControlTelaCadastro.cadastrar(CPF_usuario(),
-                    nome_usuario(),
-                    email_usuario(),
-                    senha_usuario());
+        String result
+                = ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
+                        nome_usuario(),
+                        email_usuario(),
+                        senha_usuario());
+        if (result != null) {
             JOptionPane.showMessageDialog(rootPane,
-                    "CPF CADASTRADO!\n");
-            ControlTelaCadastro.chamarTelaLogin();
-            this.dispose();
-        } else if (Validacoes.validarCPF(CPF_usuario()) == false) {
-            JOptionPane.showMessageDialog(rootPane,
-                    "ERRO, CPF INVÁLIDO!\n");
+                    result);
             limparApenasCpf();
+        } else {
+            this.dispose();
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 
