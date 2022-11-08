@@ -39,7 +39,7 @@ public class UsuarioDAOTest {
     @Test
     public void testAutenticacaoUsuario() {
         assertTrue(usuariodao.autenticacaoUsuario(usuario));
-        assertEquals("diogorenam@gmail", usuario.getEmail_usuario());
+//        assertEquals("diogorenam@gmail", usuario.CPF_usuario());
         assertEquals("1234", usuario.getSenha_usuario());
     }
 
@@ -49,7 +49,7 @@ public class UsuarioDAOTest {
         usuariodao.CadastrarUsuario(usuario);
         assertEquals(CPF, usuario.getCPF_usuario());
         assertEquals("Diogo", usuario.getNome_usuario());
-        assertEquals(EMAIL, usuario.getEmail_usuario());
+//        assertEquals(EMAIL, usuario.getEmail_usuario());
         assertEquals("1234", usuario.getSenha_usuario());
     }
 //    
@@ -63,7 +63,7 @@ public class UsuarioDAOTest {
 
     private void startUser() {
         usuario = new UsuarioDTO(CPF, NAME,
-                EMAIL, SENHA);
+                SENHA);
 
     }
 

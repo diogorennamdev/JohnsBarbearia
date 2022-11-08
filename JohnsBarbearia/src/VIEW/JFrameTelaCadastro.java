@@ -1,7 +1,7 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
-import javax.swing.JOptionPane;
+import static CONTROLS.ControlTelaLogin.chamarTelaCadastro;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -20,15 +20,14 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         sejabemvindoJLabel = new javax.swing.JLabel();
         NomeJText = new javax.swing.JTextField();
         NomeJLabel = new javax.swing.JLabel();
-        EmailJText = new javax.swing.JTextField();
-        EmailJLabel = new javax.swing.JLabel();
         SenhaJText = new javax.swing.JPasswordField();
         SenhaJLabel = new javax.swing.JLabel();
         CPFJText = new javax.swing.JTextField();
         CPFJLabel = new javax.swing.JLabel();
         CadastrarJButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro");
 
         jPanel1.setBackground(new java.awt.Color(65, 65, 65));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -39,7 +38,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         JohnsBarbeariaJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
 
         SairJButton.setForeground(new java.awt.Color(65, 65, 65));
-        SairJButton.setText("SAIR ✖");
+        SairJButton.setText(" Voltar ↩");
         SairJButton.setBorder(null);
         SairJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         SairJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,18 +56,15 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 .addComponent(JohnsBarbeariaJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SairJButton)
-                .addGap(42, 42, 42))
+                .addGap(20, 20, 20))
         );
         JPanelCabecalhoLayout.setVerticalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCabecalhoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JohnsBarbeariaJLabel)
-                .addGap(16, 16, 16))
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(SairJButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(JohnsBarbeariaJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sejabemvindoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -90,20 +86,15 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         NomeJLabel.setForeground(new java.awt.Color(255, 255, 255));
         NomeJLabel.setText("Nome");
 
-        EmailJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        EmailJText.setForeground(new java.awt.Color(65, 65, 65));
-
-        EmailJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        EmailJLabel.setForeground(new java.awt.Color(255, 255, 255));
-        EmailJLabel.setText("Email");
-
         SenhaJText.setForeground(new java.awt.Color(65, 65, 65));
 
         SenhaJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SenhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
         SenhaJLabel.setText("Senha");
 
-        CPFJText.setDisabledTextColor(new java.awt.Color(65, 65, 65));
+        CPFJText.setForeground(new java.awt.Color(153, 153, 153));
+        CPFJText.setText("ex.:(12345678911)");
+        CPFJText.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         CPFJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CPFJTextActionPerformed(evt);
@@ -127,56 +118,47 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sejabemvindoJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(CadastrarJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(285, 285, 285))
+            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CPFJText)
-                    .addComponent(NomeJText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
-                    .addComponent(EmailJText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SenhaJText, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CPFJLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SenhaJLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EmailJLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NomeJLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(116, 116, 116))
+                .addGap(89, 89, 89)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CPFJLabel)
+                    .addComponent(SenhaJText)
+                    .addComponent(SenhaJLabel)
+                    .addComponent(NomeJLabel)
+                    .addComponent(NomeJText)
+                    .addComponent(CPFJText, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(sejabemvindoJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(CadastrarJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                        .addGap(121, 121, 121)))
+                .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(sejabemvindoJLabel)
-                .addGap(58, 58, 58)
+                .addGap(41, 41, 41)
                 .addComponent(NomeJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NomeJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EmailJLabel)
-                .addGap(5, 5, 5)
-                .addComponent(EmailJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
+                .addComponent(CPFJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CPFJText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SenhaJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SenhaJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CPFJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CPFJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(57, 57, 57)
                 .addComponent(CadastrarJButton)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,16 +185,11 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeJTextActionPerformed
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        String result
-                = ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
-                        nome_usuario(),
-                        email_usuario(),
-                        senha_usuario());
-        if (result != null) {
-            JOptionPane.showMessageDialog(rootPane,
-                    result);
-            limparApenasCpf();
-        } else {
+        if (ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
+                nome_usuario(),
+                senha_usuario())) {
+            limparCampos();
+            chamarTelaCadastro();
             this.dispose();
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
@@ -249,8 +226,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel CPFJLabel;
     private javax.swing.JTextField CPFJText;
     private javax.swing.JButton CadastrarJButton;
-    private javax.swing.JLabel EmailJLabel;
-    private javax.swing.JTextField EmailJText;
     private javax.swing.JPanel JPanelCabecalho;
     private javax.swing.JLabel JohnsBarbeariaJLabel;
     private javax.swing.JLabel NomeJLabel;
@@ -271,24 +246,14 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         return nome_usuario;
     }
 
-    public String email_usuario() {
-        String email_usuario = EmailJText.getText();
-        return email_usuario;
-    }
-
     public String senha_usuario() {
         String senha_usuario = SenhaJText.getText();
         return senha_usuario;
     }
 
-    public void limpaCampos() {
+    public void limparCampos() {
         CPFJText.setText("");
         NomeJText.setText("");
-        EmailJText.setText("");
         SenhaJText.setText("");
-    }
-
-    public void limparApenasCpf() {
-        CPFJText.setText("");
     }
 }
