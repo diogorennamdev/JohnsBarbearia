@@ -40,7 +40,11 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         SairJButton.setForeground(new java.awt.Color(65, 65, 65));
         SairJButton.setText(" Voltar ↩");
         SairJButton.setBorder(null);
-        SairJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        SairJButton.setBorderPainted(false);
+        SairJButton.setContentAreaFilled(false);
+        SairJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SairJButton.setFocusPainted(false);
+        SairJButton.setFocusable(false);
         SairJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SairJButtonActionPerformed(evt);
@@ -92,8 +96,8 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         SenhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
         SenhaJLabel.setText("Senha");
 
-        CPFJText.setForeground(new java.awt.Color(153, 153, 153));
-        CPFJText.setText("ex.:(12345678911)");
+        CPFJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CPFJText.setForeground(new java.awt.Color(65, 65, 65));
         CPFJText.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         CPFJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +112,9 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         CadastrarJButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarJButton.setForeground(new java.awt.Color(65, 65, 65));
         CadastrarJButton.setText("CADASTRAR");
+        CadastrarJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CadastrarJButton.setFocusPainted(false);
+        CadastrarJButton.setFocusable(false);
         CadastrarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CadastrarJButtonActionPerformed(evt);
