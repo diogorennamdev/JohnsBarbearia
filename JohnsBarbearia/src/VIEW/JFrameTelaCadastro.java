@@ -180,6 +180,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairJButtonActionPerformed
@@ -194,10 +195,10 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
         if (ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
                 nome_usuario(),
-                senha_usuario())) {
-            limparCampos();
-            chamarTelaCadastro();
+                senha_usuario()) == true) {
             this.dispose();
+        } else {
+            limparCampos();
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 

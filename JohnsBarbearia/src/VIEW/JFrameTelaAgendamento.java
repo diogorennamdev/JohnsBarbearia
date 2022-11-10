@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
-/**
- *
- * @author Diogo
- */
+import CONTROLS.ControlTelaCadastro;
+
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
-    
+
     public JFrameTelaAgendamento() {
         initComponents();
     }
@@ -19,10 +13,26 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        VoltarJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agendamento");
 
         jLabel1.setText("Agende seu horario");
+
+        VoltarJButton.setForeground(new java.awt.Color(65, 65, 65));
+        VoltarJButton.setText(" Voltar ↩");
+        VoltarJButton.setBorder(null);
+        VoltarJButton.setBorderPainted(false);
+        VoltarJButton.setContentAreaFilled(false);
+        VoltarJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VoltarJButton.setFocusPainted(false);
+        VoltarJButton.setFocusable(false);
+        VoltarJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoltarJButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -32,17 +42,29 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addGap(222, 222, 222)
                 .addComponent(jLabel1)
                 .addContainerGap(274, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(VoltarJButton)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addContainerGap()
+                .addComponent(VoltarJButton)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel1)
                 .addContainerGap(396, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void VoltarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarJButtonActionPerformed
+        ControlTelaCadastro.chamarTelaLogin();
+        this.dispose();
+    }//GEN-LAST:event_VoltarJButtonActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -69,6 +91,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton VoltarJButton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

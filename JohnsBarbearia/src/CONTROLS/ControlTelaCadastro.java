@@ -1,5 +1,6 @@
 package CONTROLS;
 
+import static CONTROLS.ControlTelaLogin.chamarTelaCadastro;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import HELPERS.Criptografia;
@@ -35,9 +36,12 @@ public class ControlTelaCadastro {
         objUsuariodao.verificarDadosBDCpf(objUsuariodto);
 
         if (objUsuariodao.verificarDadosBDCpf(objUsuariodto) == true) {
-            JOptionPane.showMessageDialog(null, " CPF JÁ CADASTRADO!\n Por favor tente novamente!");
-//        } else {
-//            cadastrar(CPF_usuario, nome_usuario, senha_usuario); 
+            JOptionPane.showMessageDialog(null, 
+                    " CPF JÁ CADASTRADO!\n Por favor tente novamente!");
+            chamarTelaCadastro();
+        } else {
+            cadastrar(CPF_usuario, nome_usuario, senha_usuario); 
+            chamarTelaLogin();
         }
     }
 

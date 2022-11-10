@@ -154,19 +154,16 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             .addComponent(loginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 614, 507);
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        String result
-                = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
-                        senha_usuario());
-        if (result != null) {
-            JOptionPane.showMessageDialog(rootPane,
-                    result);
-            limpaCampos();
-        } else {
+        if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+                senha_usuario())) {
             this.dispose();
+        } else {
+            limpaCampos();
         }
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
