@@ -3,7 +3,7 @@ use JohnsBarbearia;
 create table if not exists usuario(
   CPF_usuario varchar(11) primary key NOT NULL,
   nome_usuario varchar (30),
-  senha_usuario varchar (90),
+  senha_usuario varchar (90)
   );
 create table if not exists Agendamento(
   nome_cliente varchar (20) primary key NOT NULL,
