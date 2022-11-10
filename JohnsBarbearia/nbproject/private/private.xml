@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/UsuarioDAOTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/ConexaoDAOTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/VIEW/JFrameTelaCadastro.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/ConexaoDAO.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/HELPERS/ValidacoesTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaCadastro.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaLogin.java</file>
+        </group>
     </open-files>
 </project-private>

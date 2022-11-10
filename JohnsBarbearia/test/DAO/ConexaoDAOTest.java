@@ -9,6 +9,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static sun.jvm.hotspot.HelloWorld.e;
 
 
 public class ConexaoDAOTest {
@@ -17,25 +18,27 @@ public class ConexaoDAOTest {
     public ConexaoDAOTest() {
     }
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
         
-   
     }
     
-    @After
-    public void tearDown() {
-    }
 
     @Test
-    public void testConectaBD() {
-       // Connection = ConexaoDAO.getConnection();
-
-         
+    public void TestarConexãoComOBancoDeDados() throws SQLException {
+      
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+             System.out.println("Deu ruim na conexão");
+        }
+   
+//      SQLException erro = assertThrows( SQLException.class, ()->
+//              DriverManager.getConnection(url));
+     
+       // assertEquals(erro, "Deu ruim na conexão");
+      //  assertThrows("Deu ruim na conexão", e, conn);
     }
     
 }

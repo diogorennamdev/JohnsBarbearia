@@ -1,5 +1,7 @@
 package DTO;
 
+import java.util.Objects;
+
 public class UsuarioDTO {
 
     private String CPF_usuario;
@@ -46,6 +48,36 @@ public class UsuarioDTO {
 
     public void setTipo_usuario(String tipo_usuario) {
         this.tipo_usuario = tipo_usuario;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final UsuarioDTO other = (UsuarioDTO) obj;
+        if (!Objects.equals(this.CPF_usuario, other.CPF_usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome_usuario, other.nome_usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.senha_usuario, other.senha_usuario)) {
+            return false;
+        }
+        return Objects.equals(this.tipo_usuario, other.tipo_usuario);
     }
 
 }

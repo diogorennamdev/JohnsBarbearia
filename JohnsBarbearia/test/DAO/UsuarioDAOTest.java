@@ -1,29 +1,23 @@
 package DAO;
 
 import DTO.UsuarioDTO;
+import HELPERS.Criptografia;
 import HELPERS.Validacoes;
-import org.junit.After;
-import org.junit.AfterClass;
+import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 
-    private static final String SENHA = "1234";
-    private static final String EMAIL = "diogorenam@gmail";
+    private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
-    private static final String CPF = "05281720503";
+    private static final String CPF = "45184311203";
 
     private UsuarioDTO usuario = new UsuarioDTO();
     private UsuarioDAO usuariodao = new UsuarioDAO();
 
     public UsuarioDAOTest() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-
     }
 
     @Before
@@ -32,38 +26,37 @@ public class UsuarioDAOTest {
 
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
-    public void testAutenticacaoUsuario() {
+    public void TestParaVerificarAutenticacaoDoUsuario() {
         assertTrue(usuariodao.autenticacaoUsuario(usuario));
-//        assertEquals("diogorenam@gmail", usuario.CPF_usuario());
-        assertEquals("1234", usuario.getSenha_usuario());
+
     }
 
     @Test
-    public void TesteCadastrarUsuario() {
+    public void TesteParaVerificarSeEstarCadastrandoUsuario() {
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(usuario);
-        assertEquals(CPF, usuario.getCPF_usuario());
-        assertEquals("Diogo", usuario.getNome_usuario());
-//        assertEquals(EMAIL, usuario.getEmail_usuario());
-        assertEquals("1234", usuario.getSenha_usuario());
+
+
     }
-//    
-//    @Test
-//    public void TesteParaVerificarSeEstarEnviandoMensagemDeErroNoCadastro(){
-//     Exception erro = assertThrows(Exception.class, ()->
-//                usuariodao.CadastrarUsuario(usuario));
-//         
-//      assertEquals("Não foi possivél cadastrar usuário"+ erro, erro);
-//    }
+
+    @Test
+    public void TesteParaVerificarSeEstarInserindosenhaCriptografada() {
+        assertEquals(Criptografia.criptografiaDaSenha(SENHA),
+                usuario.getSenha_usuario());
+    }
+
+    @Test
+    public void TesteParaVerificarSeEstarEnviandoMensagemDeErroNoCadastro() {
+        assertThrows(SQLException.class, ()
+                -> usuariodao.CadastrarUsuario(usuario));
+
+        
+    }
 
     private void startUser() {
         usuario = new UsuarioDTO(CPF, NAME,
-                SENHA);
+              Criptografia.criptografiaDaSenha(SENHA));
 
     }
 
