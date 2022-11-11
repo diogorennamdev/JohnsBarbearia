@@ -8,8 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class UsuarioDAOTest {
-
+public class UsuarioDAOTest {  
     private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
     private static final String CPF = "45184311203";
@@ -22,7 +21,7 @@ public class UsuarioDAOTest {
 
     @Before
     public void setUp() {
-        startUser();
+        CriarUsuario();
 
     }
 
@@ -36,6 +35,8 @@ public class UsuarioDAOTest {
     public void TesteParaVerificarSeEstarCadastrandoUsuario() {
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(usuario);
+        
+        //assertEquals(UsuarioDTO.class, usuario);
 
 
     }
@@ -54,7 +55,7 @@ public class UsuarioDAOTest {
         
     }
 
-    private void startUser() {
+    private void CriarUsuario() {
         usuario = new UsuarioDTO(CPF, NAME,
               Criptografia.criptografiaDaSenha(SENHA));
 
