@@ -1,12 +1,17 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
-import static CONTROLS.ControlTelaLogin.chamarTelaCadastro;
+import HELPERS.LimitaCaracteres;
+import HELPERS.SomenteNumeros;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     public JFrameTelaCadastro() {
         initComponents();
+        CPFJText.setDocument(new SomenteNumeros());
+        CPFJText.setDocument(new LimitaCaracteres(11,
+                LimitaCaracteres.TipoEntrada.CPF));
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")

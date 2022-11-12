@@ -6,6 +6,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     public JFrameTelaAgendamento() {
         initComponents();
+        setResizable(false);
+        
     }
 
     @SuppressWarnings("unchecked")

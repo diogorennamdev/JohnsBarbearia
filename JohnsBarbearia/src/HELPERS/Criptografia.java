@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Criptografia {
 
-    //Criptografia da senha no padrão SHA-256 - alterar denominações para não ficar igual o de aleef
+    //Criptografia da senha no padrão SHA-256 
     public static String criptografiaDaSenha(String senha_usuario) {
         String cript = senha_usuario;
         MessageDigest md;

@@ -1,13 +1,17 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
-import java.util.Map;
-import javax.swing.JOptionPane;
+import HELPERS.LimitaCaracteres;
+import HELPERS.SomenteNumeros;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
     public JframeTelaLogin() {
         initComponents();
+        CPFJText.setDocument(new SomenteNumeros());
+        CPFJText.setDocument(new LimitaCaracteres(11, 
+                LimitaCaracteres.TipoEntrada.CPF));
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -17,12 +21,13 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         esqueceuJButton = new javax.swing.JButton();
         loginJPanel = new javax.swing.JPanel();
         sejabemvindoJLabel1 = new javax.swing.JLabel();
-        cpfJLabel = new javax.swing.JLabel();
-        txtCPFUsuario = new javax.swing.JTextField();
+        CPFJLabel = new javax.swing.JLabel();
+        CPFJText = new javax.swing.JTextField();
         senhaJLabel = new javax.swing.JLabel();
         txtSenhaUsuario = new javax.swing.JPasswordField();
         entrarsistema = new javax.swing.JButton();
         criarcontaJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         esqueceuJButton.setBackground(new java.awt.Color(65, 65, 65));
         esqueceuJButton.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
@@ -42,6 +47,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(65, 65, 65));
 
         loginJPanel.setBackground(new java.awt.Color(65, 65, 65));
+        loginJPanel.setMaximumSize(new java.awt.Dimension(600, 500));
+        loginJPanel.setPreferredSize(new java.awt.Dimension(600, 500));
 
         sejabemvindoJLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         sejabemvindoJLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -51,18 +58,18 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         sejabemvindoJLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         sejabemvindoJLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        cpfJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cpfJLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cpfJLabel.setText("CPF");
+        CPFJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CPFJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        CPFJLabel.setText("CPF");
 
-        txtCPFUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtCPFUsuario.setForeground(new java.awt.Color(65, 65, 65));
-        txtCPFUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtCPFUsuario.setAutoscrolls(false);
-        txtCPFUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtCPFUsuario.addActionListener(new java.awt.event.ActionListener() {
+        CPFJText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CPFJText.setForeground(new java.awt.Color(65, 65, 65));
+        CPFJText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        CPFJText.setAutoscrolls(false);
+        CPFJText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        CPFJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCPFUsuarioActionPerformed(evt);
+                CPFJTextActionPerformed(evt);
             }
         });
 
@@ -101,53 +108,61 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA.png"))); // NOI18N
+
         javax.swing.GroupLayout loginJPanelLayout = new javax.swing.GroupLayout(loginJPanel);
         loginJPanel.setLayout(loginJPanelLayout);
         loginJPanelLayout.setHorizontalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addGap(255, 255, 255)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(criarcontaJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSenhaUsuario)
-                    .addComponent(txtCPFUsuario)
+                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(criarcontaJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpfJLabel)
-                            .addComponent(senhaJLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(169, 169, 169))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginJPanelLayout.createSequentialGroup()
-                .addGap(304, 304, 304)
-                .addComponent(entrarsistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(228, 228, 228))
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(CPFJText, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(CPFJLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sejabemvindoJLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
+                                    .addComponent(senhaJLabel)))
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(entrarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(14, Short.MAX_VALUE))))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginJPanelLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(94, 94, 94)
                 .addComponent(sejabemvindoJLabel1)
-                .addGap(53, 53, 53)
-                .addComponent(cpfJLabel)
+                .addGap(31, 31, 31)
+                .addComponent(CPFJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCPFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CPFJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(senhaJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(64, 64, 64)
                 .addComponent(entrarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(criarcontaJButton)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(loginJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,9 +183,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
-    private void txtCPFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFUsuarioActionPerformed
+    private void CPFJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFJTextActionPerformed
 
-    }//GEN-LAST:event_txtCPFUsuarioActionPerformed
+    }//GEN-LAST:event_CPFJTextActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
         ControlTelaLogin.chamarTelaCadastro();
@@ -208,19 +223,20 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel cpfJLabel;
+    private javax.swing.JLabel CPFJLabel;
+    private javax.swing.JTextField CPFJText;
     private javax.swing.JButton criarcontaJButton;
     private javax.swing.JButton entrarsistema;
     private javax.swing.JButton esqueceuJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel loginJPanel;
     private javax.swing.JLabel sejabemvindoJLabel1;
     private javax.swing.JLabel senhaJLabel;
-    private javax.swing.JTextField txtCPFUsuario;
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
 
     public String CPF_usuario() {
-        String CPF_usuario = txtCPFUsuario.getText();
+        String CPF_usuario = CPFJText.getText();
         return CPF_usuario;
     }
 
@@ -230,7 +246,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }
 
     public void limpaCampos() {
-        txtCPFUsuario.setText("");
+        CPFJText.setText("");
         txtSenhaUsuario.setText("");
     }
 

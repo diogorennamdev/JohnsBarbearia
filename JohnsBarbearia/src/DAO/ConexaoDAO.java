@@ -10,7 +10,8 @@ public class ConexaoDAO {
 
     public Connection conectaBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/JohnsBarbearia?user=root&password=";
+            String url = "jdbc:mysql://localhost:3306/"
+                    + "JohnsBarbearia?user=root&password=";
             conn = DriverManager.getConnection(url);
         } catch (SQLException ex) {
             System.out.println("Deu ruim na conexão" + ex);
