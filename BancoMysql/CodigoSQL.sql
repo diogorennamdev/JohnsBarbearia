@@ -7,7 +7,9 @@ create table if not exists usuario(
   );
 create table if not exists Agendamento(
   nome_cliente varchar (20) primary key NOT NULL,
-  data_agendamento DATE,
   servico varchar (30),
-  valor_servico varchar (20) 
+  valor_servico varchar (20), 
+  data_agendamento date,
+  hora_agendamento time (5),
+  observacao_agendamento varchar(50) 
   );
