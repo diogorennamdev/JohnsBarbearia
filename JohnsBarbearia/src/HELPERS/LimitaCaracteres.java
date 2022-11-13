@@ -8,11 +8,11 @@ public class LimitaCaracteres extends PlainDocument {
 //Class LimitaCaracteres limita o cpf em 11 caracteres
 
     public enum TipoEntrada {
-        CPF;
+        CPF, DATA, OBSERVACAO;
     };
 
-    private int qtdCaracteres;
-    private TipoEntrada tpEntrada;
+    private final int qtdCaracteres;
+    private final TipoEntrada tpEntrada;
 
     public LimitaCaracteres(int qtdCaracteres, TipoEntrada tpEntrada) {
         this.qtdCaracteres = qtdCaracteres;
@@ -20,9 +20,9 @@ public class LimitaCaracteres extends PlainDocument {
     }
 
     @Override
-    public void insertString(int offs, String str, AttributeSet a) 
+    public void insertString(int offs, String str, AttributeSet a)
             throws BadLocationException {
-        
+
         if (str == null || getLength() == qtdCaracteres) {
             return;
         }
@@ -33,6 +33,12 @@ public class LimitaCaracteres extends PlainDocument {
             case CPF:
                 regex = "[^0-9]";
                 break;
+            case DATA:
+                regex = "[^0-9/]";
+                break;
+            case OBSERVACAO:
+                regex = "[^\\p{IsLatin} ]";
+                break;
         }
         //fazendo a substituição
         str = str.replaceAll(regex, "");
@@ -40,7 +46,7 @@ public class LimitaCaracteres extends PlainDocument {
         if (totalCaracter <= qtdCaracteres) {
             super.insertString(offs, str, a);
 //        } else {
-//            String nova = String.substring(0, 11);
+//            String nova = String.substring(0, qtdCaracteres);
 //            super.insertString(offs, nova, a);
         }
 

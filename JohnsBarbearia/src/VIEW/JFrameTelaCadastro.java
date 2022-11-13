@@ -8,10 +8,11 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     public JFrameTelaCadastro() {
         initComponents();
+        setResizable(false);
         CPFJText.setDocument(new SomenteNumeros());
         CPFJText.setDocument(new LimitaCaracteres(11,
                 LimitaCaracteres.TipoEntrada.CPF));
-        setResizable(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -65,15 +66,15 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 .addComponent(JohnsBarbeariaJLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SairJButton)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
         JPanelCabecalhoLayout.setVerticalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JohnsBarbeariaJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addComponent(SairJButton)
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addComponent(JohnsBarbeariaJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         sejabemvindoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
