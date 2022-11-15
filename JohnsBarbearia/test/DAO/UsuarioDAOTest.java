@@ -8,7 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class UsuarioDAOTest {  
+public class UsuarioDAOTest {
+
     private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
     private static final String CPF = "45184311203";
@@ -29,16 +30,22 @@ public class UsuarioDAOTest {
     public void TestParaVerificarAutenticacaoDoUsuario() {
         assertTrue(usuariodao.autenticacaoUsuario(usuario));
 
+    } 
+    @Test
+    public void DeveRetornarErroQuandoUsuarioNaoExiste(){
+        
+        SQLException SQLException = assertThrows(SQLException.class, 
+                ()-> usuariodao.autenticacaoUsuario(usuario));
+        
+        assertEquals("Usuario não Cadastrado", SQLException.getMessage());
     }
 
     @Test
     public void TesteParaVerificarSeEstarCadastrandoUsuario() {
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(usuario);
-        
+
         //assertEquals(UsuarioDTO.class, usuario);
-
-
     }
 
     @Test
@@ -48,16 +55,17 @@ public class UsuarioDAOTest {
     }
 
     @Test
-    public void TesteParaVerificarSeEstarEnviandoMensagemDeErroNoCadastro() {
-        assertThrows(SQLException.class, ()
+    public void TesteParaVerificarSeEstarEnviandoMensagemDeFalhaNoCadastro() {
+        SQLException SQLException = assertThrows(SQLException.class, ()
                 -> usuariodao.CadastrarUsuario(usuario));
 
-        
+        assertEquals("Não foi possivél cadastrar usuário", SQLException.getMessage());
+
     }
 
     private void CriarUsuario() {
         usuario = new UsuarioDTO(CPF, NAME,
-              Criptografia.criptografiaDaSenha(SENHA));
+                Criptografia.criptografiaDaSenha(SENHA));
 
     }
 

@@ -6,17 +6,19 @@ import java.sql.SQLException;
 
 public class ConexaoDAO {
 
-    Connection conn;
 
     public Connection conectaBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/"
-                    + "JohnsBarbearia?user=root&password=";
-            conn = DriverManager.getConnection(url);
+          Connection conn = DriverManager.getConnection("jdbc:mysql://"
+                  + "localhost:3306/JohnsBarbearia?serverTimezone=UTC","root","");
+          return conn;
         } catch (SQLException ex) {
             System.out.println("Deu ruim na conexão" + ex);
+            return null;
         }
-        return conn;
+        
+        
+     
     }
 
 }

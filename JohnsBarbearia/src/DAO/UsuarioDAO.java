@@ -30,7 +30,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("UsuarioDAO" + erro);
+            System.out.println("Usuario não Cadastrado");
 
         }
         return checar;
@@ -51,7 +51,7 @@ public class UsuarioDAO {
             pstm.close();
 
         } catch (SQLException erro) { //testar se esse erro aparece
-            System.out.println("Não foi possivél cadastrar usuário" + erro);
+            System.out.println("Não foi possivél cadastrar usuário");
         }
 
     }
