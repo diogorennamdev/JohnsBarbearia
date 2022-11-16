@@ -6,29 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class UsuarioDAO {
 
     Connection conn;
     PreparedStatement pstm;
-
-    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) {
-        conn = new ConexaoDAO().conectaBD();
-
-        try {
-            String sql = "insert into usuario "
-                    + "(CPF_usuario, nome_usuario, senha_usuario) values(?,?,?)";
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objUsuarioDTO.getCPF_usuario());
-            pstm.setString(2, objUsuarioDTO.getNome_usuario());
-            pstm.setString(3, objUsuarioDTO.getSenha_usuario());
-            pstm.execute();
-            pstm.close();
-
-        } catch (SQLException erro) { //testar se esse erro aparece
-            System.out.println("Não foi possivél cadastrar usuário");
-        }
-
-    }
 
     public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) {
         conn = new ConexaoDAO().conectaBD();
@@ -54,7 +36,27 @@ public class UsuarioDAO {
         return checar;
     }
 
-    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO) {
+    public void CadastrarUsuario(UsuarioDTO objUsuariodto) {
+        conn = new ConexaoDAO().conectaBD();
+
+        try {
+            String sql = "insert into "
+                    + "usuario (CPF_usuario, nome_usuario,"
+                    + "senha_usuario) values(?,?,?)";
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objUsuariodto.getCPF_usuario());
+            pstm.setString(2, objUsuariodto.getNome_usuario());
+            pstm.setString(3, objUsuariodto.getSenha_usuario());
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException erro) { //testar se esse erro aparece
+            System.out.println("Não foi possivél cadastrar usuário");
+        }
+
+    }
+
+    public boolean verificarDadosBDCpf(UsuarioDTO objUsuariodto) {
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
 
@@ -62,7 +64,7 @@ public class UsuarioDAO {
             String sql = "select * from usuario "
                     + "where CPF_usuario = ?";
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objUsuarioDTO.getCPF_usuario());
+            pstm.setString(1, objUsuariodto.getCPF_usuario());
 
             ResultSet rs = null;
             rs = pstm.executeQuery();

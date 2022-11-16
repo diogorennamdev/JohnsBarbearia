@@ -8,7 +8,7 @@ public class LimitaCaracteres extends PlainDocument {
 //Class LimitaCaracteres limita o cpf em 11 caracteres
 
     public enum TipoEntrada {
-        CPF;
+        CPF, DATA, OBSERVACAO;
     };
 
     private final int qtdCaracteres;
@@ -33,7 +33,12 @@ public class LimitaCaracteres extends PlainDocument {
             case CPF:
                 regex = "[^0-9]";
                 break;
-
+            case DATA:
+                regex = "[^0-9/]";
+                break;
+            case OBSERVACAO:
+                regex = "[^\\p{IsLatin} ]";
+                break;
         }
         //fazendo a substituição
         str = str.replaceAll(regex, "");
