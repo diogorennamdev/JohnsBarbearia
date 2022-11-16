@@ -1,6 +1,7 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
+import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 
@@ -12,7 +13,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         CPFJText.setDocument(new SomenteNumeros());
         CPFJText.setDocument(new LimitaCaracteres(11,
                 LimitaCaracteres.TipoEntrada.CPF));
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +45,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         JohnsBarbeariaJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
 
         SairJButton.setForeground(new java.awt.Color(65, 65, 65));
-        SairJButton.setText(" Voltar ↩");
+        SairJButton.setText(" Voltar   ↩");
         SairJButton.setBorder(null);
         SairJButton.setBorderPainted(false);
         SairJButton.setContentAreaFilled(false);
@@ -190,7 +191,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairJButtonActionPerformed
-        ControlTelaCadastro.chamarTelaLogin();
+        ChamarTelas.chamarTelaLogin();
         this.dispose();
     }//GEN-LAST:event_SairJButtonActionPerformed
 

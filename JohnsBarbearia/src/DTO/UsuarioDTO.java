@@ -17,9 +17,6 @@ public class UsuarioDTO {
         this.senha_usuario = senha_usuario;
     }
 
-    public UsuarioDTO() {
-    }
-
     public String getCPF_usuario() {
         return CPF_usuario;
     }
@@ -50,6 +47,9 @@ public class UsuarioDTO {
 
     public void setTipo_usuario(String tipo_usuario) {
         this.tipo_usuario = tipo_usuario;
+    }
+
+    public UsuarioDTO() {
     }
 
     @Override

@@ -1,6 +1,7 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
+import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 
@@ -188,7 +189,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_CPFJTextActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
-        ControlTelaLogin.chamarTelaCadastro();
+        ChamarTelas.chamarTelaCadastro();
         this.dispose();
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
 

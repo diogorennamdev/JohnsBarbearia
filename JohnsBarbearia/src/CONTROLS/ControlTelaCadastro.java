@@ -1,11 +1,10 @@
 package CONTROLS;
 
-import static CONTROLS.ControlTelaLogin.chamarTelaCadastro;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
+import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
-import VIEW.JframeTelaLogin;
 import javax.swing.JOptionPane;
 
 public class ControlTelaCadastro {
@@ -14,14 +13,14 @@ public class ControlTelaCadastro {
             String nome_usuario,
             String senha_usuario) {
 
-        UsuarioDTO objUsuariodto = new UsuarioDTO();
-        objUsuariodto.setCPF_usuario(CPF_usuario);
-        objUsuariodto.setNome_usuario(nome_usuario);
-        objUsuariodto.setSenha_usuario(
+        UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+        objUsuarioDTO.setCPF_usuario(CPF_usuario);
+        objUsuarioDTO.setNome_usuario(nome_usuario);
+        objUsuarioDTO.setSenha_usuario(
                 Criptografia.criptografiaDaSenha(senha_usuario));
 
-        UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.CadastrarUsuario(objUsuariodto);
+        UsuarioDAO objUsuarioDAO = new UsuarioDAO();
+        objUsuarioDAO.CadastrarUsuario(objUsuarioDTO);
 
     }
 
@@ -29,19 +28,19 @@ public class ControlTelaCadastro {
             String nome_usuario,
             String senha_usuario) {
 
-        UsuarioDTO objUsuariodto = new UsuarioDTO();
-        objUsuariodto.setCPF_usuario(CPF_usuario);
+        UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+        objUsuarioDTO.setCPF_usuario(CPF_usuario);
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.verificarDadosBDCpf(objUsuariodto);
+        objUsuariodao.verificarDadosBDCpf(objUsuarioDTO);
 
-        if (objUsuariodao.verificarDadosBDCpf(objUsuariodto) == true) {
-            JOptionPane.showMessageDialog(null, 
+        if (objUsuariodao.verificarDadosBDCpf(objUsuarioDTO) == true) {
+            JOptionPane.showMessageDialog(null,
                     " CPF JÁ CADASTRADO!\n Por favor tente novamente!");
-            chamarTelaCadastro();
+            ChamarTelas.chamarTelaCadastro();
         } else {
-            cadastrar(CPF_usuario, nome_usuario, senha_usuario); 
-            chamarTelaLogin();
+            cadastrar(CPF_usuario, nome_usuario, senha_usuario);
+            ChamarTelas.chamarTelaLogin();
         }
     }
 
@@ -65,12 +64,6 @@ public class ControlTelaCadastro {
             return false;
         }
         return false;
-    }
-
-    //Metodo que retorna JframeTelaLogin
-    public static void chamarTelaLogin() {
-        JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
-        janelaJframeTelaLogin.setVisible(true);
     }
 
 }
