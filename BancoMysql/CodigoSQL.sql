@@ -6,10 +6,10 @@ create table if not exists usuario(
   senha_usuario varchar (90)
   );
 create table if not exists Agendamento(
-  nome_cliente varchar (20) primary key NOT NULL,
-  servico varchar (30),
+  nome_cliente varchar (30) primary key NOT NULL,
+  servico varchar (90),
   valor_servico varchar (20), 
-  data_agendamento date,
-  hora_agendamento time (5),
+  data_agendamento varchar (10),
+  hora_agendamento varchar (5),
   observacao_agendamento varchar(50) 
   );
