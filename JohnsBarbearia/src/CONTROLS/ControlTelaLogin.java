@@ -2,9 +2,8 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
+import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
-import VIEW.JFrameTelaAgendamento;
-import VIEW.JFrameTelaCadastro;
 import javax.swing.JOptionPane;
 
 public class ControlTelaLogin {
@@ -18,14 +17,14 @@ public class ControlTelaLogin {
                 Criptografia.criptografiaDaSenha(senha_usuario));
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.autenticacaoUsuario(
-                objUsuariodto);
-        boolean fechar = false;
+        objUsuariodao.autenticacaoUsuario(objUsuariodto);
+        
+        boolean fechartela = false;
         if (objUsuariodao.autenticacaoUsuario(objUsuariodto)) {
-            chamarTelaAgendamento();
-            fechar = true;
+            ChamarTelas.chamarTelaAgendamento();
+            fechartela = true;
         }
-        return fechar;
+        return fechartela;
     }
 
     public static boolean validarDadosLogin(String CPF_usuario,
@@ -45,16 +44,4 @@ public class ControlTelaLogin {
 
     }
 
-    //Metodo que retorna JframeTelaCadastro
-    public static void chamarTelaCadastro() {
-        JFrameTelaCadastro janelaJframeTelaCadastro
-                = new JFrameTelaCadastro();
-        janelaJframeTelaCadastro.setVisible(true);
-    }
-
-    public static void chamarTelaAgendamento() {
-        JFrameTelaAgendamento telaJframeTelaAgendamento
-                = new JFrameTelaAgendamento();
-        telaJframeTelaAgendamento.setVisible(true);
-    }
 }
