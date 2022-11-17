@@ -2,6 +2,7 @@ package CONTROLS;
 
 import DTO.UsuarioDTO;
 import DAO.UsuarioDAO;
+import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
 import org.junit.After;
@@ -29,19 +30,26 @@ public class ControlTelaLoginTest {
 
 
     @Test
-    public void TesteParaVerificarSeEstarEntrandoNoSistema() {
+    public void TesteParaVerificarSeEstarEntrandoNoSistema() throws NaoFoiPossivelAutenticaUsuarioException {
         assertTrue(ControlTelaLogin.entrarSistema(CPF,
                 SENHA));
 
     }
 
     @Test
-    public void TesteparaVerificarValidarDadosDoLogin() {
+    public void TesteparaVerificarValidarDadosDoLogin() throws NaoFoiPossivelAutenticaUsuarioException {
         assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
         
         
     }
-
+    @Test
+    public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos() throws NaoFoiPossivelAutenticaUsuarioException{
+        String CPF_usuario = "";
+        String senha_usuario = "";
+        ControlTelaLogin.validarDadosLogin(CPF_usuario, senha_usuario);
+        
+        
+    }
     private void CriarUsuario() {
         usuariodto = new UsuarioDTO(CPF, NAME,
                 Criptografia.criptografiaDaSenha(SENHA));

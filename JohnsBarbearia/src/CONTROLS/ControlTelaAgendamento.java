@@ -2,6 +2,8 @@ package CONTROLS;
 
 import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import Exceptions.NaoFoiPossivelRealizarAgendamentoExecption;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +15,7 @@ public class ControlTelaAgendamento {
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento) {
+            String observacao_agendamento) throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, NaoFoiPossivelRealizarAgendamentoExecption {
 
         AgendamentoDTO objAgendamentoDTO = new AgendamentoDTO();
         objAgendamentoDTO.setNome_cliente(nome_cliente);
@@ -28,7 +30,7 @@ public class ControlTelaAgendamento {
         return true;
     }
 
-    public static JTable LerTabela(JTable TabelaAgendamentoJTable) {
+    public static JTable LerTabela(JTable TabelaAgendamentoJTable) throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         DefaultTableModel modelo = (DefaultTableModel) TabelaAgendamentoJTable.getModel();
         modelo.setNumRows(0);
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();

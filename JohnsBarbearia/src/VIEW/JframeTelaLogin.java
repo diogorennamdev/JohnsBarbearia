@@ -1,9 +1,13 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
+import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
@@ -175,11 +179,17 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
-                senha_usuario())) {
-            this.dispose();
-        } else {
-            limpaCampos();
+        try {
+            if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+                    senha_usuario())) {
+                this.dispose();
+            } else {
+                limpaCampos();
+            }
+        } catch (NaoFoiPossivelAutenticaUsuarioException ex) {
+           // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException ex) {
+           // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_entrarsistemaActionPerformed

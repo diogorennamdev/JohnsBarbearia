@@ -2,6 +2,8 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
+import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import javax.swing.JOptionPane;
@@ -9,7 +11,7 @@ import javax.swing.JOptionPane;
 public class ControlTelaLogin {
 
     public static boolean entrarSistema(String CPF_usuario,
-            String senha_usuario) {
+            String senha_usuario) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
 
         UsuarioDTO objUsuariodto = new UsuarioDTO();
         objUsuariodto.setCPF_usuario(CPF_usuario);
@@ -28,7 +30,7 @@ public class ControlTelaLogin {
     }
 
     public static boolean validarDadosLogin(String CPF_usuario,
-            String senha_usuario) {
+            String senha_usuario) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         if (CPF_usuario.equals("")
                 || senha_usuario.equals("")) {
             JOptionPane.showMessageDialog(null,

@@ -1,9 +1,15 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
+import Exceptions.ErroAoValidarCpfException;
+import Exceptions.ErroAoValidarDadosException;
+import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -200,12 +206,22 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_NomeJTextActionPerformed
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
-        if (ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
-                nome_usuario(),
-                senha_usuario()) == true) {
-            this.dispose();
-        } else {
-            limparCampos();
+        try {
+            if (ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
+                    nome_usuario(),
+                    senha_usuario()) == true) {
+                this.dispose();
+            } else {
+                limparCampos();
+            }
+        } catch (ErroAoValidarCpfException ex) {
+            Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ErroAoValidarDadosException ex) {
+            Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NaoFoiPossivelCadastrarUsuarioException ex) {
+            Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException ex) {
+            Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 

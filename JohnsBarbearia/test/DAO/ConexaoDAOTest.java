@@ -1,6 +1,7 @@
-
 package DAO;
+
 import DAO.ConexaoDAO;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,34 +12,35 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static sun.jvm.hotspot.HelloWorld.e;
 
-
 public class ConexaoDAOTest {
-    String url = "jdbc:mysql://localhost:3306/JohnsBarbearia?user=root&password=";
-    Connection conn;
+
+    Connection conn = null;
+    String url = "jdbc:mysql://localhost:3306/JohnsBarbearia?serverTimezone=UTC";
+    String usuario = "root";
+    String senha = "";
+
     public ConexaoDAOTest() {
     }
-    
-    
+
     @Before
     public void setUp() {
-        
+
     }
-    
 
     @Test
-    public void TestarConexãoComOBancoDeDados() throws SQLException {
-      
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-             System.out.println("Deu ruim na conexão");
-        }
-   
-//      SQLException erro = assertThrows( SQLException.class, ()->
-//              DriverManager.getConnection(url));
-     
-       // assertEquals(erro, "Deu ruim na conexão");
-      //  assertThrows("Deu ruim na conexão", e, conn);
+    public void TestarConexãoComOBancoDeDados() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, SQLException {
+        conn = DriverManager.getConnection(url, usuario, senha);
+        System.out.println("Banco conectado com sucesso!");
+
     }
-    
+
+//    @Test
+//    public void TesteParaVerificarSeEnviarErroCasoAConexaoNaoSejaFeita() {
+//        SQLException erroNaConexao
+//                = assertThrows(SQLException.class, ()
+//                        -> DriverManager.getConnection(url,usuario,senha)); 
+//        
+//        assertEquals("erro na conexão", erroNaConexao.getMessage());
+//    }
+
 }

@@ -1,6 +1,10 @@
 package DAO;
 
+import Exceptions.ErroAoValidarDadosException;
+import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
+import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
 import DTO.UsuarioDTO;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +15,7 @@ public class UsuarioDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) {
+    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         conn = new ConexaoDAO().conectaBD();
 
         try {
@@ -24,13 +28,14 @@ public class UsuarioDAO {
             pstm.execute();
             pstm.close();
 
-        } catch (SQLException erro) { //testar se esse erro aparece
-            System.out.println("Não foi possivél cadastrar usuário");
+        } catch (SQLException erro) { 
+            System.out.println("Não foi possivél cadastrar usuário"+ erro);
+             throw new NaoFoiPossivelCadastrarUsuarioException();
         }
 
     }
 
-    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) {
+    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException{
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
 
@@ -48,13 +53,13 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("Usuario não Cadastrado");
-
+            System.out.println("Usuario não Cadastrado" + erro);
+            throw new NaoFoiPossivelAutenticaUsuarioException();
         }
         return checar;
     }
 
-    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO) {
+    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO) throws ErroAoValidarDadosException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
 
@@ -72,7 +77,9 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Errou ao verificar dados" + erro);
+            throw new ErroAoValidarDadosException();
         }
+        
         return checar;
     }
 }

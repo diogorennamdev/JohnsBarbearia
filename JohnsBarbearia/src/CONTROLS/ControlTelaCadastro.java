@@ -2,6 +2,10 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
+import Exceptions.ErroAoValidarCpfException;
+import Exceptions.ErroAoValidarDadosException;
+import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
@@ -11,7 +15,7 @@ public class ControlTelaCadastro {
 
     public static void cadastrar(String CPF_usuario,
             String nome_usuario,
-            String senha_usuario) {
+            String senha_usuario) throws NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -26,7 +30,7 @@ public class ControlTelaCadastro {
 
     public static void autenticaDadosBD(String CPF_usuario,
             String nome_usuario,
-            String senha_usuario) {
+            String senha_usuario) throws ErroAoValidarDadosException, NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -45,7 +49,7 @@ public class ControlTelaCadastro {
     }
 
     public static boolean ValidarDadosCPF(String CPF_usuario,
-            String nome_usuario, String senha_usuario) {
+            String nome_usuario, String senha_usuario) throws ErroAoValidarCpfException, ErroAoValidarDadosException, NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
 
         if (CPF_usuario.equals("")
                 || nome_usuario.equals("")

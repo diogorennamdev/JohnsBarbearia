@@ -1,6 +1,10 @@
 package DAO;
 
 import DTO.UsuarioDTO;
+import Exceptions.ErroAoValidarCpfException;
+import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
+import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
 import java.sql.SQLException;
@@ -27,40 +31,40 @@ public class UsuarioDAOTest {
     }
 
     @Test
-    public void TestParaVerificarAutenticacaoDoUsuario() {
+    public void TesteParaVerificarAutenticacaoDoUsuario() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         assertTrue(usuariodao.autenticacaoUsuario(usuario));
 
-    } 
-    @Test
-    public void DeveRetornarErroQuandoUsuarioNaoExiste(){
-        
-        SQLException SQLException = assertThrows(SQLException.class, 
-                ()-> usuariodao.autenticacaoUsuario(usuario));
-        
-        assertEquals("Usuario não Cadastrado", SQLException.getMessage());
     }
 
     @Test
-    public void TesteParaVerificarSeEstarCadastrandoUsuario() {
+    public void TesteParaVerifcarSeRetornaErroCasoUsuarioNaoExista() throws NaoFoiPossivelAutenticaUsuarioException{
+        NaoFoiPossivelAutenticaUsuarioException NaoFoiPossivelAutenticaUsuarioException
+                = assertThrows(NaoFoiPossivelAutenticaUsuarioException.class,
+                        ()-> usuariodao.autenticacaoUsuario(usuario));
+
+        assertEquals("Usuario não Cadastrado no sistema!", NaoFoiPossivelAutenticaUsuarioException.getMessage());
+    }
+
+    @Test
+    public void TesteParaVerificarSeEstarCadastrandoUsuario() throws NaoFoiPossivelCadastrarUsuarioException, ErroAoValidarCpfException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(usuario);
 
-        //assertEquals(UsuarioDTO.class, usuario);
+    }
+
+    @Test
+    public void DeverRetornarMensagemDeErroNoCadastro() {
+        NaoFoiPossivelCadastrarUsuarioException NaoFoiPossivelCadastrarUsuarioException
+                = assertThrows(NaoFoiPossivelCadastrarUsuarioException.class,
+                        () -> usuariodao.CadastrarUsuario(usuario));
+
+        assertEquals("Usuario não Cadastrado", NaoFoiPossivelCadastrarUsuarioException.getMessage());
     }
 
     @Test
     public void TesteParaVerificarSeEstarInserindosenhaCriptografada() {
         assertEquals(Criptografia.criptografiaDaSenha(SENHA),
                 usuario.getSenha_usuario());
-    }
-
-    @Test
-    public void TesteParaVerificarSeEstarEnviandoMensagemDeFalhaNoCadastro() {
-        SQLException SQLException = assertThrows(SQLException.class, ()
-                -> usuariodao.CadastrarUsuario(usuario));
-
-        assertEquals("Não foi possivél cadastrar usuário", SQLException.getMessage());
-
     }
 
     private void CriarUsuario() {

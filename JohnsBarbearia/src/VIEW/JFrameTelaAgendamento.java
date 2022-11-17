@@ -127,6 +127,11 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         }
         DataTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DataTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DataTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataTextFieldActionPerformed(evt);
+            }
+        });
 
         DataJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         DataJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +226,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClienteLabel)
                     .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -298,7 +303,12 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private void horariosJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horariosJButtonActionPerformed
         ChamarTelas.chamarTelaHorarios();
         this.dispose();
+        //this.ListarCliente(ControlTelaAgendamento);
     }//GEN-LAST:event_horariosJButtonActionPerformed
+
+    private void DataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataTextFieldActionPerformed
 
     public static void main(String args[]) {
         try {

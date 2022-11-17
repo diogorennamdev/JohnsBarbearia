@@ -1,6 +1,8 @@
 package DAO;
 
+import Exceptions.NaoFoiPossivelRealizarAgendamentoExecption;
 import DTO.AgendamentoDTO;
+import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +15,7 @@ public class AgendamentoDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void Agendar(AgendamentoDTO objAgendamentoDTO) {
+    public void Agendar(AgendamentoDTO objAgendamentoDTO) throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, NaoFoiPossivelRealizarAgendamentoExecption {
         conn = new ConexaoDAO().conectaBD();
 
         try {
@@ -39,10 +41,11 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("Não foi possivél fazer agendamento " + erro);
+            throw new NaoFoiPossivelRealizarAgendamentoExecption();
         }
     }
 
-    public java.util.List<AgendamentoDTO> Horarios() {
+    public java.util.List<AgendamentoDTO> Horarios() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         conn = new ConexaoDAO().conectaBD();
         ResultSet rs;
         List<AgendamentoDTO> horarios = new ArrayList<>();
@@ -65,7 +68,10 @@ public class AgendamentoDAO {
                 agendamento.setObservacao_agendamento(
                         rs.getString("observacao_agendamento"));
                 agendamento.add(agendamento);
+                
             }
+           //  pstm.close();
+            
         } catch (SQLException ex) {
             System.out.println("error em List<AgendamentoDTO> " + ex);
         }
