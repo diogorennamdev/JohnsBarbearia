@@ -65,12 +65,14 @@ public class Validacoes {
                     && (dig11 == validarCPF.charAt(10))) {
                 return (true);
             } else {
+
                 return (false);
             }
         } catch (InputMismatchException erro) {
-            throw new ErroAoValidarCpfException(); 
-         //  System.out.println("");
-          // return (false);
+            throw new ErroAoValidarCpfException();
+            //  System.out.println("");
+            //return (false);
         }
+
     }
 }

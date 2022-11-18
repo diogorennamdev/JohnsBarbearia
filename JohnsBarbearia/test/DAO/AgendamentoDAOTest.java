@@ -32,6 +32,8 @@ public class AgendamentoDAOTest {
     @Test
     public void TesteParaVerificarSeEstarInserindoAgendamentoNoBanco() throws Exception {
         agendamentodao.Agendar(agendamentodto);
+        
+        assertEquals(AgendamentoDTO.class, agendamentodto.getClass());
     }
     
     @Test

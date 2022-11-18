@@ -31,24 +31,11 @@ public class UsuarioDAOTest {
     }
 
     @Test
-    public void TesteParaVerificarAutenticacaoDoUsuario() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
-        assertTrue(usuariodao.autenticacaoUsuario(usuario));
-
-    }
-
-    @Test
-    public void TesteParaVerifcarSeRetornaErroCasoUsuarioNaoExista() throws NaoFoiPossivelAutenticaUsuarioException{
-        NaoFoiPossivelAutenticaUsuarioException NaoFoiPossivelAutenticaUsuarioException
-                = assertThrows(NaoFoiPossivelAutenticaUsuarioException.class,
-                        ()-> usuariodao.autenticacaoUsuario(usuario));
-
-        assertEquals("Usuario não Cadastrado no sistema!", NaoFoiPossivelAutenticaUsuarioException.getMessage());
-    }
-
-    @Test
     public void TesteParaVerificarSeEstarCadastrandoUsuario() throws NaoFoiPossivelCadastrarUsuarioException, ErroAoValidarCpfException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(usuario);
+
+        assertEquals(UsuarioDTO.class, usuario.getClass());
 
     }
 
@@ -59,6 +46,23 @@ public class UsuarioDAOTest {
                         () -> usuariodao.CadastrarUsuario(usuario));
 
         assertEquals("Usuario não Cadastrado", NaoFoiPossivelCadastrarUsuarioException.getMessage());
+    }
+
+    @Test
+    public void TesteParaVerificarAutenticacaoDoUsuario() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+        boolean autenticarUsuario = usuariodao.autenticacaoUsuario(usuario);
+        assertTrue(autenticarUsuario);
+        // assertEquals(true, usuariodao.autenticacaoUsuario(usuario));
+
+    }
+
+    @Test
+    public void TesteParaVerifcarSeRetornaErroCasoUsuarioNaoExista() throws NaoFoiPossivelAutenticaUsuarioException {
+        NaoFoiPossivelAutenticaUsuarioException NaoFoiPossivelAutenticaUsuarioException
+                = assertThrows(NaoFoiPossivelAutenticaUsuarioException.class,
+                        () -> usuariodao.autenticacaoUsuario(usuario));
+
+        assertEquals("Usuario não Cadastrado no sistema!", NaoFoiPossivelAutenticaUsuarioException.getMessage());
     }
 
     @Test

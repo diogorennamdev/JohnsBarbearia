@@ -28,14 +28,14 @@ public class UsuarioDAO {
             pstm.execute();
             pstm.close();
 
-        } catch (SQLException erro) { 
-            System.out.println("Não foi possivél cadastrar usuário"+ erro);
-             throw new NaoFoiPossivelCadastrarUsuarioException();
+        } catch (SQLException erro) {
+            System.out.println("Não foi possivél cadastrar usuário" + erro);
+            throw new NaoFoiPossivelCadastrarUsuarioException();
         }
 
     }
 
-    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException{
+    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
 
@@ -50,6 +50,7 @@ public class UsuarioDAO {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 checar = true;
+
             }
 
         } catch (SQLException erro) {
@@ -57,6 +58,7 @@ public class UsuarioDAO {
             throw new NaoFoiPossivelAutenticaUsuarioException();
         }
         return checar;
+
     }
 
     public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO) throws ErroAoValidarDadosException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
@@ -77,9 +79,8 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Errou ao verificar dados" + erro);
-            throw new ErroAoValidarDadosException();
+
         }
-        
         return checar;
     }
 }

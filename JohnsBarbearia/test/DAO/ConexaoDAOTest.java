@@ -24,23 +24,15 @@ public class ConexaoDAOTest {
 
     @Before
     public void setUp() {
-
+        
     }
 
     @Test
     public void TestarConexãoComOBancoDeDados() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, SQLException {
         conn = DriverManager.getConnection(url, usuario, senha);
-        System.out.println("Banco conectado com sucesso!");
-
+       // System.out.println("Banco conectado com sucesso!");
+        assertNotNull(conn);
     }
 
-//    @Test
-//    public void TesteParaVerificarSeEnviarErroCasoAConexaoNaoSejaFeita() {
-//        SQLException erroNaConexao
-//                = assertThrows(SQLException.class, ()
-//                        -> DriverManager.getConnection(url,usuario,senha)); 
-//        
-//        assertEquals("erro na conexão", erroNaConexao.getMessage());
-//    }
 
 }

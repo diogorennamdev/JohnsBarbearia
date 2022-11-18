@@ -18,11 +18,14 @@
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/UsuarioDAO.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/Exceptions/NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/CONTROLS/ControlTelaLoginTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/AgendamentoDAOTest.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/VIEW/JframeTelaLogin.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DTO/AgendamentoDTO.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaCadastro.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/Validacoes.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/AgendamentoDAO.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/SomenteNumeros.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/Exceptions/NaoFoiPossivelRealizarAgendamentoExecption.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/Exceptions/NaoFoiPossivelAutenticaUsuarioException.java</file>
         </group>
     </open-files>
