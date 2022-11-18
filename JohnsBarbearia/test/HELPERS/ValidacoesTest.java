@@ -2,11 +2,9 @@ package HELPERS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import Exceptions.ErroAoValidarCpfException;
-import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
-import static HELPERS.Validacoes.validarCPF;
-import java.util.InputMismatchException;
+import EXCEPTIONS.ErroAoValidarCPF;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,7 +33,7 @@ public class ValidacoesTest {
     }
 
     @Test
-    public void TesteParaValidarCPF() throws ErroAoValidarCpfException {
+    public void TesteParaValidarCPF() throws ErroAoValidarCPF {
         String cpf = "45184311203";
         assertEquals(true, Validacoes.validarCPF(cpf));
     }
@@ -43,16 +41,18 @@ public class ValidacoesTest {
     @Test
     public void TestaParaVerificarSeEnviaMensagemDeErroCasoCpfEstejaErrado() {
 
-        ErroAoValidarCpfException erroAoValidarCpf = assertThrows(ErroAoValidarCpfException.class,
+        ErroAoValidarCPF erroAoValidarCpf = assertThrows(ErroAoValidarCPF.class,
                  () -> Validacoes.validarCPF("05280503"));
 
         assertEquals("Erro ao validar CPF", erroAoValidarCpf.getMessage());
     }
 
     @Test
-    public void TesteParaVericarCriptografiaDaSenha() throws NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public void TesteParaVericarCriptografiaDaSenha() 
+            throws NaoFoiPossivelCadastrarUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         String CPF = "6144827100", nome = "Pedro",senha = "1234";
-
         usuariodto = new UsuarioDTO(CPF, nome,
                 Criptografia.criptografiaDaSenha(senha));
 

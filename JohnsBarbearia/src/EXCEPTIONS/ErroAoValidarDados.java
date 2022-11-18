@@ -1,8 +1,8 @@
 
-package Exceptions;
+package EXCEPTIONS;
 
 
-public class ErroAoValidarDadosException extends Exception {
+public class ErroAoValidarDados extends Exception {
 
     @Override
     public String getMessage() {

@@ -1,11 +1,11 @@
 package HELPERS;
 
-import Exceptions.ErroAoValidarCpfException;
+import EXCEPTIONS.ErroAoValidarCPF;
 import java.util.InputMismatchException;
 
 public class Validacoes {
 
-    public static boolean validarCPF(String validarCPF) throws ErroAoValidarCpfException {
+    public static boolean validarCPF(String validarCPF) throws ErroAoValidarCPF {
         // considera-se erro CPF's formados por uma sequencia de numeros iguais
         if (validarCPF.equals("00000000000")
                 || validarCPF.equals("11111111111")
@@ -69,7 +69,7 @@ public class Validacoes {
                 return (false);
             }
         } catch (InputMismatchException erro) {
-            throw new ErroAoValidarCpfException();
+            throw new ErroAoValidarCPF();
             //  System.out.println("");
             //return (false);
         }

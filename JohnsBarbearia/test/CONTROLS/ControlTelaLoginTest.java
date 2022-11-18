@@ -2,13 +2,8 @@ package CONTROLS;
 
 import DTO.UsuarioDTO;
 import DAO.UsuarioDAO;
-import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
-import HELPERS.Criptografia;
-import HELPERS.Validacoes;
-import javax.swing.JOptionPane;
-import org.junit.After;
-import org.junit.AfterClass;
+import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,9 +26,12 @@ public class ControlTelaLoginTest {
     }
 
     @Test
-    public void TesteParaVerificarSeEstarEntrandoNoSistema() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public void TesteParaVerificarSeEstarEntrandoNoSistema() 
+            throws NaoFoiPossivelAutenticaUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
 
-        String Cpf = usuariodto.getCPF_usuario(),senha = usuariodto.getSenha_usuario();
+        String Cpf = usuariodto.getCPF_usuario(),senha 
+                = usuariodto.getSenha_usuario();
         
         boolean logar = ControlTelaLogin.entrarSistema(Cpf, senha);
 
@@ -42,13 +40,19 @@ public class ControlTelaLoginTest {
     }
 
     @Test
-    public void TesteparaVerificarValidarDadosDoLogin() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public void TesteparaVerificarValidarDadosDoLogin() 
+            throws NaoFoiPossivelAutenticaUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
 
     }
 
     @Test
-    public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos() throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos() 
+            throws NaoFoiPossivelAutenticaUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         String CPF_usuario = "";
         String senha_usuario = "";
         ControlTelaLogin.validarDadosLogin(CPF_usuario, senha_usuario); 

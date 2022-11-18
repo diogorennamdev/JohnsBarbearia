@@ -1,8 +1,8 @@
 package HELPERS;
 
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import VIEW.JFrameTelaAgendamento;
 import VIEW.JFrameTelaCadastro;
-import VIEW.JFrameTelaHorarios;
 import VIEW.JframeTelaLogin;
 
 public class ChamarTelas {
@@ -13,22 +13,20 @@ public class ChamarTelas {
                 = new JFrameTelaCadastro();
         janelaJframeTelaCadastro.setVisible(true);
     }
+
     //Metodo que retorna JframeTeAgendamento
-    public static void chamarTelaAgendamento() {
+    public static void chamarTelaAgendamento()
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
         JFrameTelaAgendamento telaJframeTelaAgendamento
                 = new JFrameTelaAgendamento();
         telaJframeTelaAgendamento.setVisible(true);
     }
-    
+
     //Metodo que retorna JframeTelaLogin
     public static void chamarTelaLogin() {
         JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
         janelaJframeTelaLogin.setVisible(true);
     }
 
-    //Metodo que retorna JFrameTelaHorarios
-    public static void chamarTelaHorarios() {
-        JFrameTelaHorarios janelaJFrameTelaHorarios = new JFrameTelaHorarios();
-        janelaJFrameTelaHorarios.setVisible(true);
-    }
 }

@@ -1,8 +1,8 @@
 package DAO;
 
-import Exceptions.NaoFoiPossivelRealizarAgendamentoExecption;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import DTO.AgendamentoDTO;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,13 +15,15 @@ public class AgendamentoDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void Agendar(AgendamentoDTO objAgendamentoDTO) throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, NaoFoiPossivelRealizarAgendamentoExecption {
-        conn = new ConexaoDAO().conectaBD();
+    public void Agendar(AgendamentoDTO objAgendamentoDTO)
+            throws NaoFoiPossivelEstabelecerConexaoComBD,
+            NaoFoiPossivelRealizarAgendamento {
 
+        conn = new ConexaoDAO().conectaBD();
         try {
             String sql = "insert into agendamento"
                     + "(nome_cliente, servico, valor_servico, data_agendamento,"
-                    + " hora_agendamento, observacao_agendamento) "
+                    + "hora_agendamento, observacao_agendamento) "
                     + "values (?,?,?,?,?,?)";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1,
@@ -41,15 +43,16 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("Não foi possivél fazer agendamento " + erro);
-            throw new NaoFoiPossivelRealizarAgendamentoExecption();
+            throw new NaoFoiPossivelRealizarAgendamento();
         }
     }
 
-    public java.util.List<AgendamentoDTO> Horarios() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public java.util.List<AgendamentoDTO> Horarios()
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
         conn = new ConexaoDAO().conectaBD();
         ResultSet rs;
         List<AgendamentoDTO> horarios = new ArrayList<>();
-
         try {
             pstm = conn.prepareStatement("select * from agendamento");
             rs = pstm.executeQuery();
@@ -68,14 +71,52 @@ public class AgendamentoDAO {
                 agendamento.setObservacao_agendamento(
                         rs.getString("observacao_agendamento"));
                 agendamento.add(agendamento);
-                
+
             }
-           //  pstm.close();
-            
-        } catch (SQLException ex) {
-            System.out.println("error em List<AgendamentoDTO> " + ex);
+
+        } catch (SQLException erro) {
+            System.out.println("error em List<AgendamentoDTO> " + erro);
         }
         return horarios;
+    }
+
+    public void Excluir(AgendamentoDTO objAgendamentoDTO)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+        
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            String sql = "delete from agendamento where nome_cliente =?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objAgendamentoDTO.getNome_cliente());
+            pstm.execute();
+
+        } catch (SQLException erro) {
+            System.out.println("erro ao tentar Excluir agendamento" + erro);
+
+        }
+    }
+
+    public void Editar(AgendamentoDTO objAgendamentoDTO)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+        
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            String sql = "update agendamento set"
+                    + " nome_cliente=?, servico=?, valor_servico=?,"
+                    + " data_agendamento=?, hora_agendamento=?,"
+                    + " observacao_agendamento=?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objAgendamentoDTO.getNome_cliente());
+            pstm.setString(2, objAgendamentoDTO.getServico());
+            pstm.setString(3, objAgendamentoDTO.getValor_servico());
+            pstm.setString(4, objAgendamentoDTO.getData_agendamento());
+            pstm.setString(5, objAgendamentoDTO.getHora_agendamento());
+            pstm.setString(6, objAgendamentoDTO.getObservacao_agendamento());
+            pstm.execute();
+
+        } catch (SQLException erro) {
+            System.out.println("erro ao tentar Editar agendamento" + erro);
+        }
     }
 
 }

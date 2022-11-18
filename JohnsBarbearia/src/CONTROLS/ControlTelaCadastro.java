@@ -2,10 +2,10 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import Exceptions.ErroAoValidarCpfException;
-import Exceptions.ErroAoValidarDadosException;
-import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import EXCEPTIONS.ErroAoValidarCPF;
+import EXCEPTIONS.ErroAoValidarDados;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
@@ -15,7 +15,9 @@ public class ControlTelaCadastro {
 
     public static void cadastrar(String CPF_usuario,
             String nome_usuario,
-            String senha_usuario) throws NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+            String senha_usuario)
+            throws NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -30,7 +32,10 @@ public class ControlTelaCadastro {
 
     public static void autenticaDadosBD(String CPF_usuario,
             String nome_usuario,
-            String senha_usuario) throws ErroAoValidarDadosException, NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+            String senha_usuario)
+            throws ErroAoValidarDados, 
+            NaoFoiPossivelCadastrarUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -49,7 +54,11 @@ public class ControlTelaCadastro {
     }
 
     public static boolean ValidarDadosCPF(String CPF_usuario,
-            String nome_usuario, String senha_usuario) throws ErroAoValidarCpfException, ErroAoValidarDadosException, NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+            String nome_usuario, String senha_usuario)
+            throws ErroAoValidarCPF,
+            ErroAoValidarDados,
+            NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD {
 
         if (CPF_usuario.equals("")
                 || nome_usuario.equals("")

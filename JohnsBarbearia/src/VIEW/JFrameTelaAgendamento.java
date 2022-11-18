@@ -1,13 +1,24 @@
 package VIEW;
 
 import CONTROLS.ControlTelaAgendamento;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import HELPERS.ChamarTelas;
+import HELPERS.LimitaCaracteres;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
-    public JFrameTelaAgendamento() {
+    public JFrameTelaAgendamento()
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
         initComponents();
         setResizable(false);
+        ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+        ObservçãoJTextArea.setDocument(new LimitaCaracteres(50,
+                LimitaCaracteres.TipoEntrada.OBSERVACAO));
 
     }
 
@@ -21,7 +32,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         JohnsBarbeariaJLabel = new javax.swing.JLabel();
         ObservçãoJScrollPane = new javax.swing.JScrollPane();
         ObservçãoJTextArea = new javax.swing.JTextArea();
-        ObservaçãoJLabel = new javax.swing.JLabel();
         ServiçoJComboBox = new javax.swing.JComboBox<>();
         ServiçoLabel = new javax.swing.JLabel();
         ClienteLabel = new javax.swing.JLabel();
@@ -33,7 +43,12 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         HoraJLabel = new javax.swing.JLabel();
         AgendarJButton = new javax.swing.JButton();
         ClienteJText = new javax.swing.JTextField();
-        horariosJButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AgendamentosJTable = new javax.swing.JTable();
+        EditarJButton = new javax.swing.JButton();
+        ExcluirJButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        ObservaçãoJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agendamento");
@@ -82,13 +97,10 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        ObservçãoJTextArea.setColumns(5);
-        ObservçãoJTextArea.setRows(10);
+        ObservçãoJTextArea.setColumns(1);
+        ObservçãoJTextArea.setRows(2);
+        ObservçãoJTextArea.setTabSize(1);
         ObservçãoJScrollPane.setViewportView(ObservçãoJTextArea);
-
-        ObservaçãoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        ObservaçãoJLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ObservaçãoJLabel.setText("OBSERVAÇÃO:");
 
         ServiçoJComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ServiçoJComboBox.setForeground(new java.awt.Color(65, 65, 65));
@@ -161,76 +173,126 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
         ClienteJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ClienteJText.setForeground(new java.awt.Color(65, 65, 65));
+        ClienteJText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ClienteJTextMouseClicked(evt);
+            }
+        });
         ClienteJText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClienteJTextActionPerformed(evt);
             }
         });
 
-        horariosJButton.setBackground(new java.awt.Color(65, 65, 65));
-        horariosJButton.setForeground(new java.awt.Color(255, 255, 255));
-        horariosJButton.setText("Ver Clientes Agendados  ▶");
-        horariosJButton.setBorderPainted(false);
-        horariosJButton.setContentAreaFilled(false);
-        horariosJButton.setDefaultCapable(false);
-        horariosJButton.setFocusPainted(false);
-        horariosJButton.setFocusable(false);
-        horariosJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        horariosJButton.addActionListener(new java.awt.event.ActionListener() {
+        AgendamentosJTable.setForeground(new java.awt.Color(65, 65, 65));
+        AgendamentosJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Cliente", "Serviço", "Valor (R$)", "Data", "Hora", "Observação"
+            }
+        ));
+        AgendamentosJTable.setGridColor(new java.awt.Color(234, 234, 234));
+        AgendamentosJTable.setRowHeight(22);
+        jScrollPane1.setViewportView(AgendamentosJTable);
+
+        EditarJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        EditarJButton.setForeground(new java.awt.Color(65, 65, 65));
+        EditarJButton.setText("EDITAR");
+        EditarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horariosJButtonActionPerformed(evt);
+                EditarJButtonActionPerformed(evt);
             }
         });
+
+        ExcluirJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ExcluirJButton.setForeground(new java.awt.Color(65, 65, 65));
+        ExcluirJButton.setText("EXCLUIR");
+        ExcluirJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirJButtonActionPerformed(evt);
+            }
+        });
+
+        ObservaçãoJLabel.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        ObservaçãoJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ObservaçãoJLabel.setText("OBSERVAÇÃO:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AgendarJButton)
+                .addGap(222, 222, 222))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ObservaçãoJLabel)
-                            .addComponent(ObservçãoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(AgendarJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
-                                .addComponent(horariosJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(DataJLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(11, 11, 11)
-                                    .addComponent(ValorJLabel)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ServiçoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addComponent(DataJLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ValorJLabel)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ServiçoLabel)))
+                            .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ObservaçãoJLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ServiçoJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(DataTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(HoraJLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ValorTextField)
-                            .addComponent(ClienteJText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ServiçoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(DataTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(HoraJLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ValorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ObservçãoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(EditarJButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ExcluirJButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(JPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClienteLabel)
                     .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServiçoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ServiçoLabel))
@@ -241,18 +303,24 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DataJLabel)
-                    .addComponent(HoraJLabel)
                     .addComponent(DataTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(ObservaçãoJLabel)
+                    .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HoraJLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ObservçãoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ObservçãoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ObservaçãoJLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AgendarJButton)
+                .addGap(12, 12, 12)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgendarJButton)
-                    .addComponent(horariosJButton))
-                .addGap(29, 29, 29))
+                    .addComponent(EditarJButton)
+                    .addComponent(ExcluirJButton))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,45 +338,86 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairJButtonActionPerformed
-        ChamarTelas.chamarTelaLogin();
-        this.dispose();
-    }//GEN-LAST:event_SairJButtonActionPerformed
+    private void ClienteJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteJTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ClienteJTextActionPerformed
+
+    private void DataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataTextFieldActionPerformed
 
     private void ValorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ValorTextFieldActionPerformed
 
-    private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
-        if (ControlTelaAgendamento.Agendar(nome_cliente(),
-                servico(),
-                valor_servico(),
-                data_agendamento(),
-                hora_agendamento(),
-                observacao_agendamento())) {
-            limparCampos();
-
-        }
-
-    }//GEN-LAST:event_AgendarJButtonActionPerformed
-
     private void ServiçoJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiçoJComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ServiçoJComboBoxActionPerformed
 
-    private void ClienteJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteJTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ClienteJTextActionPerformed
+    private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
+        try {
+            if (ControlTelaAgendamento.Agendar(nome_cliente(),
+                    servico(),
+                    valor_servico(),
+                    data_agendamento(),
+                    hora_agendamento(),
+                    observacao_agendamento())) {
+                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+                limparCampos();
+            }
+        } catch (NaoFoiPossivelEstabelecerConexaoComBD
+                | NaoFoiPossivelRealizarAgendamento ex) {
+            Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(
+                    Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_AgendarJButtonActionPerformed
 
-    private void horariosJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horariosJButtonActionPerformed
-        ChamarTelas.chamarTelaHorarios();
+    private void SairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairJButtonActionPerformed
+        ChamarTelas.chamarTelaLogin();
         this.dispose();
-        //this.ListarCliente(ControlTelaAgendamento);
-    }//GEN-LAST:event_horariosJButtonActionPerformed
+    }//GEN-LAST:event_SairJButtonActionPerformed
 
-    private void DataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataTextFieldActionPerformed
+    private void ExcluirJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirJButtonActionPerformed
+
+        try {
+            if (AgendamentosJTable.getSelectedRow() != -1) {
+                ControlTelaAgendamento.ExcluirAgendamento(AgendamentosJTable);
+                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+                limparCampos();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Selecione para excluir");
+            }
+
+        } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
+            Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_ExcluirJButtonActionPerformed
+
+    private void EditarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarJButtonActionPerformed
+        try {
+            if (AgendamentosJTable.getSelectedRow()!=-1){
+            ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable,
+                    nome_cliente(),
+                    servico(),
+                    valor_servico(),
+                    data_agendamento(),
+                    hora_agendamento(),
+                    observacao_agendamento());
+                AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
+                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+            }
+            
+        } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
+            Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_EditarJButtonActionPerformed
+
+    private void ClienteJTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteJTextMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_DataTextFieldActionPerformed
+    }//GEN-LAST:event_ClienteJTextMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -328,18 +437,26 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new JFrameTelaAgendamento().setVisible(true);
+                try {
+                    new JFrameTelaAgendamento().setVisible(true);
+                } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
+                    Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable AgendamentosJTable;
     private javax.swing.JButton AgendarJButton;
     private javax.swing.JTextField ClienteJText;
     private javax.swing.JLabel ClienteLabel;
     private javax.swing.JLabel DataJLabel;
     private javax.swing.JFormattedTextField DataTextField;
+    private javax.swing.JButton EditarJButton;
+    private javax.swing.JButton ExcluirJButton;
     private javax.swing.JLabel HoraJLabel;
     private javax.swing.JFormattedTextField HoraTextField;
     private javax.swing.JPanel JPanelCabecalho;
@@ -352,8 +469,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JLabel ServiçoLabel;
     private javax.swing.JLabel ValorJLabel;
     private javax.swing.JTextField ValorTextField;
-    private javax.swing.JButton horariosJButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
     private String nome_cliente() {

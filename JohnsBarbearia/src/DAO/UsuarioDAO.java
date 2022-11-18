@@ -1,10 +1,10 @@
 package DAO;
 
-import Exceptions.ErroAoValidarDadosException;
-import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
-import Exceptions.NaoFoiPossivelCadastrarUsuarioException;
+import EXCEPTIONS.ErroAoValidarDados;
+import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import DTO.UsuarioDTO;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,9 +15,11 @@ public class UsuarioDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelCadastrarUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) 
+            throws NaoFoiPossivelCadastrarUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         conn = new ConexaoDAO().conectaBD();
-
         try {
             String sql = "insert into usuario "
                     + "(CPF_usuario, nome_usuario, senha_usuario) values(?,?,?)";
@@ -30,15 +32,17 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Não foi possivél cadastrar usuário" + erro);
-            throw new NaoFoiPossivelCadastrarUsuarioException();
+            throw new NaoFoiPossivelCadastrarUsuario();
         }
 
     }
 
-    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) throws NaoFoiPossivelAutenticaUsuarioException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) 
+            throws NaoFoiPossivelAutenticaUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
-
         try {
             String sql = "select * from usuario "
                     + "where CPF_usuario= ? and senha_usuario = ?";
@@ -55,16 +59,18 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Usuario não Cadastrado" + erro);
-            throw new NaoFoiPossivelAutenticaUsuarioException();
+            throw new NaoFoiPossivelAutenticaUsuario();
         }
         return checar;
 
     }
 
-    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO) throws ErroAoValidarDadosException, NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO)
+            throws ErroAoValidarDados,
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
-
         try {
             String sql = "select * from usuario "
                     + "where CPF_usuario = ?";

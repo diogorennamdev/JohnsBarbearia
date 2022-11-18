@@ -1,6 +1,6 @@
-package Exceptions;
+package EXCEPTIONS;
 
-public class NaoFoiPossivelRealizarAgendamentoExecption extends Exception {
+public class NaoFoiPossivelRealizarAgendamento extends Exception {
 
     @Override
     public String getMessage() {

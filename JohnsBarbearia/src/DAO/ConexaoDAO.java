@@ -1,5 +1,6 @@
 package DAO;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,14 +12,15 @@ public class ConexaoDAO {
     String usuario = "root";
     String senha = "";
 
-    public Connection conectaBD() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException {
+    public Connection conectaBD()
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+        
         try {
             conn = DriverManager.getConnection(url, usuario, senha);
             return conn;
         } catch (SQLException ex) {
-            System.out.println("erro na conexão"+ ex);
-            throw new NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException();
+            System.out.println("erro na conexão" + ex);
+            throw new NaoFoiPossivelEstabelecerConexaoComBD();
         }
-       // return null;
-    }    
+    }
 }

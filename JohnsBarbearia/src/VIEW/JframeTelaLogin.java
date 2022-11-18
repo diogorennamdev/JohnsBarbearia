@@ -1,20 +1,18 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
-import Exceptions.NaoFoiPossivelAutenticaUsuarioException;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
     public JframeTelaLogin() {
         initComponents();
         CPFJText.setDocument(new SomenteNumeros());
-        CPFJText.setDocument(new LimitaCaracteres(11, 
+        CPFJText.setDocument(new LimitaCaracteres(11,
                 LimitaCaracteres.TipoEntrada.CPF));
         setResizable(false);
     }
@@ -186,11 +184,12 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             } else {
                 limpaCampos();
             }
-        } catch (NaoFoiPossivelAutenticaUsuarioException ex) {
-           // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException ex) {
-           // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NaoFoiPossivelAutenticaUsuario
+                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+            // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
 

@@ -1,16 +1,12 @@
 package DAO;
 
-import DAO.ConexaoDAO;
-import Exceptions.NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static sun.jvm.hotspot.HelloWorld.e;
 
 public class ConexaoDAOTest {
 
@@ -24,15 +20,16 @@ public class ConexaoDAOTest {
 
     @Before
     public void setUp() {
-        
+
     }
 
     @Test
-    public void TestarConexãoComOBancoDeDados() throws NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException, SQLException {
+    public void TestarConexãoComOBancoDeDados()
+            throws NaoFoiPossivelEstabelecerConexaoComBD, SQLException {
+        
         conn = DriverManager.getConnection(url, usuario, senha);
-       // System.out.println("Banco conectado com sucesso!");
+        // System.out.println("Banco conectado com sucesso!");
         assertNotNull(conn);
     }
-
 
 }

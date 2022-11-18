@@ -1,8 +1,8 @@
 
-package Exceptions;
+package EXCEPTIONS;
 
 
-public class ErroAoValidarCpfException extends Exception {
+public class ErroAoValidarCPF extends Exception {
 
     @Override
     public String getMessage() {

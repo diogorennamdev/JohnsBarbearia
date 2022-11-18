@@ -2,9 +2,7 @@ package DAO;
 
 import DTO.AgendamentoDTO;
 import DAO.AgendamentoDAO;
-import Exceptions.NaoFoiPossivelRealizarAgendamentoExecption;
-import org.junit.After;
-import org.junit.AfterClass;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -30,22 +28,25 @@ public class AgendamentoDAOTest {
     }
 
     @Test
-    public void TesteParaVerificarSeEstarInserindoAgendamentoNoBanco() throws Exception {
+    public void TesteParaVerificarSeEstarInserindoAgendamentoNoBanco()
+            throws Exception {
         agendamentodao.Agendar(agendamentodto);
-        
         assertEquals(AgendamentoDTO.class, agendamentodto.getClass());
     }
-    
+
     @Test
-    public void TesteParaVerificarSeAparecerMensagemDeErroNoAgendamento(){
-        NaoFoiPossivelRealizarAgendamentoExecption naoFoiPossivelRealizarAgendamentoExecption 
-                = assertThrows(NaoFoiPossivelRealizarAgendamentoExecption.class, ()-> agendamentodao.Agendar(agendamentodto)); 
-        assertEquals("Não foi possivel realizar agendamento", naoFoiPossivelRealizarAgendamentoExecption.getMessage());
+    public void TesteParaVerificarSeAparecerMensagemDeErroNoAgendamento() {
+        NaoFoiPossivelRealizarAgendamento naoFoiPosNaoFoiPossivelRealizarAgendamento
+                = assertThrows(NaoFoiPossivelRealizarAgendamento.class,
+                        () -> agendamentodao.Agendar(agendamentodto));
+        assertEquals("Não foi possivel realizar agendamento",
+                naoFoiPosNaoFoiPossivelRealizarAgendamento.getMessage());
     }
 
     private void CriarAgendamento() {
         agendamentodto = new AgendamentoDTO(nome_cliente, servico,
-                valor_servico, data_agendamento, hora_agendamento, observacao_agendamento);
+                valor_servico, data_agendamento,
+                hora_agendamento, observacao_agendamento);
 
     }
 
