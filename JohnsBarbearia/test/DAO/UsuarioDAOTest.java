@@ -65,12 +65,12 @@ public class UsuarioDAOTest {
     @Test
     public void TesteParaVerifcarSeRetornaErroCasoUsuarioNaoExista()
             throws NaoFoiPossivelAutenticaUsuario {
-        NaoFoiPossivelAutenticaUsuario NaoFoiPossivelAutenticaUsuario
-                = assertThrows(NaoFoiPossivelAutenticaUsuarioException.class,
+        NaoFoiPossivelAutenticaUsuario naoFoiPossivelAutenticaUsuario
+                = assertThrows(NaoFoiPossivelAutenticaUsuario.class,
                         () -> usuariodao.autenticacaoUsuario(usuario));
 
         assertEquals("Usuario não Cadastrado no sistema!",
-                NaoFoiPossivelAutenticaUsuario.getMessage());
+                naoFoiPossivelAutenticaUsuario.getMessage());
     }
 
     @Test
