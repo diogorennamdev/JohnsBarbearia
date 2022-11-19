@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class ControlTelaAgendamento {
+public class ControlTelaAgendamento  {
 
     public static boolean Agendar(String nome_cliente,
             String servico,

@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     public JFrameTelaAgendamento()
@@ -396,20 +395,19 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     private void EditarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarJButtonActionPerformed
         try {
-            if (AgendamentosJTable.getSelectedRow()!=-1){
-            ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable,
-                    nome_cliente(),
-                    servico(),
-                    valor_servico(),
-                    data_agendamento(),
-                    hora_agendamento(),
-                    observacao_agendamento());
+            if (AgendamentosJTable.getSelectedRow() != -1) {
                 AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
+                ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable,
+                        nome_cliente(),
+                        servico(),
+                        valor_servico(),
+                        data_agendamento(),
+                        hora_agendamento(),
+                        observacao_agendamento());
                 ControlTelaAgendamento.LerTabela(AgendamentosJTable);
             }
-            
+
         } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
-            Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -419,32 +417,23 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ClienteJTextMouseClicked
 
-    public static void main(String args[]) {
+    public static void WindowsLayout() {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info
+                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException
+                | InstantiationException
+                | IllegalAccessException
+                | javax.swing.UnsupportedLookAndFeelException ex) {
         }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    new JFrameTelaAgendamento().setVisible(true);
-                } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
-                    Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new JframeTelaLogin().setVisible(true);
         });
     }
 

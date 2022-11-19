@@ -7,6 +7,7 @@ import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 
+
 public class JframeTelaLogin extends javax.swing.JFrame {
 
     public JframeTelaLogin() {
@@ -177,18 +178,17 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-        try {
-            if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
-                    senha_usuario())) {
-                this.dispose();
-            } else {
-                limpaCampos();
-            }
-        } catch (NaoFoiPossivelAutenticaUsuario
-                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
-            // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-            // Logger.getLogger(JframeTelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+   
+ //        try {
+//            if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+//                    senha_usuario())) {
+//                this.dispose();
+//            } else {
+//                limpaCampos();
+//            }
+//        } catch (NaoFoiPossivelAutenticaUsuario
+//                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+//        }
 
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
@@ -209,26 +209,21 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info
+                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JframeTelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JframeTelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JframeTelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JframeTelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException
+                | InstantiationException
+                | IllegalAccessException
+                | javax.swing.UnsupportedLookAndFeelException ex) {
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JframeTelaLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new JframeTelaLogin().setVisible(true);
         });
     }
 

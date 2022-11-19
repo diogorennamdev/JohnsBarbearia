@@ -8,6 +8,7 @@ import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,8 +38,10 @@ public class ControlTelaCadastroTest {
             ErroAoValidarCPF, ErroAoValidarDados,
             NaoFoiPossivelCadastrarUsuario {
 
-        String Cpf = "96575718205", nome = "Gustavo", senha = "1234";
+        String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
+        Assert.assertEquals(senha, senha);
+        // select no banco para verificar se o usuario foi cadastrdo
         //String Cpf = "96575718205", nome = "Paulo", senha = "1234";
         // assertEquals(true, ControlTelaCadastro.ValidarDadosCPF(Cpf, nome, senha));
     }

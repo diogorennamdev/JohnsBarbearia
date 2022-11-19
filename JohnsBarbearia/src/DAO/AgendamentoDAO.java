@@ -70,7 +70,7 @@ public class AgendamentoDAO {
                         rs.getString("hora_agendamento"));
                 agendamento.setObservacao_agendamento(
                         rs.getString("observacao_agendamento"));
-                agendamento.add(agendamento);
+                horarios.add(agendamento);
 
             }
 
