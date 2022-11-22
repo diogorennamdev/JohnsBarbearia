@@ -7,8 +7,6 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JOptionPane;
 
 public class ControlTelaLogin {
 
@@ -33,20 +31,21 @@ public class ControlTelaLogin {
         return fechartela;
     }
 
-    public static Map<Boolean, String> validarDadosLogin(String CPF_usuario,
+    public static HashMap<String, String> validarDadosLogin(String CPF_usuario,
             String senha_usuario)
             throws NaoFoiPossivelAutenticaUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
 
-        Map<Boolean, String> response = new HashMap<>();
+        HashMap<String, String> response = new HashMap<>();
 
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
-            response.put(Boolean.FALSE, "CAMPOS VAZIOS!\n Por favor insira os dados.");
+            response.put("Resposta", "CAMPOS VAZIOS!\n Por favor insira os dados.");
+            
 
         } else if (ControlTelaLogin.entrarSistema(CPF_usuario, senha_usuario)) {
-            response.put(Boolean.TRUE, "");
+            response.put("Resposta", "");
         } else {
-            response.put(Boolean.FALSE, 
+            response.put("Resposta",
                     " USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.");
 
         }
