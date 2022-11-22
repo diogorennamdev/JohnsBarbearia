@@ -15,10 +15,11 @@ public class UsuarioDAO {
     Connection conn;
     PreparedStatement pstm;
 
-    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO) 
-            throws NaoFoiPossivelCadastrarUsuario, 
-            NaoFoiPossivelEstabelecerConexaoComBD {
-        
+    public void CadastrarUsuario(UsuarioDTO objUsuarioDTO)
+            throws NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
+
         conn = new ConexaoDAO().conectaBD();
         try {
             String sql = "insert into usuario "
@@ -31,16 +32,16 @@ public class UsuarioDAO {
             pstm.close();
 
         } catch (SQLException erro) {
-            System.out.println("Não foi possivél cadastrar usuário" + erro);
+            System.out.println("Não foi possivél cadastrar usuário");
             throw new NaoFoiPossivelCadastrarUsuario();
         }
 
     }
 
-    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO) 
+    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO)
             throws NaoFoiPossivelAutenticaUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
-        
+
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
         try {
@@ -68,7 +69,7 @@ public class UsuarioDAO {
     public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO)
             throws ErroAoValidarDados,
             NaoFoiPossivelEstabelecerConexaoComBD {
-        
+
         conn = new ConexaoDAO().conectaBD();
         boolean checar = false;
         try {

@@ -39,6 +39,7 @@ public class ControlTelaLoginTest {
 
     }
 
+<<<<<<< HEAD
 //    @Test
 //    public void TesteparaVerificarValidarDadosDoLogin() 
 //            throws NaoFoiPossivelAutenticaUsuario, 
@@ -47,6 +48,16 @@ public class ControlTelaLoginTest {
 //        assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
 //
 //    }
+=======
+    @Test
+    public void TesteparaVerificarValidarDadosDoLogin() 
+            throws NaoFoiPossivelAutenticaUsuario, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        
+      //  assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
+
+    }
+>>>>>>> 72c9172e9196418aaa9840b1170747bbe79c60c9
 
     @Test
     public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos() 

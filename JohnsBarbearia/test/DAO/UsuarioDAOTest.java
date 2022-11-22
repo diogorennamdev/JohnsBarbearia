@@ -2,18 +2,99 @@ package DAO;
 
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoValidarCPF;
+import EXCEPTIONS.ErroAoValidarDados;
 import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
+import java.sql.SQLException;
 import org.junit.Before;
+import org.mockito.Mock;
+import org.junit.runner.RunWith;
+import static org.mockito.Mockito.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 
-    private static final String SENHA = "12345";
+   
+    private UsuarioDAO usuariodao = mock(UsuarioDAO.class);
+
+    @Test
+    public void TesteParaVerificarAutenticacaoDoUsuario() throws NaoFoiPossivelAutenticaUsuario, NaoFoiPossivelEstabelecerConexaoComBD, ErroAoValidarCPF {
+      
+        UsuarioDTO usuario = new UsuarioDTO("85412145478", 
+                "Diogo", "1234");
+        when(usuariodao.autenticacaoUsuario(usuario)).thenReturn(true);
+
+        assertTrue(usuariodao.autenticacaoUsuario(usuario));
+        
+        verify(usuariodao,times(1)).autenticacaoUsuario(usuario);
+    }
+    
+    
+    @Test
+    public void DeverRetornaFalseCasoOUsuarioNaoExistaNoBanco() 
+            throws NaoFoiPossivelAutenticaUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            ErroAoValidarCPF {
+      
+        UsuarioDTO usuario = new UsuarioDTO("85412145478",
+                "Diogo", "1234");
+        when(usuariodao.autenticacaoUsuario(
+                usuario)).thenReturn(false);
+
+        assertFalse(usuariodao.autenticacaoUsuario(usuario));
+        
+        verify(usuariodao,times(1)
+        ).autenticacaoUsuario(usuario);
+    }
+
+    @Test
+    public void TesteParaVerificarSeEstarInserindoUsuario() throws
+            NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
+
+        UsuarioDTO usuario = new UsuarioDTO("50623842904",
+                "Diogo", "1234");
+
+        doNothing().when(usuariodao).CadastrarUsuario(usuario);
+
+        usuariodao.CadastrarUsuario(usuario);
+
+        verify(usuariodao, times(1))
+                .CadastrarUsuario(usuario);
+
+    }
+
+
+    @Test
+    public void TesteParaVerificarValidacaoDedados() 
+            throws ErroAoValidarDados, 
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        UsuarioDTO usuario = new UsuarioDTO("345540503", "diogo", "1234");
+        when(usuariodao.verificarDadosBDCpf(usuario)).thenReturn(true);
+
+        assertTrue(usuariodao.verificarDadosBDCpf(usuario));
+
+        verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
+    }
+
+    @Test
+    public void TesteParaverificarValidacaoDeDadosFalse() 
+            throws ErroAoValidarDados,
+            NaoFoiPossivelEstabelecerConexaoComBD {
+        UsuarioDTO usuario = new UsuarioDTO("345540503", "diogo", "1234");
+        when(usuariodao.verificarDadosBDCpf(usuario)).thenReturn(false);
+
+        assertFalse(usuariodao.verificarDadosBDCpf(usuario));
+
+        verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
+    }
+
+    /*  private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
     private static final String CPF = "45184311203";
 
@@ -31,16 +112,15 @@ public class UsuarioDAOTest {
 
     @Test
     public void TesteParaVerificarSeEstarCadastrandoUsuario()
-            throws NaoFoiPossivelCadastrarUsuario,
+           throws NaoFoiPossivelCadastrarUsuario,
             ErroAoValidarCPF,
-            NaoFoiPossivelEstabelecerConexaoComBD {
+            NaoFoiPossivelEstabelecerConexaoComBD {       
         assertTrue(Validacoes.validarCPF(CPF));
-        usuariodao.CadastrarUsuario(usuario);
-
-        assertEquals(UsuarioDTO.class, usuario.getClass());
+       usuariodao.CadastrarUsuario(usuario);
+   assertEquals(UsuarioDTO.class, usuario.getClass());
 
     }
-
+     
     @Test
     public void DeverRetornarMensagemDeErroNoCadastro() {
         NaoFoiPossivelCadastrarUsuario NaoFoiPossivelCadastrarUsuario
@@ -58,8 +138,7 @@ public class UsuarioDAOTest {
         boolean autenticarUsuario
                 = usuariodao.autenticacaoUsuario(usuario);
         assertTrue(autenticarUsuario);
-        // assertEquals(true, usuariodao.autenticacaoUsuario(usuario));
-
+        
     }
 
     @Test
@@ -69,7 +148,7 @@ public class UsuarioDAOTest {
                 = assertThrows(NaoFoiPossivelAutenticaUsuario.class,
                         () -> usuariodao.autenticacaoUsuario(usuario));
 
-        assertEquals("Usuario não Cadastrado no sistema!",
+        assertEquals("não foi possivel cadastrar usuario",
                 naoFoiPossivelAutenticaUsuario.getMessage());
     }
 
@@ -84,5 +163,5 @@ public class UsuarioDAOTest {
                 Criptografia.criptografiaDaSenha(SENHA));
 
     }
-
+     */
 }

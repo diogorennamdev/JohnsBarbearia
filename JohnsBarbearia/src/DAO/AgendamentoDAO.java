@@ -17,7 +17,8 @@ public class AgendamentoDAO {
 
     public void Agendar(AgendamentoDTO objAgendamentoDTO)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelRealizarAgendamento {
+            NaoFoiPossivelRealizarAgendamento,
+            SQLException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -42,8 +43,9 @@ public class AgendamentoDAO {
             pstm.close();
 
         } catch (SQLException erro) {
-            System.out.println("Não foi possivél fazer agendamento " + erro);
-            throw new NaoFoiPossivelRealizarAgendamento();
+          // System.out.println("Não foi possivél fazer agendamento " + erro);
+          // throw new SQLException("Não foi possivél agendar usuario");
+          throw new NaoFoiPossivelRealizarAgendamento();
         }
     }
 

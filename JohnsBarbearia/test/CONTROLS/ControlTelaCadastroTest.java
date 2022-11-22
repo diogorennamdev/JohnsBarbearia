@@ -40,10 +40,8 @@ public class ControlTelaCadastroTest {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
-        Assert.assertEquals(senha, senha);
+
         // select no banco para verificar se o usuario foi cadastrdo
-        //String Cpf = "96575718205", nome = "Paulo", senha = "1234";
-        // assertEquals(true, ControlTelaCadastro.ValidarDadosCPF(Cpf, nome, senha));
     }
 
     @Test

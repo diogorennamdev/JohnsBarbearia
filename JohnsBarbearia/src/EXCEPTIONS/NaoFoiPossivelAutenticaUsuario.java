@@ -1,6 +1,4 @@
-
 package EXCEPTIONS;
-
 
 public class NaoFoiPossivelAutenticaUsuario extends Exception {
 
@@ -8,4 +6,5 @@ public class NaoFoiPossivelAutenticaUsuario extends Exception {
     public String getMessage() {
         return "Usuario não Cadastrado no sistema!";
     }
+
 }
