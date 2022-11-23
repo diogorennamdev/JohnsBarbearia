@@ -32,11 +32,16 @@ public class ControlTelaLogin {
 
     }
 
+<<<<<<< HEAD
     public static String validarDadosLogin(String CPF_usuario,
+=======
+    public static HashMap<String, String> validarDadosLogin(String CPF_usuario,
+>>>>>>> 9e0fe949a73c48323b9245a9bc4069caa4a88df4
             String senha_usuario)
             throws NaoFoiPossivelAutenticaUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
 
+<<<<<<< HEAD
         String response;
 
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
@@ -47,6 +52,19 @@ public class ControlTelaLogin {
 
         } else {
             response = " USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.";
+=======
+        HashMap<String, String> response = new HashMap<>();
+
+        if (CPF_usuario.equals("") || senha_usuario.equals("")) {
+            response.put("Resposta", "CAMPOS VAZIOS!\n Por favor insira os dados.");
+            
+
+        } else if (ControlTelaLogin.entrarSistema(CPF_usuario, senha_usuario)) {
+            response.put("Resposta", "");
+        } else {
+            response.put("Resposta",
+                    " USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.");
+>>>>>>> 9e0fe949a73c48323b9245a9bc4069caa4a88df4
 
         }
 
