@@ -3,14 +3,13 @@ package VIEW;
 import CONTROLS.ControlTelaCadastro;
 import EXCEPTIONS.ErroAoValidarCPF;
 import EXCEPTIONS.ErroAoValidarDados;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
@@ -209,12 +208,11 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
         try {
-            String result = ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
+            String result = ControlTelaCadastro.autenticaDados(CPF_usuario(),
                     nome_usuario(),
                     senha_usuario());
             if (result != null) {
-                JOptionPane.showMessageDialog(rootPane,
-                        result);
+                JOptionPane.showMessageDialog(rootPane, result);
                 limparCampos();
             } else {
                 this.dispose();
@@ -223,7 +221,8 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 | ErroAoValidarDados
                 | NaoFoiPossivelCadastrarUsuario
                 | NaoFoiPossivelEstabelecerConexaoComBD
-                | SQLException ex) {
+                | SQLException
+                | NaoFoiPossivelAutenticarUsuario ex) {
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 

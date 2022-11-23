@@ -32,7 +32,7 @@ public class UsuarioDAO {
             pstm.close();
 
         } catch (SQLException erro) {
-            System.out.println("Não foi possivél cadastrar usuário");
+            System.out.println("Não foi possivél cadastrar usuário" + erro);
             throw new NaoFoiPossivelCadastrarUsuario();
         }
 
@@ -59,7 +59,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException erro) {
-           // System.out.println("Usuario não Cadastrado" + erro);
+            System.out.println("Usuario não Cadastrado" + erro);
             throw new NaoFoiPossivelAutenticarUsuario();
         }
         return checar;
@@ -78,8 +78,7 @@ public class UsuarioDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objUsuarioDTO.getCPF_usuario());
 
-            ResultSet rs = null;
-            rs = pstm.executeQuery();
+            ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 checar = true;
             }

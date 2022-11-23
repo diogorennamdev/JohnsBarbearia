@@ -178,19 +178,18 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-
         try {
-           String result
-                = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
-                        senha_usuario());
-        if (result != null) {
-            JOptionPane.showMessageDialog(rootPane, result);
-            limpaCampos();
-        } else {
-            this.dispose();
-        }
-        
-        } catch (NaoFoiPossivelAutenticarUsuario | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+            String result = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+                    senha_usuario());
+            if (result != null) {
+                JOptionPane.showMessageDialog(rootPane, result);
+                limparCampos();
+            } else {
+                this.dispose();
+            }
+
+        } catch (NaoFoiPossivelAutenticarUsuario
+                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
         }
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
@@ -252,7 +251,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         return senha_usuario;
     }
 
-    public void limpaCampos() {
+    public void limparCampos() {
         CPFJText.setText("");
         txtSenhaUsuario.setText("");
     }

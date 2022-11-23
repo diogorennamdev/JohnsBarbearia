@@ -8,7 +8,7 @@ public class LimitaCaracteres extends PlainDocument {
 //Class LimitaCaracteres limita o cpf em 11 caracteres
 
     public enum TipoEntrada {
-        CPF, OBSERVACAO;
+        CPF, OBSERVACAO, VALOR;
     };
 
     private final int qtdCaracteres;
@@ -35,6 +35,9 @@ public class LimitaCaracteres extends PlainDocument {
                 break;
             case OBSERVACAO:
                 regex = "[^\\p{IsLatin} ][^0-9] :";
+                break;
+            case VALOR:
+                regex = "[^0-9]";
                 break;
 
         }
