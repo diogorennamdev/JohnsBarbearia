@@ -178,9 +178,9 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-   
- //        try {
-//            if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+
+//         try {
+//        if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
 //                    senha_usuario())) {
 //                this.dispose();
 //            } else {
