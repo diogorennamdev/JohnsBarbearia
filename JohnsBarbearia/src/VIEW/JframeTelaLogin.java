@@ -1,12 +1,11 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
-import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
@@ -191,8 +190,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             this.dispose();
         }
         
-        } catch (NaoFoiPossivelAutenticaUsuario
-                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+        } catch (NaoFoiPossivelAutenticarUsuario | NaoFoiPossivelEstabelecerConexaoComBD ex) {
         }
 
     }//GEN-LAST:event_entrarsistemaActionPerformed

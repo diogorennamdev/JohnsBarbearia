@@ -1,4 +1,4 @@
-package DAO;
+package DAO.UNIT;
 
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import java.sql.Connection;

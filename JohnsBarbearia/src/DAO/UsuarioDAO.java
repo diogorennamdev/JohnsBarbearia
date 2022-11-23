@@ -1,7 +1,7 @@
 package DAO;
 
 import EXCEPTIONS.ErroAoValidarDados;
-import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
@@ -39,7 +39,7 @@ public class UsuarioDAO {
     }
 
     public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO)
-            throws NaoFoiPossivelAutenticaUsuario,
+            throws NaoFoiPossivelAutenticarUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
 
         conn = new ConexaoDAO().conectaBD();
@@ -59,8 +59,8 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("Usuario não Cadastrado" + erro);
-            throw new NaoFoiPossivelAutenticaUsuario();
+           // System.out.println("Usuario não Cadastrado" + erro);
+            throw new NaoFoiPossivelAutenticarUsuario();
         }
         return checar;
 

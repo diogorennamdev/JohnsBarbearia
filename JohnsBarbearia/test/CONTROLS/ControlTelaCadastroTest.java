@@ -29,14 +29,15 @@ public class ControlTelaCadastroTest {
     }
 
     @Test
-    public void TesteParaVerificardadosNoBanco()
+    public void TesteParaVerificarDadosNoBanco()
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             ErroAoValidarCPF, ErroAoValidarDados,
             NaoFoiPossivelCadastrarUsuario, SQLException {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
-
+        
+       
         // select no banco para verificar se o usuario foi cadastrdo
     }
 

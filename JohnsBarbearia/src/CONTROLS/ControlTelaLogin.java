@@ -2,17 +2,17 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
-import java.util.HashMap;
+
 
 public class ControlTelaLogin {
 
     public static boolean entrarSistema(String CPF_usuario,
             String senha_usuario)
-            throws NaoFoiPossivelAutenticaUsuario,
+            throws NaoFoiPossivelAutenticarUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
 
         UsuarioDTO objUsuariodto = new UsuarioDTO();
@@ -34,7 +34,7 @@ public class ControlTelaLogin {
 
     public static String validarDadosLogin(String CPF_usuario,
             String senha_usuario)
-            throws NaoFoiPossivelAutenticaUsuario,
+            throws NaoFoiPossivelAutenticarUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD {
 
         String response;

@@ -1,7 +1,7 @@
 package CONTROLS;
 
 import DTO.UsuarioDTO;
-import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class ControlTelaLoginTest {
 
     @Test
     public void TesteParaVerificarSeEstarEntrandoNoSistema() 
-            throws NaoFoiPossivelAutenticaUsuario, 
+            throws NaoFoiPossivelAutenticarUsuario, 
             NaoFoiPossivelEstabelecerConexaoComBD {
 
         String Cpf = usuariodto.getCPF_usuario(),senha 
@@ -37,29 +37,28 @@ public class ControlTelaLoginTest {
 
     }
 
-<<<<<<< HEAD
+
 //    @Test
 //    public void TesteparaVerificarValidarDadosDoLogin() 
-//            throws NaoFoiPossivelAutenticaUsuario, 
+//            throws NaoFoiPossivelAutenticarUsuario, 
 //            NaoFoiPossivelEstabelecerConexaoComBD {
 //        
 //        assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
 //
 //    }
-=======
     @Test
     public void TesteparaVerificarValidarDadosDoLogin() 
-            throws NaoFoiPossivelAutenticaUsuario, 
+            throws NaoFoiPossivelAutenticarUsuario, 
             NaoFoiPossivelEstabelecerConexaoComBD {
         
       //  assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
 
     }
->>>>>>> 72c9172e9196418aaa9840b1170747bbe79c60c9
+
 
     @Test
     public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos() 
-            throws NaoFoiPossivelAutenticaUsuario, 
+            throws NaoFoiPossivelAutenticarUsuario, 
             NaoFoiPossivelEstabelecerConexaoComBD {
         
         String CPF_usuario = "";

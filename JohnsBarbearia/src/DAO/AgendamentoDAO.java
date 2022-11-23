@@ -43,8 +43,7 @@ public class AgendamentoDAO {
             pstm.close();
 
         } catch (SQLException erro) {
-          // System.out.println("Não foi possivél fazer agendamento " + erro);
-          // throw new SQLException("Não foi possivél agendar usuario");
+          System.out.println("Não foi possivél fazer agendamento " + erro);
           throw new NaoFoiPossivelRealizarAgendamento();
         }
     }
