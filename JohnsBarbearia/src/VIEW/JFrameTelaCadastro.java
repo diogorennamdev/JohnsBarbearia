@@ -8,8 +8,10 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
 
@@ -207,18 +209,21 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
         try {
-            if (ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
+            String result = ControlTelaCadastro.ValidarDadosCPF(CPF_usuario(),
                     nome_usuario(),
-                    senha_usuario()) == true) {
-                this.dispose();
-            } else {
+                    senha_usuario());
+            if (result != null) {
+                JOptionPane.showMessageDialog(rootPane,
+                        result);
                 limparCampos();
+            } else {
+                this.dispose();
             }
         } catch (ErroAoValidarCPF
                 | ErroAoValidarDados
                 | NaoFoiPossivelCadastrarUsuario
-                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
-            Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                | NaoFoiPossivelEstabelecerConexaoComBD
+                | SQLException ex) {
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 
@@ -227,17 +232,17 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_CPFJTextActionPerformed
 
     public static void WindowsLayout() {
-          try {
-            for (javax.swing.UIManager.LookAndFeelInfo info 
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info
                     : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException 
-                | InstantiationException 
-                | IllegalAccessException 
+        } catch (ClassNotFoundException
+                | InstantiationException
+                | IllegalAccessException
                 | javax.swing.UnsupportedLookAndFeelException ex) {
         }
 

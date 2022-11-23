@@ -1,7 +1,6 @@
 package CONTROLS;
 
 import DTO.UsuarioDTO;
-import DAO.UsuarioDAO;
 import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import org.junit.Before;
@@ -10,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class ControlTelaLoginTest {
 
-    UsuarioDAO usuariodao = new UsuarioDAO();
+   
     UsuarioDTO usuariodto = new UsuarioDTO();
 
     private static final String SENHA = "12345";
@@ -34,7 +33,6 @@ public class ControlTelaLoginTest {
                 = usuariodto.getSenha_usuario();
         
         boolean logar = ControlTelaLogin.entrarSistema(Cpf, senha);
-
         assertTrue(logar);
 
     }

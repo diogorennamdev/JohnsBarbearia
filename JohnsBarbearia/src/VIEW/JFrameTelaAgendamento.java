@@ -5,6 +5,7 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -365,9 +366,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 limparCampos();
             }
         } catch (NaoFoiPossivelEstabelecerConexaoComBD
-                | NaoFoiPossivelRealizarAgendamento ex) {
-            Logger.getLogger(JFrameTelaAgendamento.class.getName()).log(
-                    Level.SEVERE, null, ex);
+                | NaoFoiPossivelRealizarAgendamento 
+                | SQLException ex) {
+            
         }
     }//GEN-LAST:event_AgendarJButtonActionPerformed
 

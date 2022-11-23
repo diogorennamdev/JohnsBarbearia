@@ -7,10 +7,8 @@ import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
-import static org.junit.Assert.*;
 
 public class AgendamentoDAOTest {
 
@@ -21,21 +19,20 @@ public class AgendamentoDAOTest {
     public void TesteParaVerificarSeEstarCriandoAgendamento()
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento, SQLException {
+
         AgendamentoDTO agendamento = new AgendamentoDTO(
                 "Diogo", "corte", "20",
                 "20/11/2022", "10:00",
                 "Teste");
-
         doNothing().when(agendamentodao).Agendar(agendamento);
         agendamentodao.Agendar(agendamento);
-
         verify(agendamentodao, times(1)).Agendar(agendamento);
     }
 
     @Test
     public void TesteParaVerificarDadosNoArrayList() {
-       List<AgendamentoDTO> horarios = new ArrayList<>();
-       horarios.add( new AgendamentoDTO()) ;
+        List<AgendamentoDTO> horarios = new ArrayList<>();
+        horarios.add(new AgendamentoDTO());
     }
 
 //

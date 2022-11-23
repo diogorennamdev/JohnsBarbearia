@@ -5,6 +5,7 @@ import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoValidarCPF;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,23 +43,20 @@ public class ValidacoesTest {
     public void TestaParaVerificarSeEnviaMensagemDeErroCasoCpfEstejaErrado() {
 
         ErroAoValidarCPF erroAoValidarCpf = assertThrows(ErroAoValidarCPF.class,
-                 () -> Validacoes.validarCPF("05280503"));
-
+                () -> Validacoes.validarCPF("05280503"));
         assertEquals("Erro ao validar CPF", erroAoValidarCpf.getMessage());
     }
 
     @Test
-    public void TesteParaVericarCriptografiaDaSenha() 
-            throws NaoFoiPossivelCadastrarUsuario, 
-            NaoFoiPossivelEstabelecerConexaoComBD {
-        
-        String CPF = "6144827100", nome = "Pedro",senha = "1234";
+    public void TesteParaVericarCriptografiaDaSenha()
+            throws NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
+
+        String CPF = "6144827100", nome = "Pedro", senha = "1234";
         usuariodto = new UsuarioDTO(CPF, nome,
                 Criptografia.criptografiaDaSenha(senha));
-
         usuariodao.CadastrarUsuario(usuariodto);
-       
-
         assertEquals(Criptografia.criptografiaDaSenha(senha),
                 usuariodto.getSenha_usuario());
     }

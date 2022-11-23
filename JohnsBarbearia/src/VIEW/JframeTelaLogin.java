@@ -6,7 +6,8 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
-
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
@@ -178,17 +179,20 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-
-//         try {
-//        if (ControlTelaLogin.validarDadosLogin(CPF_usuario(),
-//                    senha_usuario())) {
-//                this.dispose();
-//            } else {
-//                limpaCampos();
-//            }
-//        } catch (NaoFoiPossivelAutenticaUsuario
-//                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
-//        }
+        try {
+           String result
+                = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+                        senha_usuario());
+        if (result != null) {
+            JOptionPane.showMessageDialog(rootPane, result);
+            limpaCampos();
+        } else {
+            this.dispose();
+        }
+        
+        } catch (NaoFoiPossivelAutenticaUsuario
+                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+        }
 
 
     }//GEN-LAST:event_entrarsistemaActionPerformed

@@ -6,48 +6,40 @@ import EXCEPTIONS.ErroAoValidarDados;
 import EXCEPTIONS.NaoFoiPossivelAutenticaUsuario;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
-import HELPERS.Criptografia;
-import HELPERS.Validacoes;
 import java.sql.SQLException;
-import org.junit.Before;
-import org.mockito.Mock;
-import org.junit.runner.RunWith;
 import static org.mockito.Mockito.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 
-   
-    private UsuarioDAO usuariodao = mock(UsuarioDAO.class);
+    private final UsuarioDAO usuariodao = mock(UsuarioDAO.class);
 
     @Test
-    public void TesteParaVerificarAutenticacaoDoUsuario() throws NaoFoiPossivelAutenticaUsuario, NaoFoiPossivelEstabelecerConexaoComBD, ErroAoValidarCPF {
-      
-        UsuarioDTO usuario = new UsuarioDTO("85412145478", 
-                "Diogo", "1234");
-        when(usuariodao.autenticacaoUsuario(usuario)).thenReturn(true);
-
-        assertTrue(usuariodao.autenticacaoUsuario(usuario));
-        
-        verify(usuariodao,times(1)).autenticacaoUsuario(usuario);
-    }
-    
-    
-    @Test
-    public void DeverRetornaFalseCasoOUsuarioNaoExistaNoBanco() 
+    public void TesteParaVerificarAutenticacaoDoUsuario()
             throws NaoFoiPossivelAutenticaUsuario,
             NaoFoiPossivelEstabelecerConexaoComBD,
             ErroAoValidarCPF {
-      
+
+        UsuarioDTO usuario = new UsuarioDTO("85412145478",
+                "Diogo", "1234");
+        when(usuariodao.autenticacaoUsuario(usuario)).thenReturn(true);
+        assertTrue(usuariodao.autenticacaoUsuario(usuario));
+        verify(usuariodao, times(1)).autenticacaoUsuario(usuario);
+    }
+
+    @Test
+    public void DeverRetornaFalseCasoOUsuarioNaoExistaNoBanco()
+            throws NaoFoiPossivelAutenticaUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            ErroAoValidarCPF {
+
         UsuarioDTO usuario = new UsuarioDTO("85412145478",
                 "Diogo", "1234");
         when(usuariodao.autenticacaoUsuario(
                 usuario)).thenReturn(false);
-
         assertFalse(usuariodao.autenticacaoUsuario(usuario));
-        
-        verify(usuariodao,times(1)
+        verify(usuariodao, times(1)
         ).autenticacaoUsuario(usuario);
     }
 
@@ -59,38 +51,32 @@ public class UsuarioDAOTest {
 
         UsuarioDTO usuario = new UsuarioDTO("50623842904",
                 "Diogo", "1234");
-
         doNothing().when(usuariodao).CadastrarUsuario(usuario);
-
         usuariodao.CadastrarUsuario(usuario);
-
         verify(usuariodao, times(1))
                 .CadastrarUsuario(usuario);
 
     }
 
-
     @Test
-    public void TesteParaVerificarValidacaoDedados() 
-            throws ErroAoValidarDados, 
+    public void TesteParaVerificarValidacaoDedados()
+            throws ErroAoValidarDados,
             NaoFoiPossivelEstabelecerConexaoComBD {
+        
         UsuarioDTO usuario = new UsuarioDTO("345540503", "diogo", "1234");
         when(usuariodao.verificarDadosBDCpf(usuario)).thenReturn(true);
-
         assertTrue(usuariodao.verificarDadosBDCpf(usuario));
-
         verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
     }
 
     @Test
-    public void TesteParaverificarValidacaoDeDadosFalse() 
+    public void TesteParaverificarValidacaoDeDadosFalse()
             throws ErroAoValidarDados,
             NaoFoiPossivelEstabelecerConexaoComBD {
+        
         UsuarioDTO usuario = new UsuarioDTO("345540503", "diogo", "1234");
         when(usuariodao.verificarDadosBDCpf(usuario)).thenReturn(false);
-
         assertFalse(usuariodao.verificarDadosBDCpf(usuario));
-
         verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
     }
 

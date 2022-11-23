@@ -9,6 +9,7 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ControlTelaCadastro {
@@ -17,7 +18,8 @@ public class ControlTelaCadastro {
             String nome_usuario,
             String senha_usuario)
             throws NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD {
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -33,9 +35,10 @@ public class ControlTelaCadastro {
     public static void autenticaDadosBD(String CPF_usuario,
             String nome_usuario,
             String senha_usuario)
-            throws ErroAoValidarDados, 
-            NaoFoiPossivelCadastrarUsuario, 
-            NaoFoiPossivelEstabelecerConexaoComBD {
+            throws ErroAoValidarDados,
+            NaoFoiPossivelCadastrarUsuario,
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -53,30 +56,32 @@ public class ControlTelaCadastro {
         }
     }
 
-    public static boolean ValidarDadosCPF(String CPF_usuario,
+    public static String ValidarDadosCPF(String CPF_usuario,
             String nome_usuario, String senha_usuario)
             throws ErroAoValidarCPF,
             ErroAoValidarDados,
             NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD {
-
+            NaoFoiPossivelEstabelecerConexaoComBD,
+            SQLException {
+        
+        String response = null;
         if (CPF_usuario.equals("")
                 || nome_usuario.equals("")
                 || senha_usuario.equals("")) {
-            JOptionPane.showMessageDialog(null,
-                    " CAMPOS VAZIOS!\n Por favor insira os dados");
-            return false;
+            response = " CAMPOS VAZIOS!\n Por favor insira os dados";
+
         } else if (Validacoes.validarCPF(CPF_usuario) == true) {
             ControlTelaCadastro.autenticaDadosBD(CPF_usuario,
                     nome_usuario,
                     senha_usuario);
-            return true;
+//            response = null;
+            
         } else if (Validacoes.validarCPF(CPF_usuario) == false) {
-            JOptionPane.showMessageDialog(null,
-                    "ERRO, CPF INVÁLIDO!\n");
-            return false;
+             response = "ERRO, CPF INVÁLIDO!\n";
+            
         }
-        return false;
-    }
+        return response;
 
-}
+        }
+
+    }

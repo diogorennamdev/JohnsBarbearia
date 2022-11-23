@@ -1,23 +1,19 @@
 package CONTROLS;
 
-import DAO.UsuarioDAO;
-import DTO.UsuarioDTO;
+
 import EXCEPTIONS.ErroAoValidarCPF;
 import EXCEPTIONS.ErroAoValidarDados;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ControlTelaCadastroTest {
 
-    UsuarioDAO usuariodao = new UsuarioDAO();
-    UsuarioDTO usuariodto = new UsuarioDTO();
-
-    public ControlTelaCadastroTest() {
+       public ControlTelaCadastroTest() {
     }
 
     @AfterClass
@@ -36,7 +32,7 @@ public class ControlTelaCadastroTest {
     public void TesteParaVerificardadosNoBanco()
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             ErroAoValidarCPF, ErroAoValidarDados,
-            NaoFoiPossivelCadastrarUsuario {
+            NaoFoiPossivelCadastrarUsuario, SQLException {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
@@ -47,7 +43,8 @@ public class ControlTelaCadastroTest {
     @Test
     public void DeverMostrarJOptionPaneQuandoCpfForInseridoDuasVezes()
             throws ErroAoValidarDados, NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD {
+            NaoFoiPossivelEstabelecerConexaoComBD, SQLException {
+        
         String Cpf = "96575718205", nome = "Paulo", senha = "1234";
         ControlTelaCadastro.autenticaDadosBD(Cpf, nome, senha);
     }

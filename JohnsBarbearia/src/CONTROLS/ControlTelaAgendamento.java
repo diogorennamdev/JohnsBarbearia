@@ -4,6 +4,7 @@ import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +18,8 @@ public class ControlTelaAgendamento  {
             String hora_agendamento,
             String observacao_agendamento)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelRealizarAgendamento {
+            NaoFoiPossivelRealizarAgendamento,
+            SQLException {
 
         AgendamentoDTO objAgendamentoDTO = new AgendamentoDTO();
         objAgendamentoDTO.setNome_cliente(nome_cliente);
