@@ -13,6 +13,6 @@ create table if not exists Agendamento(
 	data_agendamento varchar (10),
 	hora_agendamento varchar (5),
 	observacao_agendamento varchar(50),
-	CPF_uduario varchar (11),
-	FOREING KEY (CPF_uduario) REFERENCES usuario(CPF_uduario)
+	CPF_usuario varchar (11),
+	FOREIGN KEY (CPF_usuario) REFERENCES usuario(CPF_usuario)
   );
