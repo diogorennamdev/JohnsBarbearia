@@ -10,13 +10,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControlTelaAgendamento {
 
-    public static boolean CriarAgendamento(String nome_cliente,
+    public static boolean CriarAgendamento(int ID_usuario,
+            String nome_cliente,
             String servico,
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento,
-            String CPF_usuario)
+            String observacao_agendamento)            
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento,
             SQLException {
@@ -35,13 +35,13 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static String Agendar(String nome_cliente,
+    public static String Agendar(int ID_usuario,
+            String nome_cliente,
             String servico,
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento,
-            String CPF_usuario)
+            String observacao_agendamento)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento,
             SQLException {
@@ -54,13 +54,13 @@ public class ControlTelaAgendamento {
                 || observacao_agendamento.equals("")) {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
-        } else if (ControlTelaAgendamento.CriarAgendamento(nome_cliente,
+        } else if (ControlTelaAgendamento.CriarAgendamento(ID_usuario,
+        nome_cliente,
                 servico,
                 valor_servico,
                 data_agendamento,
                 hora_agendamento,
-                observacao_agendamento,
-                CPF_usuario)) {
+                observacao_agendamento)) {
             response = null;
         }
         return response;
@@ -99,6 +99,7 @@ public class ControlTelaAgendamento {
     }
 
     public static boolean EditarAgendamento(JTable TabelaAgendamentoJTable,
+            int ID_usuario,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -122,7 +123,8 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static String Editar(JTable TabelaAgendamentoJTable,
+    public static String Editar(JTable TabelaAgendamentoJTable, 
+            int ID_usuario,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -141,6 +143,7 @@ public class ControlTelaAgendamento {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
         } else if (ControlTelaAgendamento.EditarAgendamento(TabelaAgendamentoJTable,
+                ID_usuario,
                 nome_cliente,
                 servico,
                 valor_servico,

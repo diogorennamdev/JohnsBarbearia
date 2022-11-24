@@ -17,8 +17,8 @@ public class AgendamentoDAOTest {
     public void TesteParaVerificarSeEstarInserindoAgendamento()
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento, SQLException {
-        AgendamentoDTO agendamento = new AgendamentoDTO("julio", "corte",
-                "30", "20/11/2022", "20:00", "Teste");
+//        AgendamentoDTO agendamento = new AgendamentoDTO(,"julio", "corte",
+//                "30", "20/11/2022", "20:00", "Teste");
 
         doNothing().when(agendamentodao).Agendar(agendamento);
         agendamentodao.Agendar(agendamento);

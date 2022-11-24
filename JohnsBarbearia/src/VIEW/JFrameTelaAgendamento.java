@@ -1,5 +1,6 @@
 package VIEW;
 
+import DTO.UsuarioDTO;
 import CONTROLS.ControlTelaAgendamento;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
@@ -363,7 +364,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
         try {
-            String result = ControlTelaAgendamento.Agendar(nome_cliente(),
+            String result = ControlTelaAgendamento.Agendar(ID_usuario(), nome_cliente(),
                     servico(),
                     valor_servico(),
                     data_agendamento(),
@@ -408,7 +409,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
                 AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
-                ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable,
+                ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable, ID_usuario(),
                         nome_cliente(),
                         servico(),
                         valor_servico(),
@@ -482,6 +483,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+    private int ID_usuario() {
+        return 0;
+    }
 
     private String nome_cliente() {
         String nome_cliente = ClienteJText.getText();
@@ -522,4 +526,5 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ObservçãoJTextArea.setText("");
 
     }
+
 }

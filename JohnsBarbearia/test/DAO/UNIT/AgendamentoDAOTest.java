@@ -13,6 +13,7 @@ public class AgendamentoDAOTest {
     AgendamentoDTO agendamentodto = new AgendamentoDTO();
     AgendamentoDAO agendamentodao = new AgendamentoDAO();
 
+    private static final int ID_usuario = 01;
     private static final String nome_cliente = "fabio";
     private static final String servico = "Corte";
     private static final String valor_servico = "10";
@@ -25,7 +26,7 @@ public class AgendamentoDAOTest {
 
     @Before
     public void setUp() {
-        CriarAgendamento();
+//        CriarAgendamento();
     }
 
     @Test
@@ -44,10 +45,10 @@ public class AgendamentoDAOTest {
                 naoFoiPosNaoFoiPossivelRealizarAgendamento.getMessage());
     }
 
-    private void CriarAgendamento() {
-        agendamentodto = new AgendamentoDTO(nome_cliente, servico,
-                valor_servico, data_agendamento,
-                hora_agendamento, observacao_agendamento);
-
-    }
+//    private void CriarAgendamento() {
+//        agendamentodto = new AgendamentoDTO(ID_usuario, nome_cliente, servico,
+//                valor_servico, data_agendamento,
+//                hora_agendamento, observacao_agendamento);
+//
+//    }
 }

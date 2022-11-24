@@ -53,7 +53,8 @@ public class UsuarioDAO {
             pstm.setString(2, objUsuarioDTO.getSenha_usuario());
 
             ResultSet rs = pstm.executeQuery();
-            if (rs.next()) {
+            if (rs.next()) {   
+                
                 checar = true;
 
             }
