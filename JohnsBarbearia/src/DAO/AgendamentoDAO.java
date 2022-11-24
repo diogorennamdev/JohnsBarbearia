@@ -24,8 +24,8 @@ public class AgendamentoDAO {
         try {
             String sql = "insert into agendamento"
                     + "(nome_cliente, servico, valor_servico, data_agendamento,"
-                    + "hora_agendamento, observacao_agendamento) "
-                    + "values (?,?,?,?,?,?)";
+                    + "hora_agendamento, observacao_agendamento,CPF_usuario) "
+                    + "values (?,?,?,?,?,?,?)";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1,
                     objAgendamentoDTO.getNome_cliente());
@@ -39,6 +39,8 @@ public class AgendamentoDAO {
                     objAgendamentoDTO.getHora_agendamento());
             pstm.setString(6,
                     objAgendamentoDTO.getObservacao_agendamento());
+            pstm.setString(7,
+                    objAgendamentoDTO.getCPF_usuario());
             pstm.execute();
             pstm.close();
 

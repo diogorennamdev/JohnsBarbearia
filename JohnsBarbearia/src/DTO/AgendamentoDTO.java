@@ -2,25 +2,39 @@ package DTO;
 
 public class AgendamentoDTO {
 
+    private int ID_usuario;
     private String nome_cliente;
     private String servico;
     private String valor_servico;
     private String data_agendamento;
     private String hora_agendamento;
     private String observacao_agendamento;
+    private String CPF_usuario;
 
-    public AgendamentoDTO(String nome_cliente,
+    public AgendamentoDTO(int ID_usuario,
+            String nome_cliente,
             String servico,
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento) {
+            String observacao_agendamento,
+            String CPF_usuario) {
+        this.ID_usuario = ID_usuario;
         this.nome_cliente = nome_cliente;
         this.servico = servico;
         this.valor_servico = valor_servico;
         this.data_agendamento = data_agendamento;
         this.hora_agendamento = hora_agendamento;
         this.observacao_agendamento = observacao_agendamento;
+        this.CPF_usuario = CPF_usuario;
+    }
+
+    public int getID_usuario() {
+        return ID_usuario;
+    }
+
+    public void setID_usuario(int ID_usuario) {
+        this.ID_usuario = ID_usuario;
     }
 
     public String getNome_cliente() {
@@ -71,11 +85,19 @@ public class AgendamentoDTO {
         this.observacao_agendamento = observacao_agendamento;
     }
 
-    public AgendamentoDTO() {
-
+    public String getCPF_usuario() {
+        return CPF_usuario;
     }
 
+    public void setCPF_usuario(String CPF_usuario) {
+        this.CPF_usuario = CPF_usuario;
+    }
+
+    
     public void add(AgendamentoDTO agendamento) {
+    }
+    
+     public AgendamentoDTO() {
     }
 
 }

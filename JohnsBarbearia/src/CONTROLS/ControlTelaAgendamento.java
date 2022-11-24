@@ -15,7 +15,8 @@ public class ControlTelaAgendamento {
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento)
+            String observacao_agendamento,
+            String CPF_usuario)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento,
             SQLException {
@@ -39,7 +40,8 @@ public class ControlTelaAgendamento {
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento)
+            String observacao_agendamento,
+            String CPF_usuario)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento,
             SQLException {
@@ -57,7 +59,8 @@ public class ControlTelaAgendamento {
                 valor_servico,
                 data_agendamento,
                 hora_agendamento,
-                observacao_agendamento)) {
+                observacao_agendamento,
+                CPF_usuario)) {
             response = null;
         }
         return response;
@@ -138,12 +141,12 @@ public class ControlTelaAgendamento {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
         } else if (ControlTelaAgendamento.EditarAgendamento(TabelaAgendamentoJTable,
-                nome_cliente, 
+                nome_cliente,
                 servico,
                 valor_servico,
                 data_agendamento,
                 hora_agendamento,
-                observacao_agendamento)){
+                observacao_agendamento)) {
             response = null;
         }
         return response;
