@@ -2,22 +2,22 @@ package DTO;
 
 public class AgendamentoDTO {
 
-    private int ID_usuario;
+    private int ID_agendamento;
     private String nome_cliente;
     private String servico;
     private String valor_servico;
     private String data_agendamento;
     private String hora_agendamento;
     private String observacao_agendamento;
-    
-    public AgendamentoDTO(int ID_usuario,
+
+    public AgendamentoDTO(int ID_agendamento,
             String nome_cliente,
             String servico,
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
             String observacao_agendamento) {
-        this.ID_usuario = ID_usuario;
+        this.ID_agendamento = ID_agendamento;
         this.nome_cliente = nome_cliente;
         this.servico = servico;
         this.valor_servico = valor_servico;
@@ -26,12 +26,12 @@ public class AgendamentoDTO {
         this.observacao_agendamento = observacao_agendamento;
     }
 
-    public int getID_usuario() {
-        return ID_usuario;
+    public int getID_agendamento() {
+        return ID_agendamento;
     }
 
-    public void setID_usuario(int ID_usuario) {
-        this.ID_usuario = ID_usuario;
+    public void setID_agendamento(int ID_agendamento) {
+        this.ID_agendamento = ID_agendamento;
     }
 
     public String getNome_cliente() {
@@ -81,11 +81,11 @@ public class AgendamentoDTO {
     public void setObservacao_agendamento(String observacao_agendamento) {
         this.observacao_agendamento = observacao_agendamento;
     }
-    
+
     public void add(AgendamentoDTO agendamento) {
     }
-    
-     public AgendamentoDTO() {
+
+    public AgendamentoDTO() {
     }
 
 }

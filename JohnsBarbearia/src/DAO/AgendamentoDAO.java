@@ -59,6 +59,7 @@ public class AgendamentoDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 AgendamentoDTO agendamento = new AgendamentoDTO();
+                agendamento.setID_agendamento(rs.getInt("ID_agendamento"));
                 agendamento.setNome_cliente(
                         rs.getString("nome_cliente"));
                 agendamento.setServico(
@@ -81,22 +82,6 @@ public class AgendamentoDAO {
         return horarios;
     }
 
-    public void Excluir(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
-
-        conn = new ConexaoDAO().conectaBD();
-        try {
-            String sql = "delete from agendamento where nome_cliente =?";
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, objAgendamentoDTO.getID_usuario());
-            pstm.execute();
-
-        } catch (SQLException erro) {
-            System.out.println("erro ao tentar Excluir agendamento" + erro);
-
-        }
-    }
-
     public void Editar(AgendamentoDTO objAgendamentoDTO)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
 
@@ -117,6 +102,22 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("erro ao tentar Editar agendamento" + erro);
+        }
+    }
+
+    public void Excluir(AgendamentoDTO objAgendamentoDTO)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            String sql = "delete from agendamento where ID_agendamento=?";
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, objAgendamentoDTO.getID_agendamento());
+            pstm.execute();
+
+        } catch (SQLException erro) {
+            System.out.println("erro ao tentar Excluir agendamento" + erro);
+
         }
     }
 

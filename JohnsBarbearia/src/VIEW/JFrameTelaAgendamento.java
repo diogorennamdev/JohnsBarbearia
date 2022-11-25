@@ -15,7 +15,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             throws NaoFoiPossivelEstabelecerConexaoComBD {
         initComponents();
         setResizable(false);
-        ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+        ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
         ValorTextField.setDocument(new LimitaCaracteres(2,
                 LimitaCaracteres.TipoEntrada.VALOR));
         ObservçãoJTextArea.setDocument(new LimitaCaracteres(50,
@@ -43,7 +43,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         HoraTextField = new javax.swing.JFormattedTextField();
         HoraJLabel = new javax.swing.JLabel();
         AgendarJButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        AgendamentosJScrollPane = new javax.swing.JScrollPane();
         AgendamentosJTable = new javax.swing.JTable();
         EditarJButton = new javax.swing.JButton();
         ExcluirJButton = new javax.swing.JButton();
@@ -162,41 +162,20 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         AgendamentosJTable.setForeground(new java.awt.Color(65, 65, 65));
         AgendamentosJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Cliente", "Serviço", "Valor (R$)", "Data", "Hora", "Observação"
+                "Ordem", "Cliente", "Serviço", "Valor (R$)", "Data", "Hora", "Observação"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         AgendamentosJTable.setGridColor(new java.awt.Color(234, 234, 234));
         AgendamentosJTable.setRowHeight(22);
         AgendamentosJTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,7 +183,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 AgendamentosJTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(AgendamentosJTable);
+        AgendamentosJScrollPane.setViewportView(AgendamentosJTable);
 
         EditarJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         EditarJButton.setForeground(new java.awt.Color(65, 65, 65));
@@ -260,7 +239,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                             .addComponent(ClienteJText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(AgendarJButton)
@@ -303,7 +282,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -330,7 +309,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                     data_agendamento(),
                     hora_agendamento(),
                     observacao_agendamento());
-            ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+            ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
             limparCampos();
 
             if (result != null) {
@@ -354,7 +333,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
                 ControlTelaAgendamento.ExcluirAgendamento(AgendamentosJTable);
-                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+                ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
                 limparCampos();
             } else {
                 JOptionPane.showMessageDialog(
@@ -370,14 +349,15 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
                 AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
-                ControlTelaAgendamento.Editar(AgendamentosJTable, ID_usuario(),
+                ControlTelaAgendamento.Editar(AgendamentosJTable,
                         nome_cliente(),
                         servico(),
                         valor_servico(),
                         data_agendamento(),
                         hora_agendamento(),
                         observacao_agendamento());
-                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+                ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
+                limparCampos();
             } else {
                 JOptionPane.showMessageDialog(
                         rootPane, " Selecio um hoarário na tabela para EDITAR");
@@ -390,18 +370,14 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     }//GEN-LAST:event_EditarJButtonActionPerformed
 
     private void AgendamentosJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgendamentosJTableMouseClicked
-        try {
 
-            if (AgendamentosJTable.getSelectedRow() != -1) {
+        if (AgendamentosJTable.getSelectedRow() != -1) {
 
-                ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString());
-                ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 2).toString());
-                DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
-                HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
-                ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
-                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
-            }
-        } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
+            ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 1).toString());
+            ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
+            DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
+            HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
+            ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 6).toString());
         }
     }//GEN-LAST:event_AgendamentosJTableMouseClicked
 
@@ -426,6 +402,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane AgendamentosJScrollPane;
     private javax.swing.JTable AgendamentosJTable;
     private javax.swing.JButton AgendarJButton;
     private javax.swing.JTextField ClienteJText;
@@ -447,7 +424,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JLabel ValorJLabel;
     private javax.swing.JTextField ValorTextField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
     private int ID_usuario() {

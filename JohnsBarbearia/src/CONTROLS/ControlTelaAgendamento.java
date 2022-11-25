@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControlTelaAgendamento {
 
-    public static boolean CriarAgendamento(int ID_usuario,
+    public static boolean CriarAgendamento(int ID_agendamento,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -22,6 +22,7 @@ public class ControlTelaAgendamento {
             SQLException {
 
         AgendamentoDTO objAgendamentoDTO = new AgendamentoDTO();
+        objAgendamentoDTO.setID_agendamento(ID_agendamento);
         objAgendamentoDTO.setNome_cliente(nome_cliente);
         objAgendamentoDTO.setServico(servico);
         objAgendamentoDTO.setValor_servico(valor_servico);
@@ -35,7 +36,7 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static String Agendar(int ID_usuario,
+    public static String Agendar(int ID_agendamento,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -53,7 +54,7 @@ public class ControlTelaAgendamento {
                 || hora_agendamento.equals("")) {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
-        } else if (ControlTelaAgendamento.CriarAgendamento(ID_usuario,
+        } else if (ControlTelaAgendamento.CriarAgendamento(ID_agendamento,
                 nome_cliente,
                 servico,
                 valor_servico,
@@ -65,7 +66,7 @@ public class ControlTelaAgendamento {
         return response;
     }
 
-    public static JTable LerTabela(JTable TabelaAgendamentoJTable)
+    public static JTable PreencherTabela(JTable TabelaAgendamentoJTable)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
 
         DefaultTableModel modelo
@@ -74,6 +75,7 @@ public class ControlTelaAgendamento {
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
         for (AgendamentoDTO agendar : agendamentoDAO.Horarios()) {
             modelo.addRow(new Object[]{
+                agendar.getID_agendamento(),
                 agendar.getNome_cliente(),
                 agendar.getServico(),
                 agendar.getValor_servico(),
@@ -85,20 +87,7 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
-
-        if (TabelaAgendamentoJTable.getSelectedRow() != -1) {
-            AgendamentoDTO agendar = new AgendamentoDTO();
-            AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-            agendar.setNome_cliente((String) TabelaAgendamentoJTable.getValueAt(
-                    TabelaAgendamentoJTable.getSelectedRow(), 0));
-            agendamentoDAO.Excluir(agendar);
-        }
-    }
-
     public static boolean EditarAgendamento(JTable TabelaAgendamentoJTable,
-            int ID_usuario,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -123,7 +112,6 @@ public class ControlTelaAgendamento {
     }
 
     public static String Editar(JTable TabelaAgendamentoJTable,
-            int ID_usuario,
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -141,7 +129,6 @@ public class ControlTelaAgendamento {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados. ";
 
         } else if (ControlTelaAgendamento.EditarAgendamento(TabelaAgendamentoJTable,
-                ID_usuario,
                 nome_cliente,
                 servico,
                 valor_servico,
@@ -152,4 +139,17 @@ public class ControlTelaAgendamento {
         }
         return response;
     }
+
+    public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
+        if (TabelaAgendamentoJTable.getSelectedRow() != -1) {
+            AgendamentoDTO agendar = new AgendamentoDTO();
+            AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+            agendar.setID_agendamento((int) TabelaAgendamentoJTable.getValueAt(
+                    TabelaAgendamentoJTable.getSelectedRow(), 0));
+            agendamentoDAO.Excluir(agendar);
+        }
+    }
+
 }
