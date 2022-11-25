@@ -16,7 +16,7 @@ public class ControlTelaAgendamento {
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento)            
+            String observacao_agendamento)
             throws NaoFoiPossivelEstabelecerConexaoComBD,
             NaoFoiPossivelRealizarAgendamento,
             SQLException {
@@ -50,18 +50,17 @@ public class ControlTelaAgendamento {
         if (nome_cliente.equals("")
                 || valor_servico.equals("")
                 || data_agendamento.equals("")
-                || hora_agendamento.equals("")
-                || observacao_agendamento.equals("")) {
+                || hora_agendamento.equals("")) {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
         } else if (ControlTelaAgendamento.CriarAgendamento(ID_usuario,
-        nome_cliente,
+                nome_cliente,
                 servico,
                 valor_servico,
                 data_agendamento,
                 hora_agendamento,
                 observacao_agendamento)) {
-            response = null;
+
         }
         return response;
     }
@@ -119,11 +118,11 @@ public class ControlTelaAgendamento {
         agendar.setObservacao_agendamento(observacao_agendamento);
         agendamentoDAO.Editar(agendar);
 
-        return true;
+        return false;
 
     }
 
-    public static String Editar(JTable TabelaAgendamentoJTable, 
+    public static String Editar(JTable TabelaAgendamentoJTable,
             int ID_usuario,
             String nome_cliente,
             String servico,
@@ -138,9 +137,8 @@ public class ControlTelaAgendamento {
                 || servico.equals("")
                 || valor_servico.equals("")
                 || data_agendamento.equals("")
-                || hora_agendamento.equals("")
-                || observacao_agendamento.equals("")) {
-            response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
+                || hora_agendamento.equals("")) {
+            response = " CAMPOS VAZIOS!\n Por favor insira os dados. ";
 
         } else if (ControlTelaAgendamento.EditarAgendamento(TabelaAgendamentoJTable,
                 ID_usuario,

@@ -24,8 +24,8 @@ public class AgendamentoDAO {
         try {
             String sql = "insert into agendamento"
                     + "(nome_cliente, servico, valor_servico, data_agendamento,"
-                    + "hora_agendamento, observacao_agendamento,CPF_usuario) "
-                    + "values (?,?,?,?,?,?,?)";
+                    + "hora_agendamento, observacao_agendamento) "
+                    + "values (?,?,?,?,?,?)";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1,
                     objAgendamentoDTO.getNome_cliente());
@@ -39,14 +39,12 @@ public class AgendamentoDAO {
                     objAgendamentoDTO.getHora_agendamento());
             pstm.setString(6,
                     objAgendamentoDTO.getObservacao_agendamento());
-            pstm.setString(7,
-                    objAgendamentoDTO.getCPF_usuario());
             pstm.execute();
             pstm.close();
 
         } catch (SQLException erro) {
-          System.out.println("Não foi possivél fazer agendamento " + erro);
-          throw new NaoFoiPossivelRealizarAgendamento();
+            System.out.println("Não foi possivél fazer agendamento " + erro);
+            throw new NaoFoiPossivelRealizarAgendamento();
         }
     }
 
@@ -78,19 +76,19 @@ public class AgendamentoDAO {
             }
 
         } catch (SQLException erro) {
-            System.out.println("error em List<AgendamentoDTO> " + erro);
+            System.out.println("error em List<AgendamentoDTO> Horarios " + erro);
         }
         return horarios;
     }
 
     public void Excluir(AgendamentoDTO objAgendamentoDTO)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
-        
+
         conn = new ConexaoDAO().conectaBD();
         try {
             String sql = "delete from agendamento where nome_cliente =?";
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objAgendamentoDTO.getNome_cliente());
+            pstm.setInt(1, objAgendamentoDTO.getID_usuario());
             pstm.execute();
 
         } catch (SQLException erro) {
@@ -101,7 +99,7 @@ public class AgendamentoDAO {
 
     public void Editar(AgendamentoDTO objAgendamentoDTO)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
-        
+
         conn = new ConexaoDAO().conectaBD();
         try {
             String sql = "update agendamento set"

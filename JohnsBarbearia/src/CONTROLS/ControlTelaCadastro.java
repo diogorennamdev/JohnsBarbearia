@@ -66,7 +66,7 @@ public class ControlTelaCadastro {
             response = " CPF JÁ CADASTRADO!\n Por favor tente novamente!";
 
         } else if (Validacoes.validarCPF(CPF_usuario) == false) {
-            response = "ERRO, CPF INVÁLIDO!\n";
+            response = " ERRO, CPF INVÁLIDO!\n";
 
         } else if (Validacoes.validarCPF(CPF_usuario) == true) {
             ControlTelaCadastro.cadastrar(CPF_usuario, nome_usuario, senha_usuario);

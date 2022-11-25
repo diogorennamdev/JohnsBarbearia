@@ -22,7 +22,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        esqueceuJButton = new javax.swing.JButton();
         loginJPanel = new javax.swing.JPanel();
         sejabemvindoJLabel1 = new javax.swing.JLabel();
         CPFJLabel = new javax.swing.JLabel();
@@ -32,19 +31,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         entrarsistema = new javax.swing.JButton();
         criarcontaJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-
-        esqueceuJButton.setBackground(new java.awt.Color(65, 65, 65));
-        esqueceuJButton.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        esqueceuJButton.setForeground(new java.awt.Color(255, 255, 255));
-        esqueceuJButton.setText("Esqueceu sua Senha?");
-        esqueceuJButton.setBorder(null);
-        esqueceuJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        esqueceuJButton.setFocusable(false);
-        esqueceuJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                esqueceuJButtonActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -71,11 +57,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         CPFJText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         CPFJText.setAutoscrolls(false);
         CPFJText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        CPFJText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPFJTextActionPerformed(evt);
-            }
-        });
 
         senhaJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         senhaJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +120,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                             .addGroup(loginJPanelLayout.createSequentialGroup()
                                 .addGap(89, 89, 89)
                                 .addComponent(entrarsistema, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(14, Short.MAX_VALUE))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,18 +175,10 @@ public class JframeTelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
-    private void CPFJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFJTextActionPerformed
-
-    }//GEN-LAST:event_CPFJTextActionPerformed
-
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed
         ChamarTelas.chamarTelaCadastro();
         this.dispose();
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
-
-    private void esqueceuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esqueceuJButtonActionPerformed
-
-    }//GEN-LAST:event_esqueceuJButtonActionPerformed
 
     public static void main(String args[]) {
 
@@ -233,7 +206,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField CPFJText;
     private javax.swing.JButton criarcontaJButton;
     private javax.swing.JButton entrarsistema;
-    private javax.swing.JButton esqueceuJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel loginJPanel;
     private javax.swing.JLabel sejabemvindoJLabel1;

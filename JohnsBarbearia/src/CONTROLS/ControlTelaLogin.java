@@ -40,7 +40,7 @@ public class ControlTelaLogin {
         String response;
 
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
-            response = "CAMPOS VAZIOS!\n Por favor insira os dados.";
+            response = " CAMPOS VAZIOS!\n Por favor insira os dados.";
 
         } else if (ControlTelaLogin.entrarSistema(CPF_usuario, senha_usuario)) {
             response = null;

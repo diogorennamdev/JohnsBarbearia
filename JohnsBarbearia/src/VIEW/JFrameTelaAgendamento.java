@@ -1,12 +1,12 @@
 package VIEW;
 
-import DTO.UsuarioDTO;
 import CONTROLS.ControlTelaAgendamento;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
@@ -43,13 +43,13 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         HoraTextField = new javax.swing.JFormattedTextField();
         HoraJLabel = new javax.swing.JLabel();
         AgendarJButton = new javax.swing.JButton();
-        ClienteJText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         AgendamentosJTable = new javax.swing.JTable();
         EditarJButton = new javax.swing.JButton();
         ExcluirJButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         ObservaçãoJLabel = new javax.swing.JLabel();
+        ClienteJText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agendamento");
@@ -108,11 +108,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ServiçoJComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ServiçoJComboBox.setForeground(new java.awt.Color(65, 65, 65));
         ServiçoJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecone seu serviço...", "Corte ", "Corte na Tesoura", "Barba Comum", "Sobrancelha", "Corte Feminino (side cut)", "Barba Terapia ", "Limpeza de Pele", "Pigmentação", "Corte + Barba Comum + Sobrancelha", "Corte + Barba Terapia + Sobrancelha", "Corte na Tesoura + Sobrancelha + Limpeza de Pele", "Corte na Tesoura + Barba Comum + Sobrancelha + Pigmentação" }));
-        ServiçoJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ServiçoJComboBoxActionPerformed(evt);
-            }
-        });
 
         ServiçoLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ServiçoLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,11 +119,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
         ValorTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ValorTextField.setForeground(new java.awt.Color(65, 65, 65));
-        ValorTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ValorTextFieldActionPerformed(evt);
-            }
-        });
 
         ValorJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ValorJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,11 +132,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         }
         DataTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DataTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        DataTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataTextFieldActionPerformed(evt);
-            }
-        });
 
         DataJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         DataJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,19 +156,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         AgendarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgendarJButtonActionPerformed(evt);
-            }
-        });
-
-        ClienteJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ClienteJText.setForeground(new java.awt.Color(65, 65, 65));
-        ClienteJText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ClienteJTextMouseClicked(evt);
-            }
-        });
-        ClienteJText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClienteJTextActionPerformed(evt);
             }
         });
 
@@ -227,6 +199,11 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ));
         AgendamentosJTable.setGridColor(new java.awt.Color(234, 234, 234));
         AgendamentosJTable.setRowHeight(22);
+        AgendamentosJTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgendamentosJTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(AgendamentosJTable);
 
         EditarJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -268,7 +245,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                             .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(ValorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -280,18 +256,18 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ServiçoJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ObservçãoJScrollPane)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(EditarJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ExcluirJButton))
+                            .addComponent(ObservçãoJScrollPane)
+                            .addComponent(ClienteJText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(AgendarJButton)))
+                        .addGap(148, 148, 148)
+                        .addComponent(AgendarJButton)
+                        .addGap(28, 28, 28)
+                        .addComponent(EditarJButton)
+                        .addGap(29, 29, 29)
+                        .addComponent(ExcluirJButton)))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -319,16 +295,16 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                     .addComponent(ObservaçãoJLabel)
                     .addComponent(ObservçãoJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AgendarJButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AgendarJButton)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ExcluirJButton)
+                        .addComponent(EditarJButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ExcluirJButton)
-                    .addComponent(EditarJButton))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,22 +321,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ClienteJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteJTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ClienteJTextActionPerformed
-
-    private void DataTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DataTextFieldActionPerformed
-
-    private void ValorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ValorTextFieldActionPerformed
-
-    private void ServiçoJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiçoJComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ServiçoJComboBoxActionPerformed
 
     private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
         try {
@@ -397,7 +357,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 ControlTelaAgendamento.LerTabela(AgendamentosJTable);
                 limparCampos();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "SELECIONE PARA EXCLUIR");
+                JOptionPane.showMessageDialog(
+                        rootPane, " Selecio um hoarário na tabela para EXCLUIR");
             }
 
         } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
@@ -409,7 +370,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
                 AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
-                ControlTelaAgendamento.EditarAgendamento(AgendamentosJTable, ID_usuario(),
+                ControlTelaAgendamento.Editar(AgendamentosJTable, ID_usuario(),
                         nome_cliente(),
                         servico(),
                         valor_servico(),
@@ -417,6 +378,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                         hora_agendamento(),
                         observacao_agendamento());
                 ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+            } else {
+                JOptionPane.showMessageDialog(
+                        rootPane, " Selecio um hoarário na tabela para EDITAR");
             }
 
         } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
@@ -425,18 +389,21 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EditarJButtonActionPerformed
 
-    private void ClienteJTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteJTextMouseClicked
-//        String Serviço = "";
-        if (AgendamentosJTable.getSelectedRow() != -1) {
+    private void AgendamentosJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgendamentosJTableMouseClicked
+        try {
 
-            ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString());
-//            Serviço = (String) AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0);
-            ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 2).toString());
-            DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
-            HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
-            ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
+            if (AgendamentosJTable.getSelectedRow() != -1) {
+
+                ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString());
+                ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 2).toString());
+                DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
+                HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
+                ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
+                ControlTelaAgendamento.LerTabela(AgendamentosJTable);
+            }
+        } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
         }
-    }//GEN-LAST:event_ClienteJTextMouseClicked
+    }//GEN-LAST:event_AgendamentosJTableMouseClicked
 
     public static void WindowsLayout() {
         try {
@@ -520,6 +487,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     public void limparCampos() {
         ClienteJText.setText("");
+        ServiçoJComboBox.setToolTipText("");
         ValorTextField.setText("");
         DataTextField.setText("");
         HoraTextField.setText("");

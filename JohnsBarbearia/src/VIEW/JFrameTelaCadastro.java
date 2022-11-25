@@ -94,11 +94,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
         NomeJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         NomeJText.setForeground(new java.awt.Color(65, 65, 65));
-        NomeJText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NomeJTextActionPerformed(evt);
-            }
-        });
 
         NomeJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         NomeJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,11 +108,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         CPFJText.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CPFJText.setForeground(new java.awt.Color(65, 65, 65));
         CPFJText.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        CPFJText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPFJTextActionPerformed(evt);
-            }
-        });
 
         CPFJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CPFJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,10 +192,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SairJButtonActionPerformed
 
-    private void NomeJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeJTextActionPerformed
-
-    }//GEN-LAST:event_NomeJTextActionPerformed
-
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
         try {
             String result = ControlTelaCadastro.autenticaDados(CPF_usuario(),
@@ -225,10 +211,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 | NaoFoiPossivelAutenticarUsuario ex) {
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
-
-    private void CPFJTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFJTextActionPerformed
-
-    }//GEN-LAST:event_CPFJTextActionPerformed
 
     public static void WindowsLayout() {
         try {

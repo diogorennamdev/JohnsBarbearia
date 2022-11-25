@@ -185,9 +185,6 @@
               <Color blue="41" green="41" red="41" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomeJTextActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="NomeJLabel">
           <Properties>
@@ -230,9 +227,6 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CPFJTextActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="CPFJLabel">
           <Properties>

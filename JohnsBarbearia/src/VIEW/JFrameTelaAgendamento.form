@@ -65,7 +65,6 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ClienteJText" min="-2" pref="400" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="ValorTextField" min="-2" pref="111" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -79,21 +78,20 @@
                               </Group>
                               <Component id="ServiçoJComboBox" alignment="0" max="32767" attributes="0"/>
                               <Component id="ObservçãoJScrollPane" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ClienteJText" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                          <Component id="EditarJButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ExcluirJButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="584" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                           <Component id="AgendarJButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="EditarJButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="ExcluirJButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
@@ -129,17 +127,18 @@
                       <Component id="ObservçãoJScrollPane" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="AgendarJButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="AgendarJButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="ExcluirJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EditarJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="3" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="234" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ExcluirJButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="EditarJButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -256,9 +255,6 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Servi&#xe7;oJComboBoxActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -294,9 +290,6 @@
               <Color blue="41" green="41" red="41" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValorTextFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="ValorJLabel">
           <Properties>
@@ -322,9 +315,6 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DataTextFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="DataJLabel">
           <Properties>
@@ -376,20 +366,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgendarJButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="ClienteJText">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="41" green="41" red="41" type="rgb"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ClienteJTextMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClienteJTextActionPerformed"/>
-          </Events>
-        </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -417,6 +393,9 @@
                 </Property>
                 <Property name="rowHeight" type="int" value="22"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AgendamentosJTableMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -460,6 +439,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xe3;o:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ClienteJText">
         </Component>
       </SubComponents>
     </Container>
