@@ -6,6 +6,8 @@ import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
+import java.lang.Integer;
+import static java.lang.Integer.getInteger;
 
 import javax.swing.JOptionPane;
 
@@ -50,6 +52,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         ObservaçãoJLabel = new javax.swing.JLabel();
         ClienteJText = new javax.swing.JTextField();
+        LimparAgendaJButton = new javax.swing.JButton();
+        ID_agendamentoJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agendamento");
@@ -165,7 +169,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ordem", "Cliente", "Serviço", "Valor (R$)", "Data", "Hora", "Observação"
+                "ID Cliente", "Cliente", "Serviço", "Valor (R$)", "Data", "Hora", "Observação"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -207,47 +211,78 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ObservaçãoJLabel.setForeground(new java.awt.Color(255, 255, 255));
         ObservaçãoJLabel.setText("Observação:");
 
+        LimparAgendaJButton.setBackground(new java.awt.Color(65, 65, 65));
+        LimparAgendaJButton.setFont(new java.awt.Font("Segoe UI", 3, 10)); // NOI18N
+        LimparAgendaJButton.setForeground(new java.awt.Color(255, 255, 255));
+        LimparAgendaJButton.setText("LIMPAR AGENDA ");
+        LimparAgendaJButton.setBorder(null);
+        LimparAgendaJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparAgendaJButtonActionPerformed(evt);
+            }
+        });
+
+        ID_agendamentoJTextField.setEditable(false);
+        ID_agendamentoJTextField.setBackground(new java.awt.Color(65, 65, 65));
+        ID_agendamentoJTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ID_agendamentoJTextField.setForeground(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setAutoscrolls(false);
+        ID_agendamentoJTextField.setBorder(null);
+        ID_agendamentoJTextField.setEnabled(false);
+        ID_agendamentoJTextField.setFocusable(false);
+        ID_agendamentoJTextField.setRequestFocusEnabled(false);
+        ID_agendamentoJTextField.setSelectedTextColor(new java.awt.Color(65, 65, 65));
+        ID_agendamentoJTextField.setSelectionColor(new java.awt.Color(65, 65, 65));
+        ID_agendamentoJTextField.setVerifyInputWhenFocusTarget(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LimparAgendaJButton)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ObservaçãoJLabel)
-                            .addComponent(ValorJLabel)
-                            .addComponent(ServiçoLabel)
-                            .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(ValorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DataJLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DataTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(HoraJLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ServiçoJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ObservçãoJScrollPane)
-                            .addComponent(ClienteJText)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(AgendarJButton)
-                        .addGap(28, 28, 28)
-                        .addComponent(EditarJButton)
-                        .addGap(29, 29, 29)
-                        .addComponent(ExcluirJButton)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ObservaçãoJLabel)
+                                    .addComponent(ValorJLabel)
+                                    .addComponent(ServiçoLabel)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ValorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DataJLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(DataTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(HoraJLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(HoraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ServiçoJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ObservçãoJScrollPane)
+                                    .addComponent(ClienteJText)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(AgendarJButton)
+                                .addGap(28, 28, 28)
+                                .addComponent(EditarJButton)
+                                .addGap(29, 29, 29)
+                                .addComponent(ExcluirJButton)))
+                        .addGap(5, 5, 5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +291,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClienteLabel)
-                    .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServiçoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,8 +318,10 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LimparAgendaJButton)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -303,7 +341,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
         try {
-            String result = ControlTelaAgendamento.Agendar(ID_usuario(), nome_cliente(),
+            String result = ControlTelaAgendamento.Agendar(nome_cliente(),
                     servico(),
                     valor_servico(),
                     data_agendamento(),
@@ -348,14 +386,14 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private void EditarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarJButtonActionPerformed
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
-                AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString();
-                ControlTelaAgendamento.Editar(AgendamentosJTable,
-                        nome_cliente(),
+                AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0);
+                ControlTelaAgendamento.EditarAgendamento(nome_cliente(),
                         servico(),
                         valor_servico(),
                         data_agendamento(),
                         hora_agendamento(),
-                        observacao_agendamento());
+                        observacao_agendamento(),
+                        ID_agendamento());
                 ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
                 limparCampos();
             } else {
@@ -373,13 +411,25 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
         if (AgendamentosJTable.getSelectedRow() != -1) {
 
+            ID_agendamentoJTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString());
             ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 1).toString());
             ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
             DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
             HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
             ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 6).toString());
+
         }
     }//GEN-LAST:event_AgendamentosJTableMouseClicked
+
+    private void LimparAgendaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparAgendaJButtonActionPerformed
+        try {
+            AgendamentosJTable.selectAll();
+            ControlTelaAgendamento.LimparAgendamento(AgendamentosJTable);
+            ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
+            limparCampos();
+        } catch (NaoFoiPossivelEstabelecerConexaoComBD ex) {
+        }
+    }//GEN-LAST:event_LimparAgendaJButtonActionPerformed
 
     public static void WindowsLayout() {
         try {
@@ -413,8 +463,10 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JButton ExcluirJButton;
     private javax.swing.JLabel HoraJLabel;
     private javax.swing.JFormattedTextField HoraTextField;
+    private javax.swing.JTextField ID_agendamentoJTextField;
     private javax.swing.JPanel JPanelCabecalho;
     private javax.swing.JLabel JohnsBarbeariaJLabel;
+    private javax.swing.JButton LimparAgendaJButton;
     private javax.swing.JLabel ObservaçãoJLabel;
     private javax.swing.JScrollPane ObservçãoJScrollPane;
     private javax.swing.JTextArea ObservçãoJTextArea;
@@ -426,8 +478,13 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
-    private int ID_usuario() {
-        return 0;
+
+    private int ID_agendamento() {
+        String ID_agendamento = ID_agendamentoJTextField.getText();
+        int ID = 0;
+        ID = Integer.parseInt(ID_agendamento);
+        return ID;
+
     }
 
     private String nome_cliente() {

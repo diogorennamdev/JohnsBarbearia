@@ -87,10 +87,9 @@ public class AgendamentoDAO {
 
         conn = new ConexaoDAO().conectaBD();
         try {
-            String sql = "update agendamento set"
-                    + " nome_cliente=?, servico=?, valor_servico=?,"
-                    + " data_agendamento=?, hora_agendamento=?,"
-                    + " observacao_agendamento=?";
+            String sql = "update agendamento set nome_cliente=?, servico=?,"
+                    + " valor_servico=?,data_agendamento=?, hora_agendamento=?,"
+                    + " observacao_agendamento=? where ID_agendamento =?";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objAgendamentoDTO.getNome_cliente());
             pstm.setString(2, objAgendamentoDTO.getServico());
@@ -98,6 +97,7 @@ public class AgendamentoDAO {
             pstm.setString(4, objAgendamentoDTO.getData_agendamento());
             pstm.setString(5, objAgendamentoDTO.getHora_agendamento());
             pstm.setString(6, objAgendamentoDTO.getObservacao_agendamento());
+            pstm.setInt(7, objAgendamentoDTO.getID_agendamento());
             pstm.execute();
 
         } catch (SQLException erro) {
@@ -118,6 +118,20 @@ public class AgendamentoDAO {
         } catch (SQLException erro) {
             System.out.println("erro ao tentar Excluir agendamento" + erro);
 
+        }
+    }
+
+    public void LimparAgenda(AgendamentoDTO objAgendamentoDTO)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            String sql = "TRUNCATE agendamento";
+            pstm = conn.prepareStatement(sql);
+            pstm.execute();
+
+        } catch (SQLException erro) {
+            System.out.println("erro ao tentar Limpar Agenda" + erro);
         }
     }
 

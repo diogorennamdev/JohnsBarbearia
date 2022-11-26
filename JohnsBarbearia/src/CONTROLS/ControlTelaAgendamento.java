@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControlTelaAgendamento {
 
-    public static boolean CriarAgendamento(int ID_agendamento,
+    public static boolean CriarAgendamento(
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -22,7 +22,6 @@ public class ControlTelaAgendamento {
             SQLException {
 
         AgendamentoDTO objAgendamentoDTO = new AgendamentoDTO();
-        objAgendamentoDTO.setID_agendamento(ID_agendamento);
         objAgendamentoDTO.setNome_cliente(nome_cliente);
         objAgendamentoDTO.setServico(servico);
         objAgendamentoDTO.setValor_servico(valor_servico);
@@ -36,7 +35,7 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static String Agendar(int ID_agendamento,
+    public static String Agendar(
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -54,7 +53,7 @@ public class ControlTelaAgendamento {
                 || hora_agendamento.equals("")) {
             response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
 
-        } else if (ControlTelaAgendamento.CriarAgendamento(ID_agendamento,
+        } else if (ControlTelaAgendamento.CriarAgendamento(
                 nome_cliente,
                 servico,
                 valor_servico,
@@ -87,69 +86,49 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static boolean EditarAgendamento(JTable TabelaAgendamentoJTable,
-            String nome_cliente,
+    public static void EditarAgendamento(String nome_cliente,
             String servico,
             String valor_servico,
             String data_agendamento,
             String hora_agendamento,
-            String observacao_agendamento)
+            String observacao_agendamento,
+            int ID_agendamento)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
 
-        AgendamentoDTO agendar = new AgendamentoDTO();
+        AgendamentoDTO editar = new AgendamentoDTO();
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
 
-        agendar.setNome_cliente(nome_cliente);
-        agendar.setServico(servico);
-        agendar.setValor_servico(valor_servico);
-        agendar.setData_agendamento(data_agendamento);
-        agendar.setHora_agendamento(hora_agendamento);
-        agendar.setObservacao_agendamento(observacao_agendamento);
-        agendamentoDAO.Editar(agendar);
+        editar.setNome_cliente(nome_cliente);
+        editar.setServico(servico);
+        editar.setValor_servico(valor_servico);
+        editar.setData_agendamento(data_agendamento);
+        editar.setHora_agendamento(hora_agendamento);
+        editar.setObservacao_agendamento(observacao_agendamento);
+        editar.setID_agendamento(ID_agendamento);
+        agendamentoDAO.Editar(editar);
 
-        return false;
-
-    }
-
-    public static String Editar(JTable TabelaAgendamentoJTable,
-            String nome_cliente,
-            String servico,
-            String valor_servico,
-            String data_agendamento,
-            String hora_agendamento,
-            String observacao_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
-
-        String response = null;
-        if (nome_cliente.equals("")
-                || servico.equals("")
-                || valor_servico.equals("")
-                || data_agendamento.equals("")
-                || hora_agendamento.equals("")) {
-            response = " CAMPOS VAZIOS!\n Por favor insira os dados. ";
-
-        } else if (ControlTelaAgendamento.EditarAgendamento(TabelaAgendamentoJTable,
-                nome_cliente,
-                servico,
-                valor_servico,
-                data_agendamento,
-                hora_agendamento,
-                observacao_agendamento)) {
-            response = null;
-        }
-        return response;
     }
 
     public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
             throws NaoFoiPossivelEstabelecerConexaoComBD {
 
         if (TabelaAgendamentoJTable.getSelectedRow() != -1) {
-            AgendamentoDTO agendar = new AgendamentoDTO();
+            AgendamentoDTO excluir = new AgendamentoDTO();
             AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-            agendar.setID_agendamento((int) TabelaAgendamentoJTable.getValueAt(
+            excluir.setID_agendamento((int) TabelaAgendamentoJTable.getValueAt(
                     TabelaAgendamentoJTable.getSelectedRow(), 0));
-            agendamentoDAO.Excluir(agendar);
+            agendamentoDAO.Excluir(excluir);
         }
     }
 
+    public static void LimparAgendamento(JTable TabelaAgendamentoJTable)
+            throws NaoFoiPossivelEstabelecerConexaoComBD {
+
+        TabelaAgendamentoJTable.selectAll();
+        AgendamentoDTO limpar = new AgendamentoDTO();
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+        limpar.setID_agendamento((int) TabelaAgendamentoJTable.getValueAt(
+                TabelaAgendamentoJTable.getSelectedRow(), 0));
+        agendamentoDAO.LimparAgenda(limpar);
+    }
 }
