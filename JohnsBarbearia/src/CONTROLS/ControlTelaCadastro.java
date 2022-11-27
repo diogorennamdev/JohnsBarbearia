@@ -2,11 +2,12 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import EXCEPTIONS.ErroAoValidarCPF;
-import EXCEPTIONS.ErroAoValidarDados;
-import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
-import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoValidarCPFException;
+import EXCEPTIONS.ErroAoValidarDadosExecption;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
@@ -17,10 +18,11 @@ public class ControlTelaCadastro {
     public static boolean cadastrar(String CPF_usuario,
             String nome_usuario,
             String senha_usuario)
-            throws NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD,
+            throws NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
             SQLException,
-            NaoFoiPossivelAutenticarUsuario {
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoCriptografaSenhaException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
@@ -43,12 +45,13 @@ public class ControlTelaCadastro {
     public static String autenticaDados(String CPF_usuario,
             String nome_usuario,
             String senha_usuario)
-            throws ErroAoValidarDados,
-            NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD,
+            throws ErroAoValidarDadosExecption,
+            NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
             SQLException,
-            ErroAoValidarCPF,
-            NaoFoiPossivelAutenticarUsuario {
+            ErroAoValidarCPFException,
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoCriptografaSenhaException {
 
         UsuarioDTO objUsuarioDTO = new UsuarioDTO();
         objUsuarioDTO.setCPF_usuario(CPF_usuario);

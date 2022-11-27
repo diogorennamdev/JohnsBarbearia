@@ -1,11 +1,11 @@
 package HELPERS;
 
-import EXCEPTIONS.ErroAoValidarCPF;
+import EXCEPTIONS.ErroAoValidarCPFException;
 import java.util.InputMismatchException;
 
 public class Validacoes {
 
-    public static boolean validarCPF(String validarCPF) throws ErroAoValidarCPF {
+    public static boolean validarCPF(String validarCPF) throws ErroAoValidarCPFException {
         // considera-se erro CPF's formados por uma sequencia de numeros iguais
         if (validarCPF.equals("00000000000")
                 || validarCPF.equals("11111111111")
@@ -18,7 +18,9 @@ public class Validacoes {
                 || validarCPF.equals("88888888888")
                 || validarCPF.equals("99999999999")
                 || (validarCPF.length() != 11)) {
-            return (false);
+           // return (false);
+            throw new ErroAoValidarCPFException();
+
         }
 
         char dig10, dig11;
@@ -65,14 +67,13 @@ public class Validacoes {
                     && (dig11 == validarCPF.charAt(10))) {
                 return (true);
             } else {
-
                 return (false);
+
             }
         } catch (InputMismatchException erro) {
-            throw new ErroAoValidarCPF();
-            //  System.out.println("");
-            //return (false);
+          
         }
+        return false;
 
     }
 }

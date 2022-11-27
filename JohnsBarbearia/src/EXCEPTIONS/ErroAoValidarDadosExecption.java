@@ -2,7 +2,7 @@
 package EXCEPTIONS;
 
 
-public class ErroAoValidarDados extends Exception {
+public class ErroAoValidarDadosExecption extends Exception {
 
     @Override
     public String getMessage() {

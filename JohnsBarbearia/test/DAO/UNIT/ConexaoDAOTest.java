@@ -1,6 +1,6 @@
 package DAO.UNIT;
 
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,7 +25,7 @@ public class ConexaoDAOTest {
 
     @Test
     public void TestarConexãoComOBancoDeDados()
-            throws NaoFoiPossivelEstabelecerConexaoComBD, SQLException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException, SQLException {
         
         conn = DriverManager.getConnection(url, usuario, senha);
         // System.out.println("Banco conectado com sucesso!");

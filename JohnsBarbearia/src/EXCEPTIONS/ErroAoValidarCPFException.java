@@ -2,7 +2,7 @@
 package EXCEPTIONS;
 
 
-public class ErroAoValidarCPF extends Exception {
+public class ErroAoValidarCPFException extends Exception {
 
     @Override
     public String getMessage() {

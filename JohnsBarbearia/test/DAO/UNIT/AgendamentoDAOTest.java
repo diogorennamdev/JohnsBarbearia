@@ -2,7 +2,9 @@ package DAO.UNIT;
 
 import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
-import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
+import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import org.junit.Before;
@@ -13,42 +15,51 @@ public class AgendamentoDAOTest {
     AgendamentoDTO agendamentodto = new AgendamentoDTO();
     AgendamentoDAO agendamentodao = new AgendamentoDAO();
 
-    private static final int ID_usuario = 3;
-    private static final String nome_cliente = "GUSTAVO";
-    private static final String servico = "Corte";
-    private static final String valor_servico = "10";
-    private static final String data_agendamento = "10/11/22";
-    private static final String hora_agendamento = "11:00";
-    private static final String observacao_agendamento = "Teste";
-
     public AgendamentoDAOTest() {
     }
 
     @Before
     public void setUp() {
-      CriarAgendamento();
+        //  CriarAgendamento();
     }
 
     @Test
     public void TesteParaVerificarSeEstarInserindoAgendamentoNoBanco()
             throws Exception {
-        agendamentodao.Agendar(agendamentodto);
+        AgendamentoDTO agendamento = new AgendamentoDTO(5, "Fabio", "corte", "15",
+                "20/12/2022", "20:00", "Teste1");
+        agendamentodao.Agendar(agendamento);
         assertEquals(AgendamentoDTO.class, agendamentodto.getClass());
     }
 
-//    @Test
-//    public void TesteParaVerificarSeAparecerMensagemDeErroNoAgendamento() {
-//        NaoFoiPossivelRealizarAgendamento naoFoiPosNaoFoiPossivelRealizarAgendamento
-//                = assertThrows(NaoFoiPossivelRealizarAgendamento.class,
-//                        () -> agendamentodao.Agendar(agendamentodto));
-//        assertEquals("Não foi possivel realizar agendamento",
-//                naoFoiPosNaoFoiPossivelRealizarAgendamento.getMessage());
-//    }
+    @Test
+    public void TesteParaVerificarSeEstarEditandoAgendamento()
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+        AgendamentoDTO agendamento = new AgendamentoDTO(5, "Fabio", "corte", "15",
+                "20/12/2022", "20:00", "Teste1");
 
-    private void CriarAgendamento() {
-        agendamentodto = new AgendamentoDTO( ID_usuario ,nome_cliente, servico,
-                valor_servico, data_agendamento,
-                hora_agendamento, observacao_agendamento);
-
+        agendamentodao.Editar(agendamento);
     }
+
+    @Test
+    public void TesteParaVericarExclusaoDoAgendamento() throws NaoFoiPossivelEstabelecerConexaoComBDException, NaoFoiPossivelRealizarAgendamentoException, SQLException {
+        AgendamentoDTO agendamento = new AgendamentoDTO(5, "Fabio", "corte", "15",
+                "20/12/2022", "20:00", "Teste1");
+        agendamentodao.Agendar(agendamento); 
+        
+        agendamentodao.Excluir(agendamento);
+        
+    }
+    @Test
+    public void TesteParaVerificarSeAparecerMensagemDeErroNoAgendamento() { 
+        AgendamentoDTO agendamento_invalido = new AgendamentoDTO(0, "c", 
+                "", "", "", "", "");
+        NaoFoiPossivelRealizarAgendamentoException naoFoiPosNaoFoiPossivelRealizarAgendamento
+                = assertThrows(NaoFoiPossivelRealizarAgendamentoException.class,
+                        () -> agendamentodao.Agendar(agendamento_invalido));
+        
+        assertEquals("Não foi possivel realizar agendamento",
+                naoFoiPosNaoFoiPossivelRealizarAgendamento.getMessage());
+    }
+
 }

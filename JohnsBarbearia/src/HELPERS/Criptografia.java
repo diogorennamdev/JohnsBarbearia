@@ -1,5 +1,6 @@
 package HELPERS;
 
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -7,7 +8,8 @@ import java.security.NoSuchAlgorithmException;
 public class Criptografia {
 
     //Criptografia da senha no padrão SHA-256 
-    public static String criptografiaDaSenha(String senha_usuario) {
+    public static String criptografiaDaSenha(String senha_usuario) 
+            throws ErroAoCriptografaSenhaException {
         String cript = senha_usuario;
         MessageDigest md;
         try {
@@ -17,6 +19,7 @@ public class Criptografia {
             cript = hash.toString(24);
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("erro ao criptografar senha");
+            throw new ErroAoCriptografaSenhaException();
         }
         return cript;
     }

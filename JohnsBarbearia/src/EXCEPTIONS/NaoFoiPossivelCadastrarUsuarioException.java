@@ -2,7 +2,7 @@
 package EXCEPTIONS;
 
 
-public class NaoFoiPossivelCadastrarUsuario extends Exception {
+public class NaoFoiPossivelCadastrarUsuarioException extends Exception {
 
     
     @Override

@@ -1,11 +1,12 @@
 package CONTROLS;
 
 
-import EXCEPTIONS.ErroAoValidarCPF;
-import EXCEPTIONS.ErroAoValidarDados;
-import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
-import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoValidarCPFException;
+import EXCEPTIONS.ErroAoValidarDadosExecption;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -31,12 +32,13 @@ public class ControlTelaCadastroTest {
 
     @Test
     public void TesteParaVerificarDadosNoBanco()
-            throws NaoFoiPossivelEstabelecerConexaoComBD,
-            ErroAoValidarCPF,
-            ErroAoValidarDados,
-            NaoFoiPossivelCadastrarUsuario,
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoValidarCPFException,
+            ErroAoValidarDadosExecption,
+            NaoFoiPossivelCadastrarUsuarioException,
             SQLException,
-            NaoFoiPossivelAutenticarUsuario {
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoCriptografaSenhaException {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
@@ -47,12 +49,13 @@ public class ControlTelaCadastroTest {
 
     @Test
     public void DeverMostrarJOptionPaneQuandoCpfForInseridoDuasVezes()
-            throws ErroAoValidarDados,
-            NaoFoiPossivelCadastrarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD,
+            throws ErroAoValidarDadosExecption,
+            NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
             SQLException,
-            ErroAoValidarCPF,
-            NaoFoiPossivelAutenticarUsuario {
+            ErroAoValidarCPFException,
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoCriptografaSenhaException {
         
         String Cpf = "96575718205", nome = "Paulo", senha = "1234";
         ControlTelaCadastro.autenticaDados(Cpf, nome, senha);

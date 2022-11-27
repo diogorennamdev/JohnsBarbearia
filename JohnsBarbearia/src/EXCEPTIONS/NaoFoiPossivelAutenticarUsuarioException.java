@@ -1,6 +1,6 @@
 package EXCEPTIONS;
 
-public class NaoFoiPossivelAutenticarUsuario extends Exception {
+public class NaoFoiPossivelAutenticarUsuarioException extends Exception {
 
     @Override
     public String getMessage() {

@@ -1,8 +1,8 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
-import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
@@ -169,8 +169,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
                 this.dispose();
             }
 
-        } catch (NaoFoiPossivelAutenticarUsuario
-                | NaoFoiPossivelEstabelecerConexaoComBD ex) {
+        } catch (NaoFoiPossivelAutenticarUsuarioException | NaoFoiPossivelEstabelecerConexaoComBDException ex) {
         }
 
     }//GEN-LAST:event_entrarsistemaActionPerformed

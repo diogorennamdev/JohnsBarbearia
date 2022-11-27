@@ -2,18 +2,18 @@ package CONTROLS;
 
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
-import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
-import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.Criptografia;
 import java.sql.SQLException;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ControlTelaLoginTest {
 
-    UsuarioDTO usuariodto = new UsuarioDTO();
+   
     UsuarioDAO usuariodao = new UsuarioDAO();
     private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
@@ -22,45 +22,43 @@ public class ControlTelaLoginTest {
     public ControlTelaLoginTest() {
     }
 
-    @Before
-    public void setUp() {
-        //  CriarUsuario();
-    }
-
     @Test
     public void TesteParaVerificarSeEstarEntrandoNoSistema()
-            throws NaoFoiPossivelAutenticarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelCadastrarUsuario,
-            SQLException {
+            throws 
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            NaoFoiPossivelCadastrarUsuarioException,
+            SQLException,
+            ErroAoCriptografaSenhaException,
+            NaoFoiPossivelAutenticarUsuarioException {
 
         UsuarioDTO usuario = new UsuarioDTO(CPF, NAME,
                 Criptografia.criptografiaDaSenha(SENHA));
 
         usuariodao.CadastrarUsuario(usuario);
-        assertTrue(ControlTelaLogin.entrarSistema(CPF,SENHA));
-        
-        
+        assertTrue(ControlTelaLogin.entrarSistema(CPF, SENHA));
 
     }
 
     @Test
-    public void TesteparaVerificarValidarDadosDoLogin()
-            throws NaoFoiPossivelAutenticarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD {
+    public void DeveRetornarMensagemQuandoOsCamposNaoForemPreenchidos()
+            throws NaoFoiPossivelAutenticarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoCriptografaSenhaException {
 
-        //  assertTrue(ControlTelaLogin.validarDadosLogin(CPF, SENHA));
+        String Cpf = "", senha = "";
+        String campos_vazios = ControlTelaLogin.validarDadosLogin(Cpf, senha);
+        assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados.", campos_vazios);
     }
 
     @Test
-    public void DeveRetornarMensagemDeErroCasoOsCamposNãoSejamPreenchidos()
-            throws NaoFoiPossivelAutenticarUsuario,
-            NaoFoiPossivelEstabelecerConexaoComBD {
-
-        String CPF_usuario = "";
-        String senha_usuario = "";
-        ControlTelaLogin.validarDadosLogin(CPF_usuario, senha_usuario);
-
+    public void DeverRetornarMensagemQuandoUsuarioNaoEstarCadastradoNoSistema()
+            throws NaoFoiPossivelAutenticarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoCriptografaSenhaException { 
+        
+        NaoFoiPossivelAutenticarUsuarioException exception = assertThrows(NaoFoiPossivelAutenticarUsuarioException.class,
+                ()-> ControlTelaLogin.validarDadosLogin(CPF, SENHA));
+       assertEquals("Usuario não Cadastrado no sistema!", exception.getMessage());
     }
-
+   
 }

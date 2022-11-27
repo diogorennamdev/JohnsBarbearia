@@ -1,15 +1,18 @@
 package VIEW;
 
 import CONTROLS.ControlTelaCadastro;
-import EXCEPTIONS.ErroAoValidarCPF;
-import EXCEPTIONS.ErroAoValidarDados;
-import EXCEPTIONS.NaoFoiPossivelAutenticarUsuario;
-import EXCEPTIONS.NaoFoiPossivelCadastrarUsuario;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoValidarCPFException;
+import EXCEPTIONS.ErroAoValidarDadosExecption;
+import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
@@ -203,12 +206,10 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
             } else {
                 this.dispose();
             }
-        } catch (ErroAoValidarCPF
-                | ErroAoValidarDados
-                | NaoFoiPossivelCadastrarUsuario
-                | NaoFoiPossivelEstabelecerConexaoComBD
-                | SQLException
-                | NaoFoiPossivelAutenticarUsuario ex) {
+        } catch (ErroAoValidarCPFException | ErroAoValidarDadosExecption | NaoFoiPossivelCadastrarUsuarioException | NaoFoiPossivelEstabelecerConexaoComBDException | SQLException
+                | NaoFoiPossivelAutenticarUsuarioException ex) {
+        } catch (ErroAoCriptografaSenhaException ex) {
+           // Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 

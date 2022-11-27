@@ -2,8 +2,8 @@ package CONTROLS;
 
 import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
-import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -17,8 +17,8 @@ public class ControlTelaAgendamento {
             String data_agendamento,
             String hora_agendamento,
             String observacao_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelRealizarAgendamento,
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            NaoFoiPossivelRealizarAgendamentoException,
             SQLException {
 
         AgendamentoDTO objAgendamentoDTO = new AgendamentoDTO();
@@ -42,8 +42,8 @@ public class ControlTelaAgendamento {
             String data_agendamento,
             String hora_agendamento,
             String observacao_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelRealizarAgendamento,
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            NaoFoiPossivelRealizarAgendamentoException,
             SQLException {
 
         String response = null;
@@ -66,7 +66,7 @@ public class ControlTelaAgendamento {
     }
 
     public static JTable PreencherTabela(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         DefaultTableModel modelo
                 = (DefaultTableModel) TabelaAgendamentoJTable.getModel();
@@ -93,7 +93,7 @@ public class ControlTelaAgendamento {
             String hora_agendamento,
             String observacao_agendamento,
             int ID_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         AgendamentoDTO editar = new AgendamentoDTO();
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
@@ -110,7 +110,7 @@ public class ControlTelaAgendamento {
     }
 
     public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         if (TabelaAgendamentoJTable.getSelectedRow() != -1) {
             AgendamentoDTO excluir = new AgendamentoDTO();
@@ -122,7 +122,7 @@ public class ControlTelaAgendamento {
     }
 
     public static void LimparAgendamento(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         TabelaAgendamentoJTable.selectAll();
         AgendamentoDTO limpar = new AgendamentoDTO();

@@ -1,8 +1,8 @@
 package DAO;
 
-import EXCEPTIONS.NaoFoiPossivelRealizarAgendamento;
+import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import DTO.AgendamentoDTO;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,8 +16,8 @@ public class AgendamentoDAO {
     PreparedStatement pstm;
 
     public void Agendar(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBD,
-            NaoFoiPossivelRealizarAgendamento,
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            NaoFoiPossivelRealizarAgendamentoException,
             SQLException {
 
         conn = new ConexaoDAO().conectaBD();
@@ -44,12 +44,12 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("Não foi possivél fazer agendamento " + erro);
-            throw new NaoFoiPossivelRealizarAgendamento();
+            throw new NaoFoiPossivelRealizarAgendamentoException();
         }
     }
 
     public java.util.List<AgendamentoDTO> Horarios()
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         conn = new ConexaoDAO().conectaBD();
         ResultSet rs;
@@ -83,7 +83,7 @@ public class AgendamentoDAO {
     }
 
     public void Editar(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -106,7 +106,7 @@ public class AgendamentoDAO {
     }
 
     public void Excluir(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -122,7 +122,7 @@ public class AgendamentoDAO {
     }
 
     public void LimparAgenda(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBD {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException {
 
         conn = new ConexaoDAO().conectaBD();
         try {

@@ -2,7 +2,7 @@ package DAO.INTEGRATION;
 
 import DAO.ConexaoDAO;
 import DTO.UsuarioDTO;
-import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBD;
+import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
