@@ -12,6 +12,5 @@ create table if not exists Agendamento(
 	valor_servico varchar (20),
 	data_agendamento varchar (10),
 	hora_agendamento varchar (5),
-	observacao_agendamento varchar(50),
-	FOREIGN KEY (ID_agendamento) REFERENCES usuario(CPF_usuario)
+	observacao_agendamento varchar(50)	
   );
