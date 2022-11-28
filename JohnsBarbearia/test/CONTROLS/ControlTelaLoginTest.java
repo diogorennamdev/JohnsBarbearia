@@ -13,7 +13,6 @@ import static org.junit.Assert.*;
 
 public class ControlTelaLoginTest {
 
-   
     UsuarioDAO usuariodao = new UsuarioDAO();
     private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
@@ -24,7 +23,7 @@ public class ControlTelaLoginTest {
 
     @Test
     public void TesteParaVerificarSeEstarEntrandoNoSistema()
-            throws 
+            throws
             NaoFoiPossivelEstabelecerConexaoComBDException,
             NaoFoiPossivelCadastrarUsuarioException,
             SQLException,
@@ -54,11 +53,14 @@ public class ControlTelaLoginTest {
     public void DeverRetornarMensagemQuandoUsuarioNaoEstarCadastradoNoSistema()
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoCriptografaSenhaException { 
-        
-        NaoFoiPossivelAutenticarUsuarioException exception = assertThrows(NaoFoiPossivelAutenticarUsuarioException.class,
-                ()-> ControlTelaLogin.validarDadosLogin(CPF, SENHA));
-       assertEquals("Usuario não Cadastrado no sistema!", exception.getMessage());
+            ErroAoCriptografaSenhaException {
+
+        String Cpf = "43572567812", senha = "4l77j6iej65gdcl58aa92gnjc7hkj17f1";
+        String usuario_nao_cadastrdo 
+                = ControlTelaLogin.validarDadosLogin(Cpf, senha);
+        assertEquals(
+                "USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.",
+                usuario_nao_cadastrdo);
     }
-   
+
 }

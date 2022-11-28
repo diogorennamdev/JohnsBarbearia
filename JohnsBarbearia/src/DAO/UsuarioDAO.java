@@ -57,13 +57,11 @@ public class UsuarioDAO {
 
                 checar = true;
 
-            } else {
-                System.out.println("Usuario não Cadastrado");
-                throw new NaoFoiPossivelAutenticarUsuarioException();
             }
 
         } catch (SQLException erro) {
-
+            System.out.println("Usuario não Cadastrado" + erro);
+            throw new NaoFoiPossivelAutenticarUsuarioException();
         }
         return checar;
 

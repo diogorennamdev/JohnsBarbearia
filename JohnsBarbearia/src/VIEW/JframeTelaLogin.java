@@ -1,6 +1,7 @@
 package VIEW;
 
 import CONTROLS.ControlTelaLogin;
+import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
@@ -159,6 +160,7 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
+
         try {
             String result = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
                     senha_usuario());
@@ -168,9 +170,12 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             } else {
                 this.dispose();
             }
+        } catch (NaoFoiPossivelAutenticarUsuarioException
+                | NaoFoiPossivelEstabelecerConexaoComBDException
+                | ErroAoCriptografaSenhaException ex) {
 
-        } catch (NaoFoiPossivelAutenticarUsuarioException | NaoFoiPossivelEstabelecerConexaoComBDException ex) {
         }
+
 
     }//GEN-LAST:event_entrarsistemaActionPerformed
 

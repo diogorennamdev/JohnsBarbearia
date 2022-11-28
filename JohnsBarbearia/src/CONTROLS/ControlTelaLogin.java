@@ -8,7 +8,6 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.Criptografia;
 
-
 public class ControlTelaLogin {
 
     public static boolean entrarSistema(String CPF_usuario,
@@ -40,7 +39,7 @@ public class ControlTelaLogin {
             NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoCriptografaSenhaException {
 
-        String response;
+        String response = null;
 
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
             response = "CAMPOS VAZIOS!\n Por favor insira os dados.";
@@ -52,9 +51,6 @@ public class ControlTelaLogin {
             response = "USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.";
 
         }
-
         return response;
-
     }
-
 }

@@ -11,8 +11,6 @@ import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import HELPERS.SomenteNumeros;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class JFrameTelaCadastro extends javax.swing.JFrame {
@@ -206,10 +204,13 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
             } else {
                 this.dispose();
             }
-        } catch (ErroAoValidarCPFException | ErroAoValidarDadosExecption | NaoFoiPossivelCadastrarUsuarioException | NaoFoiPossivelEstabelecerConexaoComBDException | SQLException
-                | NaoFoiPossivelAutenticarUsuarioException ex) {
-        } catch (ErroAoCriptografaSenhaException ex) {
-           // Logger.getLogger(JFrameTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ErroAoValidarCPFException
+                | ErroAoValidarDadosExecption
+                | NaoFoiPossivelCadastrarUsuarioException
+                | NaoFoiPossivelEstabelecerConexaoComBDException
+                | SQLException
+                | NaoFoiPossivelAutenticarUsuarioException
+                | ErroAoCriptografaSenhaException ex) {
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
 

@@ -7,7 +7,6 @@ import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
 import java.lang.Integer;
-import static java.lang.Integer.getInteger;
 
 import javax.swing.JOptionPane;
 
@@ -225,7 +224,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ID_agendamentoJTextField.setEditable(false);
         ID_agendamentoJTextField.setBackground(new java.awt.Color(65, 65, 65));
         ID_agendamentoJTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ID_agendamentoJTextField.setForeground(new java.awt.Color(65, 65, 65));
+        ID_agendamentoJTextField.setForeground(new java.awt.Color(255, 255, 255));
         ID_agendamentoJTextField.setAutoscrolls(false);
         ID_agendamentoJTextField.setBorder(null);
         ID_agendamentoJTextField.setEnabled(false);
@@ -354,7 +353,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, result);
 
             }
-        } catch (NaoFoiPossivelEstabelecerConexaoComBDException | NaoFoiPossivelRealizarAgendamentoException | SQLException ex) {
+        } catch (NaoFoiPossivelEstabelecerConexaoComBDException
+                | NaoFoiPossivelRealizarAgendamentoException
+                | SQLException ex) {
 
         }
     }//GEN-LAST:event_AgendarJButtonActionPerformed

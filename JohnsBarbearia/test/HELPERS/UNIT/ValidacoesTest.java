@@ -1,5 +1,6 @@
 package HELPERS.UNIT;
 
+import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
@@ -50,8 +51,19 @@ public class ValidacoesTest {
     }
 
     @Test
-    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo() {
-        String senha = "123";
+    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo() 
+            throws NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            SQLException {
+                String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
+                        + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
+                        + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
+                        + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
+                        + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
+                        + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
+        UsuarioDAO usuario = new UsuarioDAO();
+        usuariodto = new UsuarioDTO("54376278912", "Carlos", senha);
+        usuario.CadastrarUsuario(usuariodto);
         ErroAoCriptografaSenhaException exception = assertThrows(ErroAoCriptografaSenhaException.class,
                 () -> Criptografia.criptografiaDaSenha(senha));
         assertEquals("Erro ao validar criptografa senha", exception.getMessage());
