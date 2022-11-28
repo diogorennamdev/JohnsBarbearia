@@ -1,7 +1,7 @@
 package HELPERS;
 
 import EXCEPTIONS.ErroAoValidarCPFException;
-import java.util.InputMismatchException;
+//import java.util.InputMismatchException;
 
 public class Validacoes {
 
@@ -18,8 +18,8 @@ public class Validacoes {
                 || validarCPF.equals("88888888888")
                 || validarCPF.equals("99999999999")
                 || (validarCPF.length() != 11)) {
-           // return (false);
-            throw new ErroAoValidarCPFException();
+            return (false);
+         
 
         }
 
@@ -27,7 +27,7 @@ public class Validacoes {
         int sm, i, r, num, peso;
 
         // "try" - protege o codigo para eventuais erros de conversao de tipo (int)
-        try {
+     //   try {
             // Calculo do 1o. Digito Verificador
             sm = 0;
             peso = 10;
@@ -70,10 +70,10 @@ public class Validacoes {
                 return (false);
 
             }
-        } catch (InputMismatchException erro) {
-          
-        }
-        return false;
+//        } catch (InputMismatchException erro) {
+//          
+//        }
+      //  return false;
 
     }
 }

@@ -41,6 +41,7 @@ public class UsuarioDAOTest {
             SQLException, ErroAoCriptografaSenhaException {
         
         CriarUsuario();
+       
       
     }
 
@@ -51,9 +52,9 @@ public class UsuarioDAOTest {
             NaoFoiPossivelEstabelecerConexaoComBDException,
             SQLException, 
             ErroAoCriptografaSenhaException { 
-       // String Cpf = "45184311203", nome = "igor", senha ="1234";
-        UsuarioDTO novo_usuario = new UsuarioDTO(CPF, NOME,
-                Criptografia.criptografiaDaSenha(SENHA));
+       
+        UsuarioDTO novo_usuario = new UsuarioDTO("68048411903", "Joao",
+                Criptografia.criptografiaDaSenha("1234"));
         assertTrue(Validacoes.validarCPF(CPF));
         usuariodao.CadastrarUsuario(novo_usuario);
         assertEquals(UsuarioDTO.class, novo_usuario.getClass());
@@ -62,15 +63,18 @@ public class UsuarioDAOTest {
 
     @Test
     public void DeverRetornarMensagemDeErroNoCadastroQuandoUsuarioJaExiste() 
-            throws ErroAoCriptografaSenhaException {
-        UsuarioDTO usuario_existente = new UsuarioDTO("45184311203", "Igor",
-                Criptografia.criptografiaDaSenha("1234"));
+            throws ErroAoCriptografaSenhaException,
+            NaoFoiPossivelCadastrarUsuarioException, 
+            NaoFoiPossivelEstabelecerConexaoComBDException, SQLException {
+        
+        UsuarioDTO usuario_existente = new UsuarioDTO(CPF, NOME,
+                Criptografia.criptografiaDaSenha(SENHA));
+        usuariodao.CadastrarUsuario(usuario_existente);
         NaoFoiPossivelCadastrarUsuarioException NaoFoiPossivelCadastrarUsuario
                 = assertThrows(NaoFoiPossivelCadastrarUsuarioException.class,
                         () -> usuariodao.CadastrarUsuario(usuario_existente));
 
-        assertEquals("Usuario não Cadastrado",
-                NaoFoiPossivelCadastrarUsuario.getMessage());
+        assertEquals("Usuario não Cadastrado", NaoFoiPossivelCadastrarUsuario.getMessage());
     }
 
     @Test

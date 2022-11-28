@@ -60,15 +60,12 @@ public class UsuarioDAOTest {
             ErroAoValidarCPFException {
 
         UsuarioDTO usuario = new UsuarioDTO("85412145478", "Diogo", "1234");
-       // when(usuariodao.autenticacaoUsuario(usuario)).thenThrow
-       // (new NaoFoiPossivelAutenticarUsuario()); 
-        
         when(usuariodao.autenticacaoUsuario(usuario))
                 .thenThrow(new NaoFoiPossivelAutenticarUsuarioException()); 
-        NaoFoiPossivelAutenticarUsuarioException exception = assertThrows(NaoFoiPossivelAutenticarUsuarioException.class,
+        NaoFoiPossivelAutenticarUsuarioException exception =
+                assertThrows(NaoFoiPossivelAutenticarUsuarioException.class,
                 ()-> usuariodao.autenticacaoUsuario(usuario));
         assertEquals("Usuario não Cadastrado no sistema!", exception.getMessage());
-       // assertFalse(usuariodao.autenticacaoUsuario(usuario));
         verify(usuariodao, times(1)).autenticacaoUsuario(usuario);
     }
 
@@ -94,15 +91,5 @@ public class UsuarioDAOTest {
         verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
     }
 
-//    @Test
-//    public void TesteParaVerificarSeRetornaErroNaConexaoComObanco()
-//            throws NaoFoiPossivelEstabelecerConexaoComBD {
-//
-//       UsuarioDTO usuario = mock(UsuarioDTO.class);
-//        Mockito.doThrow(new NaoFoiPossivelEstabelecerConexaoComBD())
-//                .when(conexaoDAO).conectaBD();
-//        ExpectedException.expectMessage(NaoFoiPossivelEstabelecerConexaoComBD.class);
-//        expectedException.expectMessage("Não foi possível estabelecer conexão com o banco de dados.\n Tente novamente mais tarde!");
-//        given(usuarioDAO.autenticarUsuario(user)).willThrow(new NaoFoiPossivelEstabelecerConexaoComOBancoDeDadosException());
-//    }
+
 }

@@ -14,7 +14,6 @@ import static org.junit.Assert.*;
 
 public class ValidacoesTest {
 
-   
     UsuarioDTO usuariodto = new UsuarioDTO();
 
     public ValidacoesTest() {
@@ -31,11 +30,9 @@ public class ValidacoesTest {
     }
 
     @Test
-    public void TestaParaVerificarSeEnviaMensagemDeErroCasoCpfEstejaErrado() {
-        String Cpf_invalido = "4895612354";
-        ErroAoValidarCPFException erroAoValidarCpf = assertThrows(ErroAoValidarCPFException.class,
-                () -> Validacoes.validarCPF(Cpf_invalido));
-        assertEquals("Erro ao validar CPF", erroAoValidarCpf.getMessage());
+    public void DeveRetornarFalsoQuandoCpfForInvalido() throws ErroAoValidarCPFException {
+        String Cpf = "25636545789";
+        assertEquals(false, Validacoes.validarCPF(Cpf));
     }
 
     @Test
@@ -51,12 +48,12 @@ public class ValidacoesTest {
         assertEquals(Criptografia.criptografiaDaSenha(senha),
                 usuariodto.getSenha_usuario());
     }
-    
+
     @Test
-    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo(){
+    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo() {
         String senha = "123";
         ErroAoCriptografaSenhaException exception = assertThrows(ErroAoCriptografaSenhaException.class,
-               ()-> Criptografia.criptografiaDaSenha(senha));
+                () -> Criptografia.criptografiaDaSenha(senha));
         assertEquals("Erro ao validar criptografa senha", exception.getMessage());
     }
 }

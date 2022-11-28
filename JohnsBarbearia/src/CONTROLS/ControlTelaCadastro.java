@@ -63,13 +63,13 @@ public class ControlTelaCadastro {
         if (CPF_usuario.equals("")
                 || nome_usuario.equals("")
                 || senha_usuario.equals("")) {
-            response = " CAMPOS VAZIOS!\n Por favor insira os dados";
+            response = "CAMPOS VAZIOS!\n Por favor insira os dados";
 
         } else if (objUsuariodao.verificarDadosBDCpf(objUsuarioDTO) == true) {
-            response = " CPF JÁ CADASTRADO!\n Por favor tente novamente!";
+            response = "CPF JÁ CADASTRADO!\n Por favor tente novamente!";
 
         } else if (Validacoes.validarCPF(CPF_usuario) == false) {
-            response = " ERRO, CPF INVÁLIDO!\n";
+            response = "ERRO, CPF INVÁLIDO!\n";
 
         } else if (Validacoes.validarCPF(CPF_usuario) == true) {
             ControlTelaCadastro.cadastrar(CPF_usuario, nome_usuario, senha_usuario);

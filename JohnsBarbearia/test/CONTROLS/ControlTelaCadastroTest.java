@@ -1,6 +1,5 @@
 package CONTROLS;
 
-
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.ErroAoValidarDadosExecption;
@@ -8,30 +7,18 @@ import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import java.sql.SQLException;
-import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ControlTelaCadastroTest {
 
-       public ControlTelaCadastroTest() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
+    public ControlTelaCadastroTest() {
     }
 
     @Test
-    public void TesteParaVerificarDadosNoBanco()
+    public void TesteParaCadastrarUsuarioNoBanco()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoValidarCPFException,
             ErroAoValidarDadosExecption,
@@ -42,13 +29,41 @@ public class ControlTelaCadastroTest {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
         ControlTelaCadastro.cadastrar(Cpf, nome, senha);
-        
-       
+
         // select no banco para verificar se o usuario foi cadastrdo
     }
 
     @Test
-    public void DeverMostrarJOptionPaneQuandoCpfForInseridoDuasVezes()
+    public void DeverMostrarMesagemPedindoParaOUsuarioInserirOsDadosCasoDeixeCamposVazios()
+            throws ErroAoValidarDadosExecption,
+            NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            SQLException, ErroAoValidarCPFException,
+            ErroAoCriptografaSenhaException,
+            NaoFoiPossivelAutenticarUsuarioException {
+
+        String Cpf = "", nome = "", senha = "";
+        String mensagemCampoVazio = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
+        Assert.assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados", mensagemCampoVazio);
+    }
+
+    @Test
+    public void DeverRetonarMesagemQuandoUsuarioJaExisteNoSistema()
+            throws ErroAoValidarDadosExecption,
+            NaoFoiPossivelCadastrarUsuarioException,
+            NaoFoiPossivelEstabelecerConexaoComBDException,
+            SQLException, ErroAoValidarCPFException,
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoCriptografaSenhaException {
+
+        String Cpf = "18342451330", nome = "usuarioTeste", senha = "1234";
+        ControlTelaCadastro.cadastrar(Cpf, nome, senha);
+        String usuarioExistente = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
+        Assert.assertEquals("CPF JÁ CADASTRADO!\n Por favor tente novamente!", usuarioExistente);
+    }
+
+    @Test
+    public void DeverRetornarMensagemQuandoCpfForInvalido()
             throws ErroAoValidarDadosExecption,
             NaoFoiPossivelCadastrarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
@@ -56,8 +71,10 @@ public class ControlTelaCadastroTest {
             ErroAoValidarCPFException,
             NaoFoiPossivelAutenticarUsuarioException,
             ErroAoCriptografaSenhaException {
-        
-        String Cpf = "96575718205", nome = "Paulo", senha = "1234";
-        ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
+
+        String Cpf = "15022886", nome = "Gustavo", senha = "1234";
+        String CpfInvalido = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
+        Assert.assertEquals("ERRO, CPF INVÁLIDO!\n", CpfInvalido);
+
     }
 }

@@ -17,7 +17,7 @@ public class ControlTelaLoginTest {
     UsuarioDAO usuariodao = new UsuarioDAO();
     private static final String SENHA = "12345";
     private static final String NAME = "Diogo";
-    private static final String CPF = "45184311203";
+    private static final String CPF = "25442606022";
 
     public ControlTelaLoginTest() {
     }
