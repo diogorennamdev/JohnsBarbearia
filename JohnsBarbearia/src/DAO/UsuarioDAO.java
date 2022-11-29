@@ -86,7 +86,7 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Errou ao verificar dados" + erro);
-
+            throw new ErroAoValidarDadosExecption();
         }
         return checar;
     }
