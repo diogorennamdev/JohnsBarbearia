@@ -51,7 +51,7 @@ public class ControlTelaAgendamento {
                 || valor_servico.equals("")
                 || data_agendamento.equals("")
                 || hora_agendamento.equals("")) {
-            response = " CAMPOS VAZIOS!\n Por favor insira os dados ";
+            response = "CAMPOS VAZIOS!\n Por favor insira os dados";
 
         } else if (ControlTelaAgendamento.CriarAgendamento(
                 nome_cliente,

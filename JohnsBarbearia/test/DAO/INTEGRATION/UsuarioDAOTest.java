@@ -1,6 +1,5 @@
 package DAO.INTEGRATION;
 
-import DAO.ConexaoDAO;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
@@ -18,11 +17,12 @@ import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 
+   
     private final UsuarioDAO usuariodao = mock(UsuarioDAO.class);
-    private ConexaoDAO conexaodao;
+   
 
     //Criando Novo usuario
-    String cpf = "60130154490", nome = "Diogo", senha = "1234";
+    String cpf = "60130154490", nome = "Diogo", senha = "123";
 
     @Test
     public void TesteParaVerificarSeEstarInserindoUsuario()
@@ -38,10 +38,11 @@ public class UsuarioDAOTest {
         boolean validar_cpf = Validacoes.validarCPF(cpf);
         usuariodao.CadastrarUsuario(usuario);
         assertEquals(true, validar_cpf);
-        assertEquals(Criptografia.criptografiaDaSenha(senha), usuario.getSenha_usuario());
+        assertEquals("196a500b9911174047387a15004a27a6661231b233a904b457a9985683"
+                + "3779928b67b2ab", usuario.getSenha_usuario());
         assertEquals(UsuarioDTO.class, usuario.getClass());
         verify(usuariodao, times(1)).CadastrarUsuario(usuario);
-
+      
     }
 
     @Test
@@ -116,4 +117,7 @@ public class UsuarioDAOTest {
         assertEquals("Erro ao validar dados", exception.getMessage());
         verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
     }
+
+
+
 }

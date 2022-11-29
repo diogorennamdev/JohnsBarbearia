@@ -20,10 +20,6 @@ public class ValidacoesTest {
     public ValidacoesTest() {
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Test
     public void TesteParaValidarCPF() throws ErroAoValidarCPFException {
         String cpf_valido = "45184311203";
@@ -43,29 +39,42 @@ public class ValidacoesTest {
             SQLException,
             ErroAoCriptografaSenhaException {
 
-        String CPF = "6144827100", nome = "Pedro", senha = "1234";
-        usuariodto = new UsuarioDTO(CPF, nome,
-                Criptografia.criptografiaDaSenha(senha));
-        assertEquals(Criptografia.criptografiaDaSenha(senha),
-                usuariodto.getSenha_usuario());
+        String senha = "123";
+        String senha_criptografada = Criptografia.criptografiaDaSenha(senha);
+        assertEquals("959e8cmla530336a9mm65db9447753c64bb73fbli5fdeil7hl47nlhb", senha_criptografada);
     }
 
     @Test
-    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo() 
+    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo()
             throws NaoFoiPossivelCadastrarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
             SQLException {
-                String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
-                        + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
-                        + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
-                        + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
-                        + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
-                        + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
+        String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
+                + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
+                + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
+                + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
+                + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
+                + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
         UsuarioDAO usuario = new UsuarioDAO();
+
         usuariodto = new UsuarioDTO("54376278912", "Carlos", senha);
         usuario.CadastrarUsuario(usuariodto);
         ErroAoCriptografaSenhaException exception = assertThrows(ErroAoCriptografaSenhaException.class,
                 () -> Criptografia.criptografiaDaSenha(senha));
         assertEquals("Erro ao validar criptografa senha", exception.getMessage());
+    }
+
+    @Test
+    public void Test() throws ErroAoCriptografaSenhaException { 
+        String Senha = " ";
+        String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
+                + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
+                + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
+                + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
+                + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
+                + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
+        String formato_errado = Criptografia.criptografiaDaSenha(Senha);
+        assertEquals("Erro ao validar criptografa senha", formato_errado);
+
     }
 }

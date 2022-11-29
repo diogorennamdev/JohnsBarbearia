@@ -16,7 +16,7 @@ public class Criptografia {
             md = MessageDigest.getInstance("SHA-256");
             BigInteger hash = new BigInteger(1,
                     md.digest(senha_usuario.getBytes()));
-            cript = hash.toString(24);
+            cript = hash.toString(12);
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("erro ao criptografar senha");
             throw new ErroAoCriptografaSenhaException();

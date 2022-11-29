@@ -33,7 +33,7 @@ public class UsuarioDAO {
 
         } catch (SQLException erro) {
             System.out.println("Não foi possivél cadastrar usuário" + erro);
-            throw new NaoFoiPossivelCadastrarUsuarioException();
+            throw new NaoFoiPossivelCadastrarUsuarioException(); 
         }
 
     }
