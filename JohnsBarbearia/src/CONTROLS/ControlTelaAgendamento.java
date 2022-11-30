@@ -72,7 +72,7 @@ public class ControlTelaAgendamento {
                 = (DefaultTableModel) TabelaAgendamentoJTable.getModel();
         modelo.setNumRows(0);
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-        for (AgendamentoDTO agendar : agendamentoDAO.Horarios()) {
+        for (AgendamentoDTO agendar : agendamentoDAO.ListarHorarios()) {
             modelo.addRow(new Object[]{
                 agendar.getID_agendamento(),
                 agendar.getNome_cliente(),

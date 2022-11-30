@@ -1,5 +1,6 @@
 package DAO;
 
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import DTO.AgendamentoDTO;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
@@ -48,8 +49,8 @@ public class AgendamentoDAO {
         }
     }
 
-    public java.util.List<AgendamentoDTO> Horarios()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+    public java.util.List<AgendamentoDTO> ListarHorarios()
+            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoListarDadosException {
 
         conn = new ConexaoDAO().conectaBD();
         ResultSet rs;
@@ -78,6 +79,7 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("error em List<AgendamentoDTO> Horarios " + erro);
+            throw new ErroAoListarDadosException();
         }
         return horarios;
     }

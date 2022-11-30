@@ -3,26 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/NaoFoiPossivelEstabelecerConexaoComBDException.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/HELPERS/UNIT/ValidacoesTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/ConexaoDAO.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/UNIT/AgendamentoDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaAgendamento.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/Criptografia.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/ErroAoValidarDadosExecption.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/INTEGRATION/UsuarioDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/UNIT/ConexaoDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/NaoFoiPossivelRealizarAgendamentoException.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/NaoFoiPossivelCadastrarUsuarioException.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/CONTROLS/ControlTelaAgendamentoTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/INTEGRATION/AgendamentoDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/UNIT/UsuarioDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/INTEGRATION/ConexaoDAOTest.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/ErroAoCriptografaSenhaException.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaCadastro.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/AgendamentoDAO.java</file>
-            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/Validacoes.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/HELPERS/UNIT/ValidacoesTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/INTEGRATION/UsuarioDAOTest.java</file>
         </group>
     </open-files>
 </project-private>

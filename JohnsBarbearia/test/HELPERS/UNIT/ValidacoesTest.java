@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class ValidacoesTest {
 
-    UsuarioDTO usuariodto = new UsuarioDTO();
+  //  UsuarioDTO usuariodto = new UsuarioDTO();
 
     public ValidacoesTest() {
     }
@@ -41,40 +41,7 @@ public class ValidacoesTest {
 
         String senha = "123";
         String senha_criptografada = Criptografia.criptografiaDaSenha(senha);
-        assertEquals("959e8cmla530336a9mm65db9447753c64bb73fbli5fdeil7hl47nlhb", senha_criptografada);
-    }
-
-    @Test
-    public void DeveRetornarMensagemDeErroAoTentarCriptografaSenhaSemOMetodo()
-            throws NaoFoiPossivelCadastrarUsuarioException,
-            NaoFoiPossivelEstabelecerConexaoComBDException,
-            SQLException {
-        String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
-                + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
-                + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
-                + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
-                + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
-                + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
-        UsuarioDAO usuario = new UsuarioDAO();
-
-        usuariodto = new UsuarioDTO("54376278912", "Carlos", senha);
-        usuario.CadastrarUsuario(usuariodto);
-        ErroAoCriptografaSenhaException exception = assertThrows(ErroAoCriptografaSenhaException.class,
-                () -> Criptografia.criptografiaDaSenha(senha));
-        assertEquals("Erro ao validar criptografa senha", exception.getMessage());
-    }
-
-    @Test
-    public void Test() throws ErroAoCriptografaSenhaException { 
-        String Senha = " ";
-        String senha = "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF"
-                + "SRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjhR"
-                + "zaqwsxDEFRT3246718@RFSRJUUSHHSFRTxdcdfftghjjjhRF12345"
-                + "FSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjjh"
-                + "RFSRJUUSHHSFRTxdcdfftghjjjhRFSRJUUSHHSFRTxdcdfftghjjj"
-                + "hRFSRJUUSHHSFRTxdcdfftghjjjh@rrttyyywywywywywyywyw";
-        String formato_errado = Criptografia.criptografiaDaSenha(Senha);
-        assertEquals("Erro ao validar criptografa senha", formato_errado);
-
-    }
+        assertEquals("196a500b9911174047387a15004a27a6661231b233a904b457a998568"
+                + "33779928b67b2ab", senha_criptografada);
+    }   
 }

@@ -49,6 +49,7 @@ public class UsuarioDAOTest {
     public void DeveLancaMensagemDeErroCasoUsuarioTenteRealizarCadastroDuasVezes()
             throws NaoFoiPossivelCadastrarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException, SQLException {
+        
         UsuarioDTO usuario = new UsuarioDTO(cpf, nome, senha);
         doThrow(new NaoFoiPossivelCadastrarUsuarioException())
                 .when(usuariodao).CadastrarUsuario(usuario);
