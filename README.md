@@ -1,9 +1,9 @@
 <h1 align="center">John's Barbearia</h1>
 
 <p align ="center">
- <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#projeto">Projeto</a> •
- <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#tecnologias">Tecnologias</a> •
- <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#dependencias">Dependencias</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia#projeto">Projeto</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia#tecnologias>Tecnologias</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia/graphs/contributors">Contrinbuidores
 </p><br>
 
