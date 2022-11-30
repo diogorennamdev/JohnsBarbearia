@@ -1,5 +1,6 @@
 package HELPERS;
 
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import VIEW.JFrameTelaAgendamento;
 import VIEW.JFrameTelaCadastro;
@@ -16,7 +17,8 @@ public class ChamarTelas {
 
     //Metodo que retorna JframeTeAgendamento
     public static void chamarTelaAgendamento()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoListarDadosException {
 
         JFrameTelaAgendamento telaJframeTelaAgendamento
                 = new JFrameTelaAgendamento();

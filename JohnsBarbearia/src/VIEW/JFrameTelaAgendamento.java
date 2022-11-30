@@ -1,19 +1,22 @@
 package VIEW;
 
 import CONTROLS.ControlTelaAgendamento;
+import EXCEPTIONS.ErroAoEditarAgendamentoException;
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
-import java.lang.Integer;
+
 
 import javax.swing.JOptionPane;
 
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     public JFrameTelaAgendamento()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoListarDadosException {
         initComponents();
         setResizable(false);
         ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
@@ -224,7 +227,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ID_agendamentoJTextField.setEditable(false);
         ID_agendamentoJTextField.setBackground(new java.awt.Color(65, 65, 65));
         ID_agendamentoJTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ID_agendamentoJTextField.setForeground(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setForeground(new java.awt.Color(101, 101, 101));
         ID_agendamentoJTextField.setAutoscrolls(false);
         ID_agendamentoJTextField.setBorder(null);
         ID_agendamentoJTextField.setEnabled(false);
@@ -355,7 +358,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             }
         } catch (NaoFoiPossivelEstabelecerConexaoComBDException
                 | NaoFoiPossivelRealizarAgendamentoException
-                | SQLException ex) {
+                | SQLException
+                | ErroAoListarDadosException ex) {
 
         }
     }//GEN-LAST:event_AgendarJButtonActionPerformed
@@ -377,7 +381,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                         rootPane, " Selecio um hoarário na tabela para EXCLUIR");
             }
 
-        } catch (NaoFoiPossivelEstabelecerConexaoComBDException ex) {
+        } catch (NaoFoiPossivelEstabelecerConexaoComBDException
+                | ErroAoListarDadosException ex) {
         }
 
     }//GEN-LAST:event_ExcluirJButtonActionPerformed
@@ -400,7 +405,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                         rootPane, " Selecio um hoarário na tabela para EDITAR");
             }
 
-        } catch (NaoFoiPossivelEstabelecerConexaoComBDException ex) {
+        } catch (NaoFoiPossivelEstabelecerConexaoComBDException
+                | ErroAoEditarAgendamentoException
+                | ErroAoListarDadosException ex) {
         }
 
 
@@ -426,7 +433,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             ControlTelaAgendamento.LimparAgendamento(AgendamentosJTable);
             ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
             limparCampos();
-        } catch (NaoFoiPossivelEstabelecerConexaoComBDException ex) {
+        } catch (NaoFoiPossivelEstabelecerConexaoComBDException
+                | ErroAoListarDadosException ex) {
         }
     }//GEN-LAST:event_LimparAgendaJButtonActionPerformed
 

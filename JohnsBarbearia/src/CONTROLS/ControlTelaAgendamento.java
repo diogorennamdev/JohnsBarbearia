@@ -2,6 +2,8 @@ package CONTROLS;
 
 import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
+import EXCEPTIONS.ErroAoEditarAgendamentoException;
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import java.sql.SQLException;
@@ -66,7 +68,7 @@ public class ControlTelaAgendamento {
     }
 
     public static JTable PreencherTabela(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoListarDadosException {
 
         DefaultTableModel modelo
                 = (DefaultTableModel) TabelaAgendamentoJTable.getModel();
@@ -93,7 +95,7 @@ public class ControlTelaAgendamento {
             String hora_agendamento,
             String observacao_agendamento,
             int ID_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoEditarAgendamentoException {
 
         AgendamentoDTO editar = new AgendamentoDTO();
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();

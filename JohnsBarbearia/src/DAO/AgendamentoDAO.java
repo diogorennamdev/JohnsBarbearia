@@ -1,5 +1,7 @@
 package DAO;
 
+import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
+import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import DTO.AgendamentoDTO;
@@ -85,7 +87,7 @@ public class AgendamentoDAO {
     }
 
     public void Editar(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoEditarAgendamentoException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -104,12 +106,14 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("erro ao tentar Editar agendamento" + erro);
+            throw  new ErroAoEditarAgendamentoException();
         }
        
     }
 
     public void Excluir(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarExcluirAgendamentoException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -120,7 +124,7 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("erro ao tentar Excluir agendamento" + erro);
-
+            throw new ErroAoTentarExcluirAgendamentoException();
         }
     }
 

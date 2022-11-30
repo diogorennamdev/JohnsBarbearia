@@ -1,6 +1,5 @@
-package DAO.INTEGRATION;
+package DAO;
 
-import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
@@ -17,9 +16,7 @@ import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 
-   
     private final UsuarioDAO usuariodao = mock(UsuarioDAO.class);
-   
 
     //Criando Novo usuario
     String cpf = "60130154490", nome = "Diogo", senha = "123";
@@ -32,7 +29,9 @@ public class UsuarioDAOTest {
             ErroAoValidarCPFException,
             ErroAoCriptografaSenhaException {
 
-        UsuarioDTO usuario = new UsuarioDTO(cpf, nome, Criptografia.criptografiaDaSenha(senha));
+        UsuarioDTO usuario = new UsuarioDTO(cpf,
+                nome,
+                Criptografia.criptografiaDaSenha(senha));
 
         doNothing().when(usuariodao).CadastrarUsuario(usuario);
         boolean validar_cpf = Validacoes.validarCPF(cpf);
@@ -42,19 +41,20 @@ public class UsuarioDAOTest {
                 + "3779928b67b2ab", usuario.getSenha_usuario());
         assertEquals(UsuarioDTO.class, usuario.getClass());
         verify(usuariodao, times(1)).CadastrarUsuario(usuario);
-      
+
     }
 
     @Test
     public void DeveLancaMensagemDeErroCasoUsuarioTenteRealizarCadastroDuasVezes()
             throws NaoFoiPossivelCadastrarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException, SQLException {
-        
+
         UsuarioDTO usuario = new UsuarioDTO(cpf, nome, senha);
         doThrow(new NaoFoiPossivelCadastrarUsuarioException())
                 .when(usuariodao).CadastrarUsuario(usuario);
-        NaoFoiPossivelCadastrarUsuarioException exception = assertThrows(NaoFoiPossivelCadastrarUsuarioException.class,
-                () -> usuariodao.CadastrarUsuario(usuario));
+        NaoFoiPossivelCadastrarUsuarioException exception
+                = assertThrows(NaoFoiPossivelCadastrarUsuarioException.class,
+                        () -> usuariodao.CadastrarUsuario(usuario));
         assertEquals("Usuario não Cadastrado", exception.getMessage());
 
     }
@@ -66,7 +66,8 @@ public class UsuarioDAOTest {
             ErroAoValidarCPFException,
             ErroAoCriptografaSenhaException {
 
-        UsuarioDTO usuario = new UsuarioDTO(cpf, nome, Criptografia.criptografiaDaSenha(senha));
+        UsuarioDTO usuario = new UsuarioDTO(cpf,
+                nome, Criptografia.criptografiaDaSenha(senha));
         when(usuariodao.autenticacaoUsuario(usuario)).thenReturn(true);
         usuariodao.autenticacaoUsuario(usuario);
         verify(usuariodao, times(1)).autenticacaoUsuario(usuario);
@@ -113,12 +114,11 @@ public class UsuarioDAOTest {
         UsuarioDTO usuario = new UsuarioDTO(cpf, nome, senha);
         when(usuariodao.verificarDadosBDCpf(usuario))
                 .thenThrow(new ErroAoValidarDadosExecption());
-        ErroAoValidarDadosExecption exception = assertThrows(ErroAoValidarDadosExecption.class,
+        ErroAoValidarDadosExecption exception
+                = assertThrows(ErroAoValidarDadosExecption.class,
                 () -> usuariodao.verificarDadosBDCpf(usuario));
         assertEquals("Erro ao validar dados", exception.getMessage());
         verify(usuariodao, times(1)).verificarDadosBDCpf(usuario);
     }
-
-
 
 }

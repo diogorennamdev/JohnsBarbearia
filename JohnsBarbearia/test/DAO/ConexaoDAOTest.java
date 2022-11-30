@@ -1,4 +1,4 @@
-package DAO.INTEGRATION;
+package DAO;
 
 import DAO.ConexaoDAO;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
