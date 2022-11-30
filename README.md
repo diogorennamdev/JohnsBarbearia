@@ -4,7 +4,7 @@
  <a href="https://github.com/ribeial/JohnsBarbearia#projeto">Projeto</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia#tecnologias">Tecnologias</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a> •
- <a href="https://github.com/ribeial/JohnsBarbearia#executandooprojeto">Executando o Projeto</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia#executando-o-projeto">Executando o Projeto</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia/graphs/contributors">Contrinbuidores</a>
 </p><br>
 
@@ -33,12 +33,16 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## Dependencias 
 Para a instalação do projeto no sistema operacional **`Windows`** é necessário seguir os seguintes passos:
 
- - Para execução desse projeto em seu computador é necessario instalar o Kit de Desenvolvimento Java - **[JDK 11](https://download.oracle.com/otn/java/jdk/11.0.17+10/8bd089539add49a9b99e2f27eb0c4329/jdk-11.0.17_windows-x64_bin.exe?AuthParam=1669824303_07aa991ec901c0c59aff2a769f1d5867)**.
+ - Para execução desse projeto em seu computador é necessario instalar o Kit de Desenvolvimento Java - **[JDK 11](https://www.oracle.com/java/technologies/downloads/#java11)**.
 
  - Com o JDK instalado faça o download do **[Apache NetBeans IDE 15](https://dlcdn.apache.org/netbeans/netbeans-installers/15/Apache-NetBeans-15-bin-windows-x64.exe)**.
-     
+    - Na aba `windows` clique no link `jdk-11.0.17_windows-x64_bin.exe`.
+> ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE e depois redirecionado novamente para Acessar ou Cliar uma conta Oracle para seu dowload começar.
+<p></p>   
+
  - O projeto tem uma conexão com o banco de dados que utliza a linguagem SQL, para executar esse banco de dados é nessessario fazer download do **[WampServer](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.2.6_x64.exe/download)**.
     - Para que o **`WampServer`** funcione normalmente no seu computador é necessário a instalação do **[Microsoft Visual C++ 2012](https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe)**. <p></p>
+    - Ao instalar WampServer na aba `Select Components`, você ira mudar do padrão **`(MySQL 5.7.36)`** para **`(MySQL 8.0.27)`**.
 
  - Não definimos uma chave SSH para esse progeto, então indicamos que você faça o clone desse repositorio via HTTPS, mas para isso será necessario que você instale o terminal **[GIT](https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe)**.
 
@@ -47,10 +51,19 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 ## Executando o Projeto
 Agora que você ja instalou todas as <a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a> siga os passos abaixo para executar o projeto:
 
+ 1. Em seu computardor selecione uma pasta para armazenar o Projeto.
+ 2. Dentro desta pasta clique com o botão direito do mouse (clique  em mostrar mais opções se você utlisa o Windows11), depois selecione o GIT Bash Here.
+
+ 3. Quando o prompt de comando do GIT abrir digite o comando a seguir:
+ ```
+ git clone https://github.com/ribeial/JohnsBarbearia
+ ```
+
  <!--
  1. Para executar o projeto no seu computador é necessario clonar o [Repositorio JohnsBarbearia](https://github.com/ribeial/JohnsBarbearia).
  2. para  
  -->
+ 
 
 ---
 
