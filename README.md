@@ -1,24 +1,29 @@
-<h1 align="center"> John's Barbearia </h1>
+<h1 align="center">John's Barbearia</h1>
 
+<p align ="center">
+ <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#projeto">Projeto</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#tecnologias">Tecnologias</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia/edit/main/README.md#dependencias">Dependencias</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia/graphs/contributors">Contrinbuidores
+</p><br>
+
+##  Projeto
 <p align="center">
-Projeto de um sistema para barbearia 
-</p>
-
-<br>
-
+Esse projeto tem como intuito facilitar o agendamento de horários de uma barbearia, fazendo com que o barbeiro deixe de lado o caderno e a caneta e passe a usar as tecnologias que estão ao seu dispor.
+</p><br>
+ 
 ##  Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- Linguaguem de programação Java
-- Banco de dados Mysql
-- IDE NetBeans
-- Editor SQL beekeeper 
-- Testes com Junit
-
-##  Projeto
-
-Esse projeto foi desenvolvido para uma barbearia onde o cabeleleiro terá o controle do atendimento, e o cliente poderá agendar um horário para realizar seu corte 
+<div style="display inline_blok"> 
+<img align="center" alt="java" heigth"70" width="65" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" /> 
+<img align="center" alt="mysql" heigth"80" width="90"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" /> 
+<img align="center" alt="phpmyadmin" heigth"100" width="110" src="https://www.logo.wine/a/logo/PhpMyAdmin/PhpMyAdmin-Logo.wine.svg" /> 
+<img align="center" alt="wamp" heigth"40" width="45"src="https://upload.wikimedia.org/wikipedia/commons/f/f4/WampServer-logo.svg" /> 
+<img align="center" alt="junit" heigth"70" width="90" src="https://avatars1.githubusercontent.com/u/874086?v=3&s=400" /> 
+<img align="center" alt="mokkito" heigth"110" width="120" src="https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo%402x.png" />
+</div><br>   
 
 
 ##  Dependencias 
@@ -31,12 +36,6 @@ Para a instalação do projeto no computador é necessário seguir os seguintes 
  - Agora faça o download desse repositório no seu computador, basta localizar "Code" clique e aparacerá a opção de Dowload Zip ou se preferir copie o link desse repositório e faça o clone no seu computador com git clone "link do repositório" 
  
  - O projeto estára pronto para executar, mas para conseguir ter acesso ao banco de dados precisaremos instalar mais algumas dependências
- 
- - Primeiro precisamos criar nosso banco e para a criação dele utlizamos o software [Bekeepeer](https://www.beekeeperstudio.io/) faça o dwonload no seu computador 
- 
- - Para ter acesso ao Beekeeper precisamos ter um servidor local, para isso utilizamos o [XAAMP](https://www.apachefriends.org/pt_br/index.html) faça o download
- 
- - Para iniciar a conexão entre o servidor e o Bekeeper abrimos o XAAMP e na opção "Mysql" clicamos em "start" fazendo isso irá aparecer na coluna de "Port(s)" o número 3306
  
 - Feito isso abra o Beekeeper e inicie uma conexão, irá aparecer 
 
