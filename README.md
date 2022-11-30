@@ -2,7 +2,7 @@
 
 <p align ="center">
  <a href="https://github.com/ribeial/JohnsBarbearia#projeto">Projeto</a> •
- <a href="https://github.com/ribeial/JohnsBarbearia#tecnologias>Tecnologias</a> •
+ <a href="https://github.com/ribeial/JohnsBarbearia#tecnologias">Tecnologias</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a> •
  <a href="https://github.com/ribeial/JohnsBarbearia/graphs/contributors">Contrinbuidores
 </p><br>
