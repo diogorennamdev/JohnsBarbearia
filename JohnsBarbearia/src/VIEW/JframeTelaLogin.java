@@ -2,6 +2,7 @@ package VIEW;
 
 import CONTROLS.ControlTelaLogin;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
@@ -172,11 +173,10 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             }
         } catch (NaoFoiPossivelAutenticarUsuarioException
                 | NaoFoiPossivelEstabelecerConexaoComBDException
-                | ErroAoCriptografaSenhaException ex) {
+                | ErroAoCriptografaSenhaException 
+                | ErroAoListarDadosException ex) {
 
         }
-
-
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
     private void criarcontaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarcontaJButtonActionPerformed

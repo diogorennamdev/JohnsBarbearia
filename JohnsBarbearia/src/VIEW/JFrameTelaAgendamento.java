@@ -3,12 +3,14 @@ package VIEW;
 import CONTROLS.ControlTelaAgendamento;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
+import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -382,7 +384,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             }
 
         } catch (NaoFoiPossivelEstabelecerConexaoComBDException
-                | ErroAoListarDadosException ex) {
+                | ErroAoListarDadosException
+                | ErroAoTentarExcluirAgendamentoException ex) {
         }
 
     }//GEN-LAST:event_ExcluirJButtonActionPerformed

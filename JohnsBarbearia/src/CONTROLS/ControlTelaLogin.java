@@ -3,6 +3,7 @@ package CONTROLS;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
@@ -14,7 +15,8 @@ public class ControlTelaLogin {
             String senha_usuario)
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoCriptografaSenhaException {
+            ErroAoCriptografaSenhaException,
+            ErroAoListarDadosException {
 
         UsuarioDTO objUsuariodto = new UsuarioDTO();
         objUsuariodto.setCPF_usuario(CPF_usuario);
@@ -37,9 +39,10 @@ public class ControlTelaLogin {
             String senha_usuario)
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoCriptografaSenhaException {
+            ErroAoCriptografaSenhaException,
+            ErroAoListarDadosException {
 
-        String response = null;
+        String response;
 
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
             response = "CAMPOS VAZIOS!\n Por favor insira os dados.";

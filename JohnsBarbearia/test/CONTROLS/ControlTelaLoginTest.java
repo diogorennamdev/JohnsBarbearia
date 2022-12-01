@@ -3,6 +3,7 @@ package CONTROLS;
 import DAO.UsuarioDAO;
 import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
@@ -28,7 +29,8 @@ public class ControlTelaLoginTest {
             NaoFoiPossivelCadastrarUsuarioException,
             SQLException,
             ErroAoCriptografaSenhaException,
-            NaoFoiPossivelAutenticarUsuarioException {
+            NaoFoiPossivelAutenticarUsuarioException,
+            ErroAoListarDadosException {
 
         UsuarioDTO usuario = new UsuarioDTO(CPF, NAME,
                 Criptografia.criptografiaDaSenha(SENHA));
@@ -42,7 +44,8 @@ public class ControlTelaLoginTest {
     public void DeveRetornarMensagemQuandoOsCamposNaoForemPreenchidos()
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoCriptografaSenhaException {
+            ErroAoCriptografaSenhaException,
+            ErroAoListarDadosException {
 
         String Cpf = "", senha = "";
         String campos_vazios = ControlTelaLogin.validarDadosLogin(Cpf, senha);
@@ -53,7 +56,8 @@ public class ControlTelaLoginTest {
     public void DeverRetornarMensagemQuandoUsuarioNaoEstarCadastradoNoSistema()
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoCriptografaSenhaException {
+            ErroAoCriptografaSenhaException,
+            ErroAoListarDadosException {
 
         String Cpf = "43572567812", senha = "4l77j6iej65gdcl58aa92gnjc7hkj17f1";
         String usuario_nao_cadastrdo 

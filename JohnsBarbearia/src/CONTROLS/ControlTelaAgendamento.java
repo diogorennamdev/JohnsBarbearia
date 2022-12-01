@@ -4,6 +4,7 @@ import DAO.AgendamentoDAO;
 import DTO.AgendamentoDTO;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
+import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import java.sql.SQLException;
@@ -112,7 +113,8 @@ public class ControlTelaAgendamento {
     }
 
     public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarExcluirAgendamentoException {
 
         if (TabelaAgendamentoJTable.getSelectedRow() != -1) {
             AgendamentoDTO excluir = new AgendamentoDTO();
