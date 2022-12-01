@@ -7,14 +7,12 @@ import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
-import HELPERS.SomenteNumeros;
 import javax.swing.JOptionPane;
 
 public class JframeTelaLogin extends javax.swing.JFrame {
 
     public JframeTelaLogin() {
         initComponents();
-        CPFJText.setDocument(new SomenteNumeros());
         CPFJText.setDocument(new LimitaCaracteres(11,
                 LimitaCaracteres.TipoEntrada.CPF));
         setResizable(false);
@@ -161,9 +159,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarsistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarsistemaActionPerformed
-
         try {
-            String result = ControlTelaLogin.validarDadosLogin(CPF_usuario(),
+            String result = ControlTelaLogin.ValidarDadosLogin(CPF_usuario(),
                     senha_usuario());
             if (result != null) {
                 JOptionPane.showMessageDialog(rootPane, result);
@@ -173,9 +170,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
             }
         } catch (NaoFoiPossivelAutenticarUsuarioException
                 | NaoFoiPossivelEstabelecerConexaoComBDException
-                | ErroAoCriptografaSenhaException 
+                | ErroAoCriptografaSenhaException
                 | ErroAoListarDadosException ex) {
-
         }
     }//GEN-LAST:event_entrarsistemaActionPerformed
 
@@ -183,9 +179,8 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         ChamarTelas.chamarTelaCadastro();
         this.dispose();
     }//GEN-LAST:event_criarcontaJButtonActionPerformed
-
+    
     public static void main(String args[]) {
-
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info
                     : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -216,7 +211,6 @@ public class JframeTelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel senhaJLabel;
     private javax.swing.JPasswordField txtSenhaUsuario;
     // End of variables declaration//GEN-END:variables
-
     public String CPF_usuario() {
         String CPF_usuario = CPFJText.getText();
         return CPF_usuario;

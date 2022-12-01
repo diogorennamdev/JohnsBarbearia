@@ -53,7 +53,8 @@ public class AgendamentoDAO {
     }
 
     public java.util.List<AgendamentoDTO> ListarHorarios()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoListarDadosException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoListarDadosException {
 
         conn = new ConexaoDAO().conectaBD();
         ResultSet rs;
@@ -88,7 +89,8 @@ public class AgendamentoDAO {
     }
 
     public void Editar(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoEditarAgendamentoException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoEditarAgendamentoException {
 
         conn = new ConexaoDAO().conectaBD();
         try {

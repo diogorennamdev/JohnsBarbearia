@@ -8,19 +8,19 @@ import java.security.NoSuchAlgorithmException;
 public class Criptografia {
 
     //Criptografia da senha no padrão SHA-256 
-    public static String criptografiaDaSenha(String senha_usuario) 
+    public static String criptografiaDaSenha(String senha_usuario)
             throws ErroAoCriptografaSenhaException {
-        String cript = senha_usuario;
-        MessageDigest md;
+        String criptgrafa = senha_usuario;
+        MessageDigest MD;
         try {
-            md = MessageDigest.getInstance("SHA-256");
+            MD = MessageDigest.getInstance("SHA-256");
             BigInteger hash = new BigInteger(1,
-                    md.digest(senha_usuario.getBytes()));
-            cript = hash.toString(12);
+                    MD.digest(senha_usuario.getBytes()));
+            criptgrafa = hash.toString(12);
         } catch (NoSuchAlgorithmException ex) {
-            System.out.println("erro ao criptografar senha");
+            System.out.println("ERRO AO CRIPTOGRAFAR SENHA!");
             throw new ErroAoCriptografaSenhaException();
         }
-        return cript;
+        return criptgrafa;
     }
 }

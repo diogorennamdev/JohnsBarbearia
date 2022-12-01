@@ -11,7 +11,7 @@ import HELPERS.Criptografia;
 
 public class ControlTelaLogin {
 
-    public static boolean entrarSistema(String CPF_usuario,
+    public static boolean EntrarSistema(String CPF_usuario,
             String senha_usuario)
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
@@ -24,10 +24,10 @@ public class ControlTelaLogin {
                 Criptografia.criptografiaDaSenha(senha_usuario));
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.autenticacaoUsuario(objUsuariodto);
+        objUsuariodao.AutenticaUsuario(objUsuariodto);
 
         boolean fechartela = false;
-        if (objUsuariodao.autenticacaoUsuario(objUsuariodto)) {
+        if (objUsuariodao.AutenticaUsuario(objUsuariodto)) {
             ChamarTelas.chamarTelaAgendamento();
             fechartela = true;
         }
@@ -35,7 +35,7 @@ public class ControlTelaLogin {
 
     }
 
-    public static String validarDadosLogin(String CPF_usuario,
+    public static String ValidarDadosLogin(String CPF_usuario,
             String senha_usuario)
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException,
@@ -47,7 +47,7 @@ public class ControlTelaLogin {
         if (CPF_usuario.equals("") || senha_usuario.equals("")) {
             response = "CAMPOS VAZIOS!\n Por favor insira os dados.";
 
-        } else if (ControlTelaLogin.entrarSistema(CPF_usuario, senha_usuario)) {
+        } else if (ControlTelaLogin.EntrarSistema(CPF_usuario, senha_usuario)) {
             response = null;
 
         } else {

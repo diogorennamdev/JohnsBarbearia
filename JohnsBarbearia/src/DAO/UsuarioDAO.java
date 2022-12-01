@@ -38,7 +38,7 @@ public class UsuarioDAO {
 
     }
 
-    public boolean autenticacaoUsuario(UsuarioDTO objUsuarioDTO)
+    public boolean AutenticaUsuario(UsuarioDTO objUsuarioDTO)
             throws NaoFoiPossivelAutenticarUsuarioException,
             NaoFoiPossivelEstabelecerConexaoComBDException {
 
@@ -67,7 +67,7 @@ public class UsuarioDAO {
 
     }
 
-    public boolean verificarDadosBDCpf(UsuarioDTO objUsuarioDTO)
+    public boolean VerificaCpfBD(UsuarioDTO objUsuarioDTO)
             throws ErroAoValidarDadosExecption,
             NaoFoiPossivelEstabelecerConexaoComBDException {
 

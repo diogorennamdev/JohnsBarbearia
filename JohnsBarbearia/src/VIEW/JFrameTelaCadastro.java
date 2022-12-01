@@ -9,7 +9,6 @@ import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
-import HELPERS.SomenteNumeros;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -18,10 +17,8 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
     public JFrameTelaCadastro() {
         initComponents();
         setResizable(false);
-        CPFJText.setDocument(new SomenteNumeros());
         CPFJText.setDocument(new LimitaCaracteres(11,
                 LimitaCaracteres.TipoEntrada.CPF));
-
     }
 
     @SuppressWarnings("unchecked")
@@ -53,7 +50,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
         JohnsBarbeariaJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
 
         SairJButton.setForeground(new java.awt.Color(65, 65, 65));
-        SairJButton.setText(" Voltar   ↩");
+        SairJButton.setText("Voltar  ↩");
         SairJButton.setBorder(null);
         SairJButton.setBorderPainted(false);
         SairJButton.setContentAreaFilled(false);
@@ -195,7 +192,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
 
     private void CadastrarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarJButtonActionPerformed
         try {
-            String result = ControlTelaCadastro.autenticaDados(CPF_usuario(),
+            String result = ControlTelaCadastro.AutenticaDados(CPF_usuario(),
                     nome_usuario(),
                     senha_usuario());
             if (result != null) {
@@ -213,7 +210,7 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
                 | ErroAoCriptografaSenhaException ex) {
         }
     }//GEN-LAST:event_CadastrarJButtonActionPerformed
-
+    
     public static void WindowsLayout() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info
@@ -233,8 +230,6 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
             new JframeTelaLogin().setVisible(true);
         });
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFJLabel;
     private javax.swing.JTextField CPFJText;

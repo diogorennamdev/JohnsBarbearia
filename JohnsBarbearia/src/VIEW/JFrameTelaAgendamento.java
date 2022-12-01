@@ -4,14 +4,12 @@ import CONTROLS.ControlTelaAgendamento;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
+import EXCEPTIONS.ErroAoTentarLimpaAgendaException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import HELPERS.ChamarTelas;
 import HELPERS.LimitaCaracteres;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.JOptionPane;
 
 public class JFrameTelaAgendamento extends javax.swing.JFrame {
@@ -19,6 +17,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     public JFrameTelaAgendamento()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoListarDadosException {
+
         initComponents();
         setResizable(false);
         ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
@@ -26,7 +25,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 LimitaCaracteres.TipoEntrada.VALOR));
         ObservçãoJTextArea.setDocument(new LimitaCaracteres(50,
                 LimitaCaracteres.TipoEntrada.OBSERVACAO));
-
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +35,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         JPanelCabecalho = new javax.swing.JPanel();
         SairJButton = new javax.swing.JButton();
         JohnsBarbeariaJLabel = new javax.swing.JLabel();
+        ID_agendamentoJTextField = new javax.swing.JTextField();
         ObservçãoJScrollPane = new javax.swing.JScrollPane();
         ObservçãoJTextArea = new javax.swing.JTextArea();
         ServiçoJComboBox = new javax.swing.JComboBox<>();
@@ -57,7 +56,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ObservaçãoJLabel = new javax.swing.JLabel();
         ClienteJText = new javax.swing.JTextField();
         LimparAgendaJButton = new javax.swing.JButton();
-        ID_agendamentoJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agendamento");
@@ -86,6 +84,20 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
         JohnsBarbeariaJLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/JOHN’S BARBEARIA cinza.png"))); // NOI18N
 
+        ID_agendamentoJTextField.setEditable(false);
+        ID_agendamentoJTextField.setBackground(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ID_agendamentoJTextField.setForeground(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setAutoscrolls(false);
+        ID_agendamentoJTextField.setBorder(null);
+        ID_agendamentoJTextField.setCaretColor(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setEnabled(false);
+        ID_agendamentoJTextField.setFocusable(false);
+        ID_agendamentoJTextField.setRequestFocusEnabled(false);
+        ID_agendamentoJTextField.setSelectionColor(new java.awt.Color(255, 255, 255));
+        ID_agendamentoJTextField.setVerifyInputWhenFocusTarget(false);
+
         javax.swing.GroupLayout JPanelCabecalhoLayout = new javax.swing.GroupLayout(JPanelCabecalho);
         JPanelCabecalho.setLayout(JPanelCabecalhoLayout);
         JPanelCabecalhoLayout.setHorizontalGroup(
@@ -93,17 +105,23 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JohnsBarbeariaJLabel)
+                .addGap(18, 18, 18)
+                .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SairJButton)
-                .addGap(24, 24, 24))
+                .addContainerGap())
         );
         JPanelCabecalhoLayout.setVerticalGroup(
             JPanelCabecalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JohnsBarbeariaJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCabecalhoLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(JPanelCabecalhoLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(SairJButton)
-                .addGap(19, 19, 19))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ObservçãoJScrollPane.setForeground(new java.awt.Color(65, 65, 65));
@@ -216,8 +234,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
         ObservaçãoJLabel.setText("Observação:");
 
         LimparAgendaJButton.setBackground(new java.awt.Color(65, 65, 65));
-        LimparAgendaJButton.setFont(new java.awt.Font("Segoe UI", 3, 10)); // NOI18N
-        LimparAgendaJButton.setForeground(new java.awt.Color(255, 255, 255));
+        LimparAgendaJButton.setFont(new java.awt.Font("Malgun Gothic", 1, 10)); // NOI18N
+        LimparAgendaJButton.setForeground(new java.awt.Color(255, 51, 51));
         LimparAgendaJButton.setText("LIMPAR AGENDA ");
         LimparAgendaJButton.setBorder(null);
         LimparAgendaJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -226,28 +244,14 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             }
         });
 
-        ID_agendamentoJTextField.setEditable(false);
-        ID_agendamentoJTextField.setBackground(new java.awt.Color(65, 65, 65));
-        ID_agendamentoJTextField.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ID_agendamentoJTextField.setForeground(new java.awt.Color(101, 101, 101));
-        ID_agendamentoJTextField.setAutoscrolls(false);
-        ID_agendamentoJTextField.setBorder(null);
-        ID_agendamentoJTextField.setEnabled(false);
-        ID_agendamentoJTextField.setFocusable(false);
-        ID_agendamentoJTextField.setRequestFocusEnabled(false);
-        ID_agendamentoJTextField.setSelectedTextColor(new java.awt.Color(65, 65, 65));
-        ID_agendamentoJTextField.setSelectionColor(new java.awt.Color(65, 65, 65));
-        ID_agendamentoJTextField.setVerifyInputWhenFocusTarget(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+            .addComponent(JPanelCabecalho, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LimparAgendaJButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -256,10 +260,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                                     .addComponent(ObservaçãoJLabel)
                                     .addComponent(ValorJLabel)
                                     .addComponent(ServiçoLabel)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ClienteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -276,17 +277,21 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                                     .addComponent(ObservçãoJScrollPane)
                                     .addComponent(ClienteJText)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(148, 148, 148)
                                 .addComponent(AgendarJButton)
                                 .addGap(28, 28, 28)
                                 .addComponent(EditarJButton)
                                 .addGap(29, 29, 29)
                                 .addComponent(ExcluirJButton)))
-                        .addGap(5, 5, 5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(84, 88, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AgendamentosJScrollPane))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LimparAgendaJButton)
+                        .addGap(239, 239, 239)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +300,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClienteLabel)
-                    .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID_agendamentoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ClienteJText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServiçoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,9 +327,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AgendamentosJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(LimparAgendaJButton)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,7 +349,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     private void AgendarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendarJButtonActionPerformed
         try {
-            String result = ControlTelaAgendamento.Agendar(nome_cliente(),
+            String result = ControlTelaAgendamento.TestaAgendamento(nome_cliente(),
                     servico(),
                     valor_servico(),
                     data_agendamento(),
@@ -362,7 +366,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 | NaoFoiPossivelRealizarAgendamentoException
                 | SQLException
                 | ErroAoListarDadosException ex) {
-
         }
     }//GEN-LAST:event_AgendarJButtonActionPerformed
 
@@ -372,7 +375,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     }//GEN-LAST:event_SairJButtonActionPerformed
 
     private void ExcluirJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirJButtonActionPerformed
-
         try {
             if (AgendamentosJTable.getSelectedRow() != -1) {
                 ControlTelaAgendamento.ExcluirAgendamento(AgendamentosJTable);
@@ -387,7 +389,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 | ErroAoListarDadosException
                 | ErroAoTentarExcluirAgendamentoException ex) {
         }
-
     }//GEN-LAST:event_ExcluirJButtonActionPerformed
 
     private void EditarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarJButtonActionPerformed
@@ -412,35 +413,31 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                 | ErroAoEditarAgendamentoException
                 | ErroAoListarDadosException ex) {
         }
-
-
     }//GEN-LAST:event_EditarJButtonActionPerformed
 
     private void AgendamentosJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgendamentosJTableMouseClicked
-
         if (AgendamentosJTable.getSelectedRow() != -1) {
-
             ID_agendamentoJTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 0).toString());
             ClienteJText.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 1).toString());
             ValorTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 3).toString());
             DataTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 4).toString());
             HoraTextField.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 5).toString());
             ObservçãoJTextArea.setText(AgendamentosJTable.getValueAt(AgendamentosJTable.getSelectedRow(), 6).toString());
-
         }
     }//GEN-LAST:event_AgendamentosJTableMouseClicked
 
     private void LimparAgendaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparAgendaJButtonActionPerformed
         try {
             AgendamentosJTable.selectAll();
-            ControlTelaAgendamento.LimparAgendamento(AgendamentosJTable);
+            ControlTelaAgendamento.LimparAgenda(AgendamentosJTable);
             ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
             limparCampos();
         } catch (NaoFoiPossivelEstabelecerConexaoComBDException
-                | ErroAoListarDadosException ex) {
+                | ErroAoListarDadosException
+                | ErroAoTentarLimpaAgendaException ex) {
         }
     }//GEN-LAST:event_LimparAgendaJButtonActionPerformed
-
+    
     public static void WindowsLayout() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info
@@ -460,7 +457,6 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             new JframeTelaLogin().setVisible(true);
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane AgendamentosJScrollPane;
     private javax.swing.JTable AgendamentosJTable;
@@ -488,13 +484,11 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
-
     private int ID_agendamento() {
         String ID_agendamento = ID_agendamentoJTextField.getText();
         int ID = 0;
         ID = Integer.parseInt(ID_agendamento);
         return ID;
-
     }
 
     private String nome_cliente() {
@@ -530,12 +524,9 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
     public void limparCampos() {
         ClienteJText.setText("");
-        ServiçoJComboBox.setToolTipText("");
         ValorTextField.setText("");
         DataTextField.setText("");
         HoraTextField.setText("");
         ObservçãoJTextArea.setText("");
-
     }
-
 }

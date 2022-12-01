@@ -1,6 +1,5 @@
 package DAO;
 
-
 import DTO.AgendamentoDTO;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
@@ -18,11 +17,10 @@ import static org.mockito.Mockito.*;
 
 public class AgendamentoDAOTest {
 
-    private AgendamentoDAO agendamentodao = mock(AgendamentoDAO.class);
+    private final AgendamentoDAO agendamentodao = mock(AgendamentoDAO.class);
 
     @Before
     public void init() {
-
     }
 
     @Test
@@ -37,7 +35,6 @@ public class AgendamentoDAOTest {
         agendamentodao.Agendar(agendamento);
         verify(agendamentodao, times(1)).Agendar(agendamento);
         Assert.assertEquals(AgendamentoDTO.class, agendamento.getClass());
-
     }
 
     @Test(expected = NaoFoiPossivelRealizarAgendamentoException.class)
@@ -50,7 +47,6 @@ public class AgendamentoDAOTest {
         doThrow(new NaoFoiPossivelRealizarAgendamentoException())
                 .when(agendamentodao).Agendar(agendamento);
         agendamentodao.Agendar(agendamento);
-
     }
 
     @Test
@@ -91,13 +87,13 @@ public class AgendamentoDAOTest {
         doNothing().when(agendamentodao).Editar(agendamento);
         agendamentodao.Editar(agendamento);
         verify(agendamentodao, times(1)).Editar(agendamento);
-
     }
 
     @Test
     public void TesteParaVerificarSeLancaErroAoTentarEditar()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoEditarAgendamentoException {
+        
         AgendamentoDTO agendamento = new AgendamentoDTO(0, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
         doThrow(new ErroAoEditarAgendamentoException())
@@ -105,60 +101,63 @@ public class AgendamentoDAOTest {
         ErroAoEditarAgendamentoException exception
                 = Assert.assertThrows(ErroAoEditarAgendamentoException.class,
                         () -> agendamentodao.Editar(agendamento));
-        Assert.assertEquals("Erro ao Tentar Editar Agendamento", exception.getMessage());
+        Assert.assertEquals("Erro ao Tentar Editar Agendamento",
+                exception.getMessage());
     }
 
     @Test
     public void TesteParaVerificarSeEstarExcluindoUsuario()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoTentarExcluirAgendamentoException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarExcluirAgendamentoException {
 
         AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
         doNothing().when(agendamentodao).Excluir(agendamento);
         agendamentodao.Excluir(agendamento);
         verify(agendamentodao, times(1)).Excluir(agendamento);
-
     }
 
     @Test
     public void DeveRetornarMensagemDeErroAoTentarExcluirAgendamento()
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, 
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoTentarExcluirAgendamentoException {
-        
+
         AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
         doThrow(new ErroAoTentarExcluirAgendamentoException())
                 .when(agendamentodao).Excluir(agendamento);
-        ErroAoTentarExcluirAgendamentoException exception 
+        ErroAoTentarExcluirAgendamentoException exception
                 = Assert.assertThrows(ErroAoTentarExcluirAgendamentoException.class,
-                        ()-> agendamentodao.Excluir(agendamento));
-        Assert.assertEquals("Erro ao tentar excluir agendamento", exception.getMessage());
+                        () -> agendamentodao.Excluir(agendamento));
+        Assert.assertEquals("Erro ao tentar excluir agendamento",
+                exception.getMessage());
     }
-    
+
     @Test
-    public void TesteParaVerificarSeEstarLimpandoAgenda() 
+    public void TesteParaVerificarSeEstarLimpandoAgenda()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoTentarLimpaAgendaException{
-        
+            ErroAoTentarLimpaAgendaException {
+
         AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
         doNothing().when(agendamentodao).LimparAgenda(agendamento);
         agendamentodao.LimparAgenda(agendamento);
-        verify(agendamentodao,times(1)).LimparAgenda(agendamento);
+        verify(agendamentodao, times(1)).LimparAgenda(agendamento);
     }
-    
+
     @Test
     public void TesteParaVerificarSeLancaErroAoTentarLimparAgenda()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
-            ErroAoTentarLimpaAgendaException{
-        
-                AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
+            ErroAoTentarLimpaAgendaException {
+
+        AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
-                doThrow(new ErroAoTentarLimpaAgendaException())
-                        .when(agendamentodao).LimparAgenda(agendamento);
-                ErroAoTentarLimpaAgendaException exception 
-                        = Assert.assertThrows(ErroAoTentarLimpaAgendaException.class, 
-                                ()-> agendamentodao.LimparAgenda(agendamento));
-                Assert.assertEquals("Erro ao tentar Limpar Agenda", exception.getMessage());
+        doThrow(new ErroAoTentarLimpaAgendaException())
+                .when(agendamentodao).LimparAgenda(agendamento);
+        ErroAoTentarLimpaAgendaException exception
+                = Assert.assertThrows(ErroAoTentarLimpaAgendaException.class,
+                        () -> agendamentodao.LimparAgenda(agendamento));
+        Assert.assertEquals("Erro ao tentar Limpar Agenda",
+                exception.getMessage());
     }
 }

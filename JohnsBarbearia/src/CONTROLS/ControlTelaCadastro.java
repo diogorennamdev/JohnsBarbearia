@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 public class ControlTelaCadastro {
 
-    public static boolean cadastrar(String CPF_usuario,
+    public static boolean Cadastrar(String CPF_usuario,
             String nome_usuario,
             String senha_usuario)
             throws NaoFoiPossivelCadastrarUsuarioException,
@@ -34,7 +34,7 @@ public class ControlTelaCadastro {
         objUsuarioDAO.CadastrarUsuario(objUsuarioDTO);
         boolean fechartela = false;
 
-        if (objUsuarioDAO.autenticacaoUsuario(objUsuarioDTO)) {
+        if (objUsuarioDAO.AutenticaUsuario(objUsuarioDTO)) {
             ChamarTelas.chamarTelaLogin();
             fechartela = true;
         }
@@ -42,7 +42,7 @@ public class ControlTelaCadastro {
 
     }
 
-    public static String autenticaDados(String CPF_usuario,
+    public static String AutenticaDados(String CPF_usuario,
             String nome_usuario,
             String senha_usuario)
             throws ErroAoValidarDadosExecption,
@@ -57,7 +57,7 @@ public class ControlTelaCadastro {
         objUsuarioDTO.setCPF_usuario(CPF_usuario);
 
         UsuarioDAO objUsuariodao = new UsuarioDAO();
-        objUsuariodao.verificarDadosBDCpf(objUsuarioDTO);
+        objUsuariodao.VerificaCpfBD(objUsuarioDTO);
 
         String response = null;
         if (CPF_usuario.equals("")
@@ -65,14 +65,16 @@ public class ControlTelaCadastro {
                 || senha_usuario.equals("")) {
             response = "CAMPOS VAZIOS!\n Por favor insira os dados";
 
-        } else if (objUsuariodao.verificarDadosBDCpf(objUsuarioDTO) == true) {
+        } else if (objUsuariodao.VerificaCpfBD(objUsuarioDTO)) {
             response = "CPF JÁ CADASTRADO!\n Por favor tente novamente!";
 
         } else if (Validacoes.validarCPF(CPF_usuario) == false) {
             response = "ERRO, CPF INVÁLIDO!\n";
 
-        } else if (Validacoes.validarCPF(CPF_usuario) == true) {
-            ControlTelaCadastro.cadastrar(CPF_usuario, nome_usuario, senha_usuario);
+        } else if (Validacoes.validarCPF(CPF_usuario)) {
+            ControlTelaCadastro.Cadastrar(CPF_usuario,
+                    nome_usuario,
+                    senha_usuario);
 
         }
         return response;

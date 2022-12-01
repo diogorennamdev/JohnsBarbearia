@@ -34,10 +34,8 @@ public class ControlTelaLoginTest {
 
         UsuarioDTO usuario = new UsuarioDTO(CPF, NAME,
                 Criptografia.criptografiaDaSenha(SENHA));
-
         usuariodao.CadastrarUsuario(usuario);
-        assertTrue(ControlTelaLogin.entrarSistema(CPF, SENHA));
-
+        assertTrue(ControlTelaLogin.EntrarSistema(CPF, SENHA));
     }
 
     @Test
@@ -48,7 +46,7 @@ public class ControlTelaLoginTest {
             ErroAoListarDadosException {
 
         String Cpf = "", senha = "";
-        String campos_vazios = ControlTelaLogin.validarDadosLogin(Cpf, senha);
+        String campos_vazios = ControlTelaLogin.ValidarDadosLogin(Cpf, senha);
         assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados.", campos_vazios);
     }
 
@@ -60,11 +58,10 @@ public class ControlTelaLoginTest {
             ErroAoListarDadosException {
 
         String Cpf = "43572567812", senha = "4l77j6iej65gdcl58aa92gnjc7hkj17f1";
-        String usuario_nao_cadastrdo 
-                = ControlTelaLogin.validarDadosLogin(Cpf, senha);
+        String usuario_nao_cadastrdo
+                = ControlTelaLogin.ValidarDadosLogin(Cpf, senha);
         assertEquals(
                 "USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.",
                 usuario_nao_cadastrdo);
     }
-
 }

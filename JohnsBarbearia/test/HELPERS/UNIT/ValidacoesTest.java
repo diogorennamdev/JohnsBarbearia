@@ -1,7 +1,5 @@
 package HELPERS.UNIT;
 
-import DAO.UsuarioDAO;
-import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
@@ -9,14 +7,12 @@ import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
 import java.sql.SQLException;
-import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ValidacoesTest {
 
   //  UsuarioDTO usuariodto = new UsuarioDTO();
-
     public ValidacoesTest() {
     }
 
@@ -27,7 +23,9 @@ public class ValidacoesTest {
     }
 
     @Test
-    public void DeveRetornarFalsoQuandoCpfForInvalido() throws ErroAoValidarCPFException {
+    public void DeveRetornarFalsoQuandoCpfForInvalido()
+            throws ErroAoValidarCPFException {
+        
         String Cpf = "25636545789";
         assertEquals(false, Validacoes.validarCPF(Cpf));
     }

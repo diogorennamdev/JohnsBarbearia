@@ -7,9 +7,7 @@ import EXCEPTIONS.NaoFoiPossivelAutenticarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import java.sql.SQLException;
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ControlTelaCadastroTest {
@@ -28,8 +26,7 @@ public class ControlTelaCadastroTest {
             ErroAoCriptografaSenhaException {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
-        ControlTelaCadastro.cadastrar(Cpf, nome, senha);
-
+        ControlTelaCadastro.Cadastrar(Cpf, nome, senha);
         // select no banco para verificar se o usuario foi cadastrdo
     }
 
@@ -43,8 +40,10 @@ public class ControlTelaCadastroTest {
             NaoFoiPossivelAutenticarUsuarioException {
 
         String Cpf = "", nome = "", senha = "";
-        String mensagemCampoVazio = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
-        Assert.assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados", mensagemCampoVazio);
+        String mensagemCampoVazio
+                = ControlTelaCadastro.AutenticaDados(Cpf, nome, senha);
+        Assert.assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados",
+                mensagemCampoVazio);
     }
 
     @Test
@@ -57,9 +56,11 @@ public class ControlTelaCadastroTest {
             ErroAoCriptografaSenhaException {
 
         String Cpf = "18342451330", nome = "usuarioTeste", senha = "1234";
-        ControlTelaCadastro.cadastrar(Cpf, nome, senha);
-        String usuarioExistente = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
-        Assert.assertEquals("CPF JÁ CADASTRADO!\n Por favor tente novamente!", usuarioExistente);
+        ControlTelaCadastro.Cadastrar(Cpf, nome, senha);
+        String usuarioExistente
+                = ControlTelaCadastro.AutenticaDados(Cpf, nome, senha);
+        Assert.assertEquals("CPF JÁ CADASTRADO!\n Por favor tente novamente!",
+                usuarioExistente);
     }
 
     @Test
@@ -73,8 +74,7 @@ public class ControlTelaCadastroTest {
             ErroAoCriptografaSenhaException {
 
         String Cpf = "15022886", nome = "Gustavo", senha = "1234";
-        String CpfInvalido = ControlTelaCadastro.autenticaDados(Cpf, nome, senha);
+        String CpfInvalido = ControlTelaCadastro.AutenticaDados(Cpf, nome, senha);
         Assert.assertEquals("ERRO, CPF INVÁLIDO!\n", CpfInvalido);
-
     }
 }

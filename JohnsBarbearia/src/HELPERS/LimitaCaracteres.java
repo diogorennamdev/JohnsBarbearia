@@ -34,7 +34,7 @@ public class LimitaCaracteres extends PlainDocument {
                 regex = "[^0-9]";
                 break;
             case OBSERVACAO:
-                regex = "[^\\p{IsLatin} ][^0-9] :";
+                regex = "[^\\p{IsLatin}][^0-9]: ";
                 break;
             case VALOR:
                 regex = "[^0-9]";
@@ -46,9 +46,9 @@ public class LimitaCaracteres extends PlainDocument {
 
         if (totalCaracter <= qtdCaracteres) {
             super.insertString(offs, str, a);
-//        } else {
-//            String nova = String.substring(0, qtdCaracteres);
-//            super.insertString(offs, nova, a);
+        } else {
+            String nova = str.substring(0, qtdCaracteres);
+            super.insertString(offs, nova, a);
         }
 
     }

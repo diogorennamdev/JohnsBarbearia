@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControlTelaAgendamento {
 
-    public static boolean CriarAgendamento(
+    public static boolean Agendamento(
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -39,7 +39,7 @@ public class ControlTelaAgendamento {
 
     }
 
-    public static String Agendar(
+    public static String TestaAgendamento(
             String nome_cliente,
             String servico,
             String valor_servico,
@@ -57,7 +57,7 @@ public class ControlTelaAgendamento {
                 || hora_agendamento.equals("")) {
             response = "CAMPOS VAZIOS!\n Por favor insira os dados";
 
-        } else if (ControlTelaAgendamento.CriarAgendamento(
+        } else if (ControlTelaAgendamento.Agendamento(
                 nome_cliente,
                 servico,
                 valor_servico,
@@ -70,7 +70,8 @@ public class ControlTelaAgendamento {
     }
 
     public static JTable PreencherTabela(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoListarDadosException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoListarDadosException {
 
         DefaultTableModel modelo
                 = (DefaultTableModel) TabelaAgendamentoJTable.getModel();
@@ -97,7 +98,8 @@ public class ControlTelaAgendamento {
             String hora_agendamento,
             String observacao_agendamento,
             int ID_agendamento)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException, ErroAoEditarAgendamentoException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoEditarAgendamentoException {
 
         AgendamentoDTO editar = new AgendamentoDTO();
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
@@ -126,7 +128,7 @@ public class ControlTelaAgendamento {
         }
     }
 
-    public static void LimparAgendamento(JTable TabelaAgendamentoJTable)
+    public static void LimparAgenda(JTable TabelaAgendamentoJTable)
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoTentarLimpaAgendaException {
 
