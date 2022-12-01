@@ -36,13 +36,13 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
  - Para execução desse projeto em seu computador é necessario instalar o Kit de Desenvolvimento Java - **[JDK 11](https://www.oracle.com/java/technologies/downloads/#java11)**.
 
  - Com o JDK instalado faça o download do **[Apache NetBeans IDE 15](https://dlcdn.apache.org/netbeans/netbeans-installers/15/Apache-NetBeans-15-bin-windows-x64.exe)**.
-    - Na aba `windows` clique no link `jdk-11.0.17_windows-x64_bin.exe`.
+    - Na aba **`windows`** clique no link **`jdk-11.0.17_windows-x64_bin.exe`**.
 > Ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE, depois  vc vai ser redirecionado novamente para Acessar ou Cliar uma conta Oracle para seu dowload começar.
 <p></p>   
 
  - O projeto tem uma conexão com o banco de dados que utliza a linguagem SQL, para executar esse banco de dados é nessessario fazer download do **[WampServer](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.2.6_x64.exe/download)**.
     - Para que o **`WampServer`** funcione normalmente no seu computador é necessário a instalação do **[Microsoft Visual C++ 2012](https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe)**. <p></p>
-    - Ao instalar WampServer na aba `Select Components`, você ira mudar do padrão **`(MySQL 5.7.36)`** para **`(MySQL 8.0.27)`**.
+    - Ao instalar WampServer na aba **`Select Components`**, você ira mudar do padrão **`(MySQL 5.7.36)`** para **`(MySQL 8.0.27)`**.
 
  - Não definimos uma chave SSH para esse progeto, então indicamos que você faça o clone desse repositorio via HTTPS, mas para isso será necessario que você instale o terminal **[GIT](https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe)**.
 
@@ -54,20 +54,19 @@ Agora que você ja instalou todas as <a href="https://github.com/ribeial/JohnsBa
 <h4> Clonado o repositorio </h4>
 
    1. Em seu computardor selecione uma pasta para armazenar o Projeto.
-   2. Dentro desta pasta clique com o botão direito do mouse, clique em mostrar mais opções se você utliza o Windows11, depois selecione o `GIT Bash Here`.
+   2. Dentro desta pasta clique com o botão direito do mouse, clique em mostrar mais opções se você utliza o Windows11, depois selecione o **`GIT Bash Here`**.
    3. Quando o Prompt de Comando do GIT Bash abrir, digite o comando abaixo:
    ```
    git clone https://github.com/ribeial/JohnsBarbearia
    ```
 <h4> Abrindo o Projeto no Netbeans </h4>
 
-   1. Abra o NetBeans localize o menu **`File`**, selecione a opção Open Project: **<a target="_blank" href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/src/IMAGES/OpenProject.png">Imagen Ilustrativa</a>**
-   2. Localize a pasta onde você clonou o repositorio selecione o projeto JohnsBarbearia. **<a target="_blank" href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/src/IMAGES/IMAGES.EXAMPLE/OpenProject2.png">Imagen Ilustrativa</a>**
-    
+   1. Abra o NetBeans localize o menu **`File`**, selecione a opção Open Project **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject.png?raw=true">Imagen Ilustrativa</a>**.
+   2. Localize a pasta onde você clonou o repositorio selecione o projeto JohnsBarbearia **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject2.png?raw=true">Imagen Ilustrativa</a>**.
+   3. Depois de fazer os passos acima, seu projeto salvo ira apresentar aguns alertas de erro, por conta que esta faltando adicionar algumas Bibliotecas. Para resolver você irá clicar com o botão direito em cima da pasta **`Libraries`** e selecionar a opção **`Add Jar/Folder`** **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AdicionarBibiotecas.png?raw=true">Imagen Ilustrativa (1)</a>**, **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AddJar.folder.png?raw=true">Imagen Ilustrativa (2)</a>**,  Em **`Libraries`** você irá adcionar os arquivos **`junit-4.13.2`** e **`mysql-connector-java-8.0.21`** arquivos da pasta Bibliotecas que está junto do projeto **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/Blibliotecas.png?raw=true">Imagen Ilustrativa (3)</a>**.
+   4. Pra a pasta **`Test Libraries`** são é mesmos passo a passo do intem aterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
 
-
-
-
+___
 
 #### inicio do projeto: 21/09/2022
 #### entrega final: 02/11/2022
