@@ -37,7 +37,7 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 
  - Com o JDK instalado faça o download do **[Apache NetBeans IDE 15](https://dlcdn.apache.org/netbeans/netbeans-installers/15/Apache-NetBeans-15-bin-windows-x64.exe)**.
     - Na aba `windows` clique no link `jdk-11.0.17_windows-x64_bin.exe`.
-> ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE e depois redirecionado novamente para Acessar ou Cliar uma conta Oracle para seu dowload começar.
+> Ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE, depois  vc vai ser redirecionado novamente para Acessar ou Cliar uma conta Oracle para seu dowload começar.
 <p></p>   
 
  - O projeto tem uma conexão com o banco de dados que utliza a linguagem SQL, para executar esse banco de dados é nessessario fazer download do **[WampServer](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.2.6_x64.exe/download)**.
@@ -51,18 +51,17 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 ## Executando o Projeto
 Agora que você ja instalou todas as <a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a> siga os passos abaixo para executar o projeto:
 
- 1. Em seu computardor selecione uma pasta para armazenar o Projeto.
- 2. Dentro desta pasta clique com o botão direito do mouse (clique  em mostrar mais opções se você utlisa o Windows11), depois selecione o GIT Bash Here.
+<h4> Clonado o repositorio </h4>
 
- 3. Quando o prompt de comando do GIT abrir digite o comando a seguir:
- ```
- git clone https://github.com/ribeial/JohnsBarbearia
- ```
+   1. Em seu computardor selecione uma pasta para armazenar o Projeto.
+   2. Dentro desta pasta clique com o botão direito do mouse, clique em mostrar mais opções se você utliza o Windows11, depois selecione o `GIT Bash Here`.
+   3. Quando o Prompt de Comando do GIT Bash abrir, digite o comando abaixo:
+   ```
+   git clone https://github.com/ribeial/JohnsBarbearia
+   ```
+<h4> Abrindo o Projeto no Netbeans </h4>
 
- <!--
- 1. Para executar o projeto no seu computador é necessario clonar o [Repositorio JohnsBarbearia](https://github.com/ribeial/JohnsBarbearia).
- 2. para  
- -->
+   1. Depois que você executar os passos de <a href="https://github.com/ribeial/JohnsBarbearia#lonado-o-repositorio">Clonado o repositorio</a>, abra o NetBeans localize o menu `File`, selecione a opção `Open Project` depois localize a pasta onde você clonou o repositorio selecione o projeto JohnsBarbearia.
  
 
 ---
