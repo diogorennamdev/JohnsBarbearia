@@ -1,5 +1,6 @@
 package DAO;
 
+import EXCEPTIONS.ErroAoTentarLimpaAgendaException;
 import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
@@ -129,7 +130,8 @@ public class AgendamentoDAO {
     }
 
     public void LimparAgenda(AgendamentoDTO objAgendamentoDTO)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarLimpaAgendaException {
 
         conn = new ConexaoDAO().conectaBD();
         try {
@@ -139,6 +141,7 @@ public class AgendamentoDAO {
 
         } catch (SQLException erro) {
             System.out.println("erro ao tentar Limpar Agenda" + erro);
+            throw new ErroAoTentarLimpaAgendaException();
         }
     }
 

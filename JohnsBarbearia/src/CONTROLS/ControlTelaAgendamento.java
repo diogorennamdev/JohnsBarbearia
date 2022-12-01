@@ -5,6 +5,7 @@ import DTO.AgendamentoDTO;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
+import EXCEPTIONS.ErroAoTentarLimpaAgendaException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import java.sql.SQLException;
@@ -126,7 +127,8 @@ public class ControlTelaAgendamento {
     }
 
     public static void LimparAgendamento(JTable TabelaAgendamentoJTable)
-            throws NaoFoiPossivelEstabelecerConexaoComBDException {
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarLimpaAgendaException {
 
         TabelaAgendamentoJTable.selectAll();
         AgendamentoDTO limpar = new AgendamentoDTO();

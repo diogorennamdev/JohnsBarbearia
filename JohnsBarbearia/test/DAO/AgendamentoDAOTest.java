@@ -1,10 +1,11 @@
 package DAO;
 
-import DAO.AgendamentoDAO;
+
 import DTO.AgendamentoDTO;
 import EXCEPTIONS.ErroAoEditarAgendamentoException;
 import EXCEPTIONS.ErroAoListarDadosException;
 import EXCEPTIONS.ErroAoTentarExcluirAgendamentoException;
+import EXCEPTIONS.ErroAoTentarLimpaAgendaException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import EXCEPTIONS.NaoFoiPossivelRealizarAgendamentoException;
 import java.sql.SQLException;
@@ -132,5 +133,32 @@ public class AgendamentoDAOTest {
                 = Assert.assertThrows(ErroAoTentarExcluirAgendamentoException.class,
                         ()-> agendamentodao.Excluir(agendamento));
         Assert.assertEquals("Erro ao tentar excluir agendamento", exception.getMessage());
+    }
+    
+    @Test
+    public void TesteParaVerificarSeEstarLimpandoAgenda() 
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarLimpaAgendaException{
+        
+        AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
+                "10/11/2022", "11:00", "test");
+        doNothing().when(agendamentodao).LimparAgenda(agendamento);
+        agendamentodao.LimparAgenda(agendamento);
+        verify(agendamentodao,times(1)).LimparAgenda(agendamento);
+    }
+    
+    @Test
+    public void TesteParaVerificarSeLancaErroAoTentarLimparAgenda()
+            throws NaoFoiPossivelEstabelecerConexaoComBDException,
+            ErroAoTentarLimpaAgendaException{
+        
+                AgendamentoDTO agendamento = new AgendamentoDTO(1, "fabio", "corte", "20",
+                "10/11/2022", "11:00", "test");
+                doThrow(new ErroAoTentarLimpaAgendaException())
+                        .when(agendamentodao).LimparAgenda(agendamento);
+                ErroAoTentarLimpaAgendaException exception 
+                        = Assert.assertThrows(ErroAoTentarLimpaAgendaException.class, 
+                                ()-> agendamentodao.LimparAgenda(agendamento));
+                Assert.assertEquals("Erro ao tentar Limpar Agenda", exception.getMessage());
     }
 }
