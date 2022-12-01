@@ -61,10 +61,9 @@ Agora que você ja instalou todas as <a href="https://github.com/ribeial/JohnsBa
    ```
 <h4> Abrindo o Projeto no Netbeans </h4>
 
-   1. Depois que você executar os passos de <a href="https://github.com/ribeial/JohnsBarbearia#lonado-o-repositorio">Clonado o repositorio</a>, abra o NetBeans localize o menu `File`, selecione a opção `Open Project` depois localize a pasta onde você clonou o repositorio selecione o projeto JohnsBarbearia.
- 
-
----
+   1. Abra o NetBeans localize o menu **`File`**, selecione a opção Open Project: **<a target="_blank" href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/src/IMAGES/OpenProject.png">Imagen Ilustrativa</a>**
+   2. Localize a pasta onde você clonou o repositorio selecione o projeto JohnsBarbearia. **<a target="_blank" href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/src/IMAGES/IMAGES.EXAMPLE/OpenProject2.png">Imagen Ilustrativa</a>**
+    
 
 
 
