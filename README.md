@@ -39,9 +39,9 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 
     - Na aba **`windows`** clique no link **`jdk-11.0.17_windows-x64_bin.exe`**.
 
-> Ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE, depois  você vai ser redirecionado novamente, para Acessar ou Cliar uma conta Oracle para seu dowload começar.
+> Ao clicar no link será aberta uma janela onde você precisa aceitar os termos do Contrato de Licença Oracle para Oracle Java SE, depois  você vai ser redirecionado novamente, para Acessar ou Criar uma conta Oracle para seu dowload começar.
 
- - O projeto tem uma conexão com o banco de dados que utliza a linguagem SQL e para executar esse banco de dados é nessessario fazer download do **[WampServer](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.2.6_x64.exe/download)**.
+ - O projeto tem uma conexão com o banco de dados que utiliza a linguagem SQL e para executar esse banco de dados é nessessario fazer download do **[WampServer](https://sourceforge.net/projects/wampserver/files/WampServer%203/WampServer%203.0.0/wampserver3.2.6_x64.exe/download)**.
     - Para que o **`WampServer`** funcione normalmente no seu computador é necessário a instalação do **[Microsoft Visual C++ 2012](https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe)**. 
     
     - Ao instalar WampServer na aba **`Select Components`**, você precisará mudar do padrão **`(MySQL 5.7.36)`** para **`(MySQL 8.0.27)`**.
@@ -51,7 +51,7 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 <br>
 
 ## Executando o Projeto
-Agora que você ja instalou todas as **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>** siga os passos abaixo para executar o projeto:
+Agora que você já instalou todas as **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>** siga os passos abaixo para executar o projeto:
 
 #### Clonado o repositório
 
@@ -70,14 +70,14 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 
    2. Localize a pasta onde você clonou o repositório e selecione o projeto JohnsBarbearia **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject2.png?raw=true" target="_blank">Imagen Ilustrativa</a>**.
 
-   3. Depois de fazer os passos acima, seu projeto salvo ira apresentar aguns alertas de erro, por conta que esta faltando adicionar algumas Bibliotecas. Para resolver você irá clicar com o botão direito em cima da pasta **`Libraries`** e selecionar a opção **`Add Jar/Folder`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AdicionarBibiotecas.png?raw=true" target="_blank">Imagen Ilustrativa (1)</a>**, **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AddJar.folder.png?raw=true">Imagen Ilustrativa (2)</a>**,  Em **`Libraries`** você irá adcionar os arquivos **`junit-4.13.2`** e **`mysql-connector-java-8.0.21`** arquivos da pasta Bibliotecas que está junto do projeto **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/Blibliotecas.png?raw=true" target="_blank">Imagen Ilustrativa (3)</a>**.
+   3. Depois de fazer os passos acima, seu projeto salvo ira apresentar alguns alertas de erro, por conta que estar faltando adicionar algumas Bibliotecas. Para resolver você irá clicar com o botão direito em cima da pasta **`Libraries`** e selecionar a opção **`Add Jar/Folder`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AdicionarBibiotecas.png?raw=true" target="_blank">Imagen Ilustrativa (1)</a>**, **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AddJar.folder.png?raw=true">Imagen Ilustrativa (2)</a>**,  Em **`Libraries`** você irá adicionar os arquivos **`junit-4.13.2`** e **`mysql-connector-java-8.0.21`** arquivos da pasta Bibliotecas que está junto do projeto **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/Blibliotecas.png?raw=true" target="_blank">Imagem Ilustrativa (3)</a>**.
 
-   4. Para a pasta **`Test Libraries`** você precisará fazer os mesmos passos do intem aterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
+   4. Para a pasta **`Test Libraries`** você precisará fazer os mesmos passos do intem anterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
 
 #### Conectando o Projeto Com o Banco de Dados
 
-   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Quando você executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagen Ilustrativa</a>**. 
-> Ao exexutar o WampServer é possível que ele não apareça como na imagem, mas sim no menu escondido  de icones ocultos (**˄**).
+   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Ao executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagen Ilustrativa</a>**. 
+> Ao executar o WampServer é possível que ele não apareça como na imagem, mas sim no menu escondido  de icones ocultos (**˄**).
 
    2. Agora é preciso executar o Banco de dados no **`PhpMyAdmin`**, para isso você precisa clicar no icone do **`WampServer`** e depois selecionar PhpMyAdmin e depois phpMyAdmin 5.1.1 **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/WampServerMenu.png?raw=true" target="_blank">Imagen Ilustrativa</a>**.
 
