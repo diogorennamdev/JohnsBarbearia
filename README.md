@@ -91,7 +91,7 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
    
    - **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminHome.png?raw=true" target="_blank">Imagen Ilustrativa</a>**
    
-   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png" target="_blank">Imagen Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagen Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
+   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png?raw=true" target="_blank">Imagen Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagen Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
 
 #### Colocando o Projeto para Rodar
 
@@ -111,4 +111,4 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 
 ---
 #### • Inicio do Projeto: 21/09/2022 
-### • Entrega Final: 02/11/2022
+#### • Entrega Final: 02/11/2022
