@@ -1,9 +1,6 @@
 package HELPERS.UNIT;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> bbc9330ab127f9cd4815f08a0315d05c133f4592
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
