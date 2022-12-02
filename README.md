@@ -74,32 +74,33 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 
    4. Para a pasta **`Test Libraries`** você precisará fazer os mesmos passos do intem aterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
 
-**<h4>Conctando o Projeto Com o Banco de Dados</ha>**
+**<h4>Conectando o Projeto Com o Banco de Dados</ha>**
 
-   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Quando você executar ele ficará ativo em seu computador **<a href="" target="_blank">Imagen Ilustrativa </a>**. 
+   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Quando você executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagen Ilustrativa</a>**. 
 > Ao exexutar o WampServer é possível que ele não apareça como na imagem, mas sim no menu escondido  de icones ocultos (**˄**).
 
-   2. Agora é preciso executar o Banco de dados no **`PhpMyAdmin`**, para isso você precisa clicar no icone do **`WampServer`** e depois selecionar PhpMyAdmin e depois phpMyAdmin 5.1.1 **<a href="" target="_blank">Imagen Ilustrativa </a>**.
+   2. Agora é preciso executar o Banco de dados no **`PhpMyAdmin`**, para isso você precisa clicar no icone do **`WampServer`** e depois selecionar PhpMyAdmin e depois phpMyAdmin 5.1.1 **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/WampServerMenu.png?raw=true" target="_blank">Imagen Ilustrativa</a>**.
 
-   3. Ao clicar na opção phpMyAdmin 5.1.1 você sera redirecionado para o link `http://localhost/phpmyadmin/` será preciso fazer login na paigina, deixe tudo padrão depois clique em executar
+   3. Ao clicar na opção phpMyAdmin 5.1.1 você sera redirecionado para o link **`http://localhost/phpmyadmin/`** será preciso fazer login na paigina, deixe tudo padrão depois clique em executar
+
    >Utilizador: root
 
    >Palavra-passe: não precisa preencher
 
    >Escolha de servidor: MySql 
    
-   - **<a href="" target="_blank">Imagen Ilustrativa </a>**
+   - **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminHome.png?raw=true" target="_blank">Imagen Ilustrativa</a>**
    
-   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="" target="_blank">Imagen Ilustrativa(1)</a>**, clicando em `Escolher Arquivo` você vai precisar localizar dentro do projeto clonado a pasta `Banco de Dados` e selecionar o arquivo SQL **<a href="" target="_blank">Imagen Ilustrativa(2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
+   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png" target="_blank">Imagen Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagen Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
 
-**<h4>Rodar o Projeto</h4>**
+**<h4>Colocando o Projeto para Rodar</h4>**
 
 - Pronto! Se você executou todo o passo a passo com exito, esse projeto irá executar perfeitamente em seu computador mostrando as telas a seguir ao executar.
 
 <div style="display inline_blok" align="center"> 
-<img align="center" alt="Tela De Login" heigth"70" width="65" src="" title="Tela De Login" /> &nbsp;&nbsp;&nbsp;
-<img align="center" alt="Tela De Cadastro" heigth"40" width="40"src="" title="Tela De Cadastro"/> &nbsp;&nbsp;&nbsp;
-<img align="center" alt="Tela De agendamento" heigth"50" width="45"src="" title="Tela De agendamento"/> 
+<img align="center" alt="Tela De Login" heigth"250" width="250" src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaLogin.png?raw=true" title="Tela De Login" /> &nbsp;&nbsp;&nbsp;
+<img align="center" alt="Tela De Cadastro" heigth"250" width="250"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaCadastro.png?raw=true" title="Tela De Cadastro"/> &nbsp;&nbsp;&nbsp;
+<img align="center" alt="Tela De agendamento" heigth"250" width="250"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaAgendamento.png?raw=true" title="Tela De agendamento"/> 
 </div>
 <br> 
 
