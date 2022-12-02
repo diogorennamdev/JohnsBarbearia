@@ -53,7 +53,7 @@ Para a instalação do projeto no sistema operacional **`Windows`** é necessár
 ## Executando o Projeto
 Agora que você ja instalou todas as **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>** siga os passos abaixo para executar o projeto:
 
-**<h4> Clonado o repositório </h4>**
+#### Clonado o repositório
 
    1. Em seu computardor selecione uma pasta para armazenar o Projeto.
 
@@ -64,7 +64,7 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
    git clone https://github.com/ribeial/JohnsBarbearia
    ```
 
-**<h4> Abrindo o Projeto no Netbeans </h4>**
+#### Abrindo o Projeto no Netbeans
    
    1. Abra o NetBeans e localize o menu **`File`**, selecione a opção **`Open Project`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject.png?raw=true" target="_blank" >Imagen Ilustrativa</a>**.
 
@@ -74,7 +74,7 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 
    4. Para a pasta **`Test Libraries`** você precisará fazer os mesmos passos do intem aterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
 
-**<h4>Conectando o Projeto Com o Banco de Dados</ha>**
+#### Conectando o Projeto Com o Banco de Dados
 
    1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Quando você executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagen Ilustrativa</a>**. 
 > Ao exexutar o WampServer é possível que ele não apareça como na imagem, mas sim no menu escondido  de icones ocultos (**˄**).
@@ -93,7 +93,7 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
    
    4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png" target="_blank">Imagen Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagen Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
 
-**<h4>Colocando o Projeto para Rodar</h4>**
+#### Colocando o Projeto para Rodar
 
 - Pronto! Se você executou todo o passo a passo com exito, esse projeto irá executar perfeitamente em seu computador mostrando as telas a seguir ao executar.
  
@@ -108,6 +108,6 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 </p>
 <br> 
 
-_ _ _
 
-### • Inicio do Projeto: 21/09/2022 • Entrega Final: 02/11/2022
+---
+#### • Inicio do Projeto: 21/09/2022 • Entrega Final: 02/11/2022
