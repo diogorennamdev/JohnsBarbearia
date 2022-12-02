@@ -1,21 +1,19 @@
 package HELPERS.UNIT;
 
-import DAO.UsuarioDAO;
-import DTO.UsuarioDTO;
+
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ValidacoesTest {
 
-    //  UsuarioDTO usuariodto = new UsuarioDTO();
+    
     public ValidacoesTest() {
     }
 

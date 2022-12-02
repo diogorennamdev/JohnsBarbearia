@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/CONTROLS/ControlTelaCadastroTest.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/HELPERS/UNIT/ValidacoesTest.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/CONTROLS/ControlTelaAgendamento.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/Criptografia.java</file>
@@ -11,6 +12,7 @@
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/EXCEPTIONS/NaoFoiPossivelCadastrarUsuarioException.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/UsuarioDAOTest.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/ConexaoDAOTest.java</file>
+            <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/HELPERS/LimitaCaracteres.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/src/DAO/UsuarioDAO.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/CONTROLS/ControlTelaLoginTest.java</file>
             <file>file:/C:/Users/Diogo/OneDrive/Documentos/ProjetoA32022/JohnsBarbearia/JohnsBarbearia/test/DAO/AgendamentoDAOTest.java</file>

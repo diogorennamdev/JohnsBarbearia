@@ -108,7 +108,11 @@ Agora que você já instalou todas as **<a href="https://github.com/ribeial/John
 </p>
 <br> 
 
+#### Executando os Testes do Projeto 
 
+- Agora vamos executar os testes do nosso sistema, estão divididos entre unitários e de integração.
+
+1. Para executar os testes de integração bastar clicar com o lado direito do mouse em cima do arquivo **`DAO`** na pasta **`Test Packages`** e executar com o test packages **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example" target="_blank">Imagem Ilustrativa (1)</a>**.
 ---
 #### • Inicio do Projeto: 21/09/2022 
 #### • Entrega Final: 02/11/2022
