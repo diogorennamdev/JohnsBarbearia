@@ -6,5 +6,4 @@ public class ErroAoEditarAgendamentoException extends Exception {
     public String getMessage() {
         return "Erro ao Tentar Editar Agendamento";
     }
-
 }

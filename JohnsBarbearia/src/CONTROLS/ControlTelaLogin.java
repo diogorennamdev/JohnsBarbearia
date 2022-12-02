@@ -32,7 +32,6 @@ public class ControlTelaLogin {
             fechartela = true;
         }
         return fechartela;
-
     }
 
     public static String ValidarDadosLogin(String CPF_usuario,
@@ -52,7 +51,6 @@ public class ControlTelaLogin {
 
         } else {
             response = "USUÁRIO NÃO CADASTRADO!\n Por favor tente novamente.";
-
         }
         return response;
     }

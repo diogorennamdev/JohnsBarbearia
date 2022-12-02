@@ -195,9 +195,11 @@ public class JFrameTelaCadastro extends javax.swing.JFrame {
             String result = ControlTelaCadastro.AutenticaDados(CPF_usuario(),
                     nome_usuario(),
                     senha_usuario());
+            
             if (result != null) {
                 JOptionPane.showMessageDialog(rootPane, result);
                 limparCampos();
+                
             } else {
                 this.dispose();
             }

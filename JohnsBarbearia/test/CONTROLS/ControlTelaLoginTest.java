@@ -47,7 +47,8 @@ public class ControlTelaLoginTest {
 
         String Cpf = "", senha = "";
         String campos_vazios = ControlTelaLogin.ValidarDadosLogin(Cpf, senha);
-        assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados.", campos_vazios);
+        assertEquals("CAMPOS VAZIOS!\n Por favor insira os dados.",
+                campos_vazios);
     }
 
     @Test

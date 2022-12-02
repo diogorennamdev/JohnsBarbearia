@@ -6,5 +6,4 @@ public class NaoFoiPossivelRealizarAgendamentoException extends Exception {
     public String getMessage() {
         return "Não foi possivel realizar agendamento";
     }
-
 }

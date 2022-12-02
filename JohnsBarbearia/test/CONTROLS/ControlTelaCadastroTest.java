@@ -1,6 +1,5 @@
 package CONTROLS;
 
-import static CONTROLS.ControlTelaCadastro.Cadastrar;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.ErroAoValidarDadosExecption;

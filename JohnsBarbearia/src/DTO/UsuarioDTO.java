@@ -81,5 +81,4 @@ public class UsuarioDTO {
         }
         return Objects.equals(this.tipo_usuario, other.tipo_usuario);
     }
-
 }

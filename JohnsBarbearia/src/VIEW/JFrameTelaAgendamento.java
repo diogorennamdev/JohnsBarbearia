@@ -360,8 +360,8 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
 
             if (result != null) {
                 JOptionPane.showMessageDialog(rootPane, result);
-
             }
+            
         } catch (NaoFoiPossivelEstabelecerConexaoComBDException
                 | NaoFoiPossivelRealizarAgendamentoException
                 | SQLException
@@ -404,6 +404,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
                         ID_agendamento());
                 ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
                 limparCampos();
+                
             } else {
                 JOptionPane.showMessageDialog(
                         rootPane, " Selecio um hoarário na tabela para EDITAR");
@@ -432,6 +433,7 @@ public class JFrameTelaAgendamento extends javax.swing.JFrame {
             ControlTelaAgendamento.LimparAgenda(AgendamentosJTable);
             ControlTelaAgendamento.PreencherTabela(AgendamentosJTable);
             limparCampos();
+            
         } catch (NaoFoiPossivelEstabelecerConexaoComBDException
                 | ErroAoListarDadosException
                 | ErroAoTentarLimpaAgendaException ex) {

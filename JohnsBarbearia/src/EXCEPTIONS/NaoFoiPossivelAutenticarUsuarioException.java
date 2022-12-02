@@ -6,5 +6,4 @@ public class NaoFoiPossivelAutenticarUsuarioException extends Exception {
     public String getMessage() {
         return "Usuario não Cadastrado no sistema!";
     }
-
 }

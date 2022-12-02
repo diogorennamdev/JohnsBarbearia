@@ -1,7 +1,6 @@
 package HELPERS;
 
 import EXCEPTIONS.ErroAoValidarCPFException;
-//import java.util.InputMismatchException;
 
 public class Validacoes {
 
@@ -67,7 +66,6 @@ public class Validacoes {
             return (true);
         } else {
             return (false);
-
         }
     }
 }

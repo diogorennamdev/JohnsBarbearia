@@ -44,9 +44,10 @@ public class ControlTelaAgendamentoTest {
 
     @Test
     public void TesteParaVerificarSeEstarEditandoAgendamento() throws Exception {
-       
+
         //Atualizando nome do Cliente e Horario de Atendimento
-        AgendamentoDTO agendamento_atualizado = new AgendamentoDTO(1, "Roberto Silva", servico,
+        AgendamentoDTO agendamento_atualizado 
+                = new AgendamentoDTO(1, "Roberto Silva", servico,
                 valor_servico, data_agendamento, "13:00",
                 observacao);
         agendamentodao.Editar(agendamento_atualizado);
@@ -55,13 +56,12 @@ public class ControlTelaAgendamentoTest {
 
     @Test
     public void TesteParaVerificarSeEstarExcluindoAgendamento() throws Exception {
-        AgendamentoDTO agendamento_existente = new AgendamentoDTO(1, "Roberto Silva", servico,
+        AgendamentoDTO agendamento_existente 
+                = new AgendamentoDTO(1, "Roberto Silva", servico,
                 valor_servico, data_agendamento, "13:00",
                 observacao);
 
         agendamentodao.Excluir(agendamento_existente);
         assertNotNull(agendamento_existente);
-
     }
-
 }
