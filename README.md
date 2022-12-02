@@ -66,20 +66,20 @@ Agora que você já instalou todas as **<a href="https://github.com/ribeial/John
 
 #### Abrindo o Projeto no Netbeans
    
-   1. Abra o NetBeans e localize o menu **`File`**, selecione a opção **`Open Project`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject.png?raw=true" target="_blank" >Imagen Ilustrativa</a>**.
+   1. Abra o NetBeans e localize o menu **`File`**, selecione a opção **`Open Project`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject.png?raw=true" target="_blank" >Imagem Ilustrativa</a>**.
 
-   2. Localize a pasta onde você clonou o repositório e selecione o projeto JohnsBarbearia **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject2.png?raw=true" target="_blank">Imagen Ilustrativa</a>**.
+   2. Localize a pasta onde você clonou o repositório e selecione o projeto JohnsBarbearia **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/OpenProject2.png?raw=true" target="_blank">Imagem Ilustrativa</a>**.
 
-   3. Depois de fazer os passos acima, seu projeto salvo ira apresentar alguns alertas de erro, por conta que estar faltando adicionar algumas Bibliotecas. Para resolver você irá clicar com o botão direito em cima da pasta **`Libraries`** e selecionar a opção **`Add Jar/Folder`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AdicionarBibiotecas.png?raw=true" target="_blank">Imagen Ilustrativa (1)</a>**, **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AddJar.folder.png?raw=true">Imagen Ilustrativa (2)</a>**,  Em **`Libraries`** você irá adicionar os arquivos **`junit-4.13.2`** e **`mysql-connector-java-8.0.21`** arquivos da pasta Bibliotecas que está junto do projeto **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/Blibliotecas.png?raw=true" target="_blank">Imagem Ilustrativa (3)</a>**.
+   3. Depois de fazer os passos acima, seu projeto salvo ira apresentar alguns alertas de erro, por conta que estar faltando adicionar algumas Bibliotecas. Para resolver você irá clicar com o botão direito em cima da pasta **`Libraries`** e selecionar a opção **`Add Jar/Folder`** **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AdicionarBibiotecas.png?raw=true" target="_blank">Imagem Ilustrativa (1)</a>**, **<a target="_blank" href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/AddJar.folder.png?raw=true">Imagem Ilustrativa (2)</a>**,  Em **`Libraries`** você irá adicionar os arquivos **`junit-4.13.2`** e **`mysql-connector-java-8.0.21`** arquivos da pasta Bibliotecas que está junto do projeto **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/Blibliotecas.png?raw=true" target="_blank">Imagem Ilustrativa (3)</a>**.
 
    4. Para a pasta **`Test Libraries`** você precisará fazer os mesmos passos do intem anterior, mas os arquivos que precisam ser adicionados são **`junit-4.13.2`** e **`mockito-all-1.8.5`**.
 
 #### Conectando o Projeto Com o Banco de Dados
 
-   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Ao executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagen Ilustrativa</a>**. 
+   1. Para que o projeto rode com o banco de dados é necessário que você execute o **`WampServer`**, anteriomente instalado na etapa **<a href="https://github.com/ribeial/JohnsBarbearia#dependencias">Dependencias</a>**. Ao executar ele ficará ativo em seu computador **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/WampServerBarra.png" target="_blank">Imagem Ilustrativa</a>**. 
 > Ao executar o WampServer é possível que ele não apareça como na imagem, mas sim no menu escondido  de icones ocultos (**˄**).
 
-   2. Agora é preciso executar o Banco de dados no **`PhpMyAdmin`**, para isso você precisa clicar no icone do **`WampServer`** e depois selecionar PhpMyAdmin e depois phpMyAdmin 5.1.1 **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/WampServerMenu.png?raw=true" target="_blank">Imagen Ilustrativa</a>**.
+   2. Agora é preciso executar o Banco de dados no **`PhpMyAdmin`**, para isso você precisa clicar no icone do **`WampServer`** e depois selecionar PhpMyAdmin e depois phpMyAdmin 5.1.1 **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/WampServerMenu.png?raw=true" target="_blank">Imagem Ilustrativa</a>**.
 
    3. Ao clicar na opção phpMyAdmin 5.1.1 você sera redirecionado para o link **`http://localhost/phpmyadmin/`** será preciso fazer login na paigina, deixe tudo padrão depois clique em executar
 
@@ -89,9 +89,9 @@ Agora que você já instalou todas as **<a href="https://github.com/ribeial/John
 
    >Escolha de servidor: MySql 
    
-   - **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminHome.png?raw=true" target="_blank">Imagen Ilustrativa</a>**
+   - **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PhpMyAdminHome.png?raw=true" target="_blank">Imagem Ilustrativa</a>**
    
-   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png?raw=true" target="_blank">Imagen Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagen Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
+   4. Assim que você entrar será nessário importar o Banco de Dados **<a href="https://raw.githubusercontent.com/ribeial/JohnsBarbearia/main/JohnsBarbearia/nbproject/example/PhpMyAdminImportar.png?raw=true" target="_blank">Imagem Ilustrativa (1)</a>**, clicando em **`Escolher Arquivo`** você vai precisar localizar dentro do projeto clonado a pasta **`Banco de Dados`** e selecionar o arquivo SQL **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/PastaBD.png?raw=true" target="_blank">Imagem Ilustrativa (2)</a>**, depois de escolher o arquivo no final da pagina você clica em executar.
 
 #### Colocando o Projeto para Rodar
 
