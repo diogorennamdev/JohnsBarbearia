@@ -110,4 +110,5 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 
 
 ---
-#### • Inicio do Projeto: 21/09/2022 • Entrega Final: 02/11/2022
+#### • Inicio do Projeto: 21/09/2022 
+### • Entrega Final: 02/11/2022
