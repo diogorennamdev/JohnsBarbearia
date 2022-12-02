@@ -112,7 +112,11 @@ Agora que você já instalou todas as **<a href="https://github.com/ribeial/John
 
 - Agora vamos executar os testes do nosso sistema, estão divididos entre unitários e de integração.
 
-1. Para executar os testes de integração bastar clicar com o lado direito do mouse em cima do arquivo **`DAO`** na pasta **`Test Packages`** e executar com o test packages **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example" target="_blank">Imagem Ilustrativa (1)</a>**.
+1. Para executar os testes de integração bastar clicar com o lado direito do mouse em cima do arquivo **`DAO`** na pasta **`Test Packages`** e executar clicando em Test Package **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/pastaDAOTest.png?raw=true" target="_blank">Imagem Ilustrativa (1)</a>**.
+
+2. Para executar os testes de validações bastar clicar com o lado direito do mouse em cima do arquivo **`HELPERS.UNIT`** na pasta **`Test Packages`** e executar clicando em Test Package **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TestValidacoes.png?raw=true" target="_blank">Imagem Ilustrativa (1)</a>**.
+
+3. Para executar os testes unitários estamos utilizando o banco de dados real é importante limpa todos dados que estiverem no banco pois podem dar conflitos na hora de rodar os testes e para ter uma visualização do que está acontecendo nos testes é extremamente importante entrar no arquivo **`CONTROLS`** na pasta **`Test Packages`** entrando em cada classe desse pacote como por exemplo a classe **`ControlTelaAgendamentoTest`** e executar teste por teste prestando atenção no banco de dados e o que acontece ao executar cada Teste  **<a href="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TestControll.png?raw=true" target="_blank">Imagem Ilustrativa (1)</a>**.
 ---
 #### • Inicio do Projeto: 21/09/2022 
 #### • Entrega Final: 02/12/2022
