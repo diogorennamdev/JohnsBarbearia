@@ -1,6 +1,7 @@
 package CONTROLS;
 
 import DAO.AgendamentoDAO;
+import DTO.AgendamentoDTO;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,6 +19,10 @@ public class ControlTelaAgendamentoTest {
     private final String hora_agendamento = "14:00";
     private final String observacao = "Teste";
 
+    //Será usado o mesmo agendamento em todos metodos 
+    AgendamentoDTO agendamento = new AgendamentoDTO(0, nome_cliente, servico,
+            valor_servico, data_agendamento, hora_agendamento, observacao);
+
     @Test
     public void DeverRetornarMensagemQuandoUsuarioDeixaCamposVazios()
             throws Exception {
@@ -33,36 +38,30 @@ public class ControlTelaAgendamentoTest {
     @Test
     public void DeveCriarUmAgendamentoComSucesso() throws Exception {
 
-        boolean novo_agendamento = ControlTelaAgendamento.Agendamento(nome_cliente,
-                servico, valor_servico, data_agendamento, hora_agendamento,
-                observacao);
-        assertEquals(true, novo_agendamento);
+        agendamentodao.Agendar(agendamento);
+        assertEquals(AgendamentoDTO.class, agendamento.getClass());
     }
 
     @Test
-    public void DevePreencherTabelaComSucesso() throws Exception {
-
-        String nome_cliente = "Julio", servico = "Corte",
-                valor_servico = "10", data_agendamento = "10/12/2022",
-                hora_agendamento = "10:00", observacao_agendamento = "teste";
-        agendamentodao.ListarHorarios();
-    }
-
-    @Test
-    public void TesteParaVerificarSeestarEditandoAgendamento() throws Exception {
-
+    public void TesteParaVerificarSeEstarEditandoAgendamento() throws Exception {
+       
         //Atualizando nome do Cliente e Horario de Atendimento
-        ControlTelaAgendamento.EditarAgendamento("Roberto Silva", servico,
+        AgendamentoDTO agendamento_atualizado = new AgendamentoDTO(1, "Roberto Silva", servico,
                 valor_servico, data_agendamento, "13:00",
-                observacao, 1);
+                observacao);
+        agendamentodao.Editar(agendamento_atualizado);
+        assertEquals(AgendamentoDTO.class, agendamento_atualizado.getClass());
     }
 
     @Test
     public void TesteParaVerificarSeEstarExcluindoAgendamento() throws Exception {
-        //   ControlTelaAgendamento.ExcluirAgendamento();
+        AgendamentoDTO agendamento_existente = new AgendamentoDTO(1, "Roberto Silva", servico,
+                valor_servico, data_agendamento, "13:00",
+                observacao);
+
+        agendamentodao.Excluir(agendamento_existente);
+        assertNotNull(agendamento_existente);
+
     }
 
-    @Test
-    public void testLimparAgendamento() throws Exception {
-    }
 }

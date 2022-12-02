@@ -1,6 +1,7 @@
 package HELPERS;
 
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
+import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +20,8 @@ public class Criptografia {
             criptgrafa = hash.toString(12);
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("ERRO AO CRIPTOGRAFAR SENHA!");
-            throw new ErroAoCriptografaSenhaException();
+           throw new ErroAoCriptografaSenhaException();
+
         }
         return criptgrafa;
     }

@@ -1,18 +1,21 @@
 package HELPERS.UNIT;
 
+import DAO.UsuarioDAO;
+import DTO.UsuarioDTO;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.NaoFoiPossivelCadastrarUsuarioException;
 import EXCEPTIONS.NaoFoiPossivelEstabelecerConexaoComBDException;
 import HELPERS.Criptografia;
 import HELPERS.Validacoes;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ValidacoesTest {
 
-  //  UsuarioDTO usuariodto = new UsuarioDTO();
+    //  UsuarioDTO usuariodto = new UsuarioDTO();
     public ValidacoesTest() {
     }
 
@@ -25,7 +28,7 @@ public class ValidacoesTest {
     @Test
     public void DeveRetornarFalsoQuandoCpfForInvalido()
             throws ErroAoValidarCPFException {
-        
+
         String Cpf = "25636545789";
         assertEquals(false, Validacoes.validarCPF(Cpf));
     }
@@ -41,5 +44,7 @@ public class ValidacoesTest {
         String senha_criptografada = Criptografia.criptografiaDaSenha(senha);
         assertEquals("196a500b9911174047387a15004a27a6661231b233a904b457a998568"
                 + "33779928b67b2ab", senha_criptografada);
-    }   
+    }
+
+    
 }

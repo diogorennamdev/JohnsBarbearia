@@ -38,7 +38,7 @@ public class AgendamentoDAOTest {
     }
 
     @Test(expected = NaoFoiPossivelRealizarAgendamentoException.class)
-    public void TesteParaVerificarMensagemDeErroAoinserirAgendamento()
+    public void TesteParaVerificarMensagemDeErroAoInserirAgendamento()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             NaoFoiPossivelRealizarAgendamentoException, SQLException {
 

@@ -103,7 +103,7 @@ public class UsuarioDAOTest {
         when(usuariodao.VerificaCpfBD(usuario)).thenReturn(true);
         assertTrue(usuariodao.VerificaCpfBD(usuario));
         assertEquals(true, verificar_cpf);
-        verify(usuariodao, times(1)).AutenticaUsuario(usuario);
+        verify(usuariodao, times(1)).VerificaCpfBD(usuario);
     }
 
     @Test

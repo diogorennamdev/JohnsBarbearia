@@ -31,8 +31,9 @@ public class ConexaoDAOTest {
         String url = "jdbc:mysql://localhost:3306/JohnsBarbearia?serverTimezone=UTC";
         String usuario = "root";
         String senha = "";
-        when(conexaodao.conectaBD());
         conn = DriverManager.getConnection(url, usuario, senha);
+        Assert.assertNotNull(conn);
+
     }
 
     @Test

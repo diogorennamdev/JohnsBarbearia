@@ -1,5 +1,6 @@
 package CONTROLS;
 
+import static CONTROLS.ControlTelaCadastro.Cadastrar;
 import EXCEPTIONS.ErroAoCriptografaSenhaException;
 import EXCEPTIONS.ErroAoValidarCPFException;
 import EXCEPTIONS.ErroAoValidarDadosExecption;
@@ -26,8 +27,8 @@ public class ControlTelaCadastroTest {
             ErroAoCriptografaSenhaException {
 
         String Cpf = "15027412886", nome = "Gustavo", senha = "1234";
-        ControlTelaCadastro.Cadastrar(Cpf, nome, senha);
-        // select no banco para verificar se o usuario foi cadastrdo
+        boolean novo_usuario = ControlTelaCadastro.Cadastrar(Cpf, nome, senha);
+        Assert.assertEquals(true, novo_usuario);
     }
 
     @Test
