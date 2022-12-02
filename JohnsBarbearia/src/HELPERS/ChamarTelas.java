@@ -30,5 +30,4 @@ public class ChamarTelas {
         JframeTelaLogin janelaJframeTelaLogin = new JframeTelaLogin();
         janelaJframeTelaLogin.setVisible(true);
     }
-
 }

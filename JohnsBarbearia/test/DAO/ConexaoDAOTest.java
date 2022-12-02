@@ -50,5 +50,4 @@ public class ConexaoDAOTest {
         Assert.assertEquals("Não foi possivel realizar Conexão com o Banco de dados",
                 exception.getMessage());
     }
-
 }

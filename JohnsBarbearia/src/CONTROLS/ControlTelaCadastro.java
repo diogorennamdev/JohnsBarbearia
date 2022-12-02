@@ -39,7 +39,6 @@ public class ControlTelaCadastro {
             fechartela = true;
         }
         return fechartela;
-
     }
 
     public static String AutenticaDados(String CPF_usuario,
@@ -75,7 +74,6 @@ public class ControlTelaCadastro {
             ControlTelaCadastro.Cadastrar(CPF_usuario,
                     nome_usuario,
                     senha_usuario);
-
         }
         return response;
     }

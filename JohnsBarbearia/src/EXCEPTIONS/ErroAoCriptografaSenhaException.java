@@ -6,5 +6,4 @@ public class ErroAoCriptografaSenhaException extends Exception {
     public String getMessage() {
         return "Erro ao validar criptografa senha";
     }
-
 }

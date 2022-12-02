@@ -6,5 +6,4 @@ public class ErroAoTentarLimpaAgendaException extends Exception {
     public String getMessage() {
         return "Erro ao tentar Limpar Agenda";
     }
-
 }

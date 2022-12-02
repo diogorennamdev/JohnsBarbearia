@@ -69,7 +69,8 @@ public class AgendamentoDAOTest {
         List<AgendamentoDTO> ListarHorarios = new ArrayList();
         ListarHorarios.add(new AgendamentoDTO(1, "Diogo", "corte", "10",
                 "28/11/2022", "20:00", "teste"));
-        doThrow(new ErroAoListarDadosException()).when(agendamentodao).ListarHorarios();
+        doThrow(new ErroAoListarDadosException())
+                .when(agendamentodao).ListarHorarios();
         ErroAoListarDadosException exception
                 = Assert.assertThrows(ErroAoListarDadosException.class,
                         () -> agendamentodao.ListarHorarios());
@@ -93,7 +94,7 @@ public class AgendamentoDAOTest {
     public void TesteParaVerificarSeLancaErroAoTentarEditar()
             throws NaoFoiPossivelEstabelecerConexaoComBDException,
             ErroAoEditarAgendamentoException {
-        
+
         AgendamentoDTO agendamento = new AgendamentoDTO(0, "fabio", "corte", "20",
                 "10/11/2022", "11:00", "test");
         doThrow(new ErroAoEditarAgendamentoException())

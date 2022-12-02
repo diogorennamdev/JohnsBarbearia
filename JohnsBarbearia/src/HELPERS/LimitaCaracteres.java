@@ -5,7 +5,6 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 public class LimitaCaracteres extends PlainDocument {
-//Class LimitaCaracteres limita o cpf em 11 caracteres
 
     public enum TipoEntrada {
         CPF, OBSERVACAO, VALOR;
@@ -39,7 +38,6 @@ public class LimitaCaracteres extends PlainDocument {
             case VALOR:
                 regex = "[^0-9]";
                 break;
-
         }
         //fazendo a substituição
         str = str.replaceAll(regex, "");
@@ -50,7 +48,5 @@ public class LimitaCaracteres extends PlainDocument {
             String nova = str.substring(0, qtdCaracteres);
             super.insertString(offs, nova, a);
         }
-
     }
-
 }

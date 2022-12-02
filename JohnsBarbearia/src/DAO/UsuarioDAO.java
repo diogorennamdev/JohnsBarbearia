@@ -35,7 +35,6 @@ public class UsuarioDAO {
             System.out.println("Não foi possivél cadastrar usuário" + erro);
             throw new NaoFoiPossivelCadastrarUsuarioException(); 
         }
-
     }
 
     public boolean AutenticaUsuario(UsuarioDTO objUsuarioDTO)
@@ -56,7 +55,6 @@ public class UsuarioDAO {
             if (rs.next()) {
 
                 checar = true;
-
             }
 
         } catch (SQLException erro) {
@@ -64,7 +62,6 @@ public class UsuarioDAO {
             throw new NaoFoiPossivelAutenticarUsuarioException();
         }
         return checar;
-
     }
 
     public boolean VerificaCpfBD(UsuarioDTO objUsuarioDTO)

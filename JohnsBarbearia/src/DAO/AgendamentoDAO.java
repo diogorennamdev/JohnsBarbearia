@@ -78,7 +78,6 @@ public class AgendamentoDAO {
                 agendamento.setObservacao_agendamento(
                         rs.getString("observacao_agendamento"));
                 horarios.add(agendamento);
-
             }
 
         } catch (SQLException erro) {
@@ -111,7 +110,6 @@ public class AgendamentoDAO {
             System.out.println("erro ao tentar Editar agendamento" + erro);
             throw  new ErroAoEditarAgendamentoException();
         }
-       
     }
 
     public void Excluir(AgendamentoDTO objAgendamentoDTO)
@@ -146,5 +144,4 @@ public class AgendamentoDAO {
             throw new ErroAoTentarLimpaAgendaException();
         }
     }
-
 }

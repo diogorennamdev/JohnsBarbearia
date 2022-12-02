@@ -162,12 +162,15 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         try {
             String result = ControlTelaLogin.ValidarDadosLogin(CPF_usuario(),
                     senha_usuario());
+            
             if (result != null) {
                 JOptionPane.showMessageDialog(rootPane, result);
                 limparCampos();
+                
             } else {
                 this.dispose();
             }
+            
         } catch (NaoFoiPossivelAutenticarUsuarioException
                 | NaoFoiPossivelEstabelecerConexaoComBDException
                 | ErroAoCriptografaSenhaException
@@ -225,5 +228,4 @@ public class JframeTelaLogin extends javax.swing.JFrame {
         CPFJText.setText("");
         txtSenhaUsuario.setText("");
     }
-
 }

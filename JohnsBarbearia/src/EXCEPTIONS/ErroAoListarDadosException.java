@@ -6,5 +6,4 @@ public class ErroAoListarDadosException extends Exception {
     public String getMessage() {
         return "Erro ao Listar Dados";
     }
-
 }

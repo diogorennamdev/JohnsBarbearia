@@ -21,7 +21,6 @@ public class Criptografia {
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("ERRO AO CRIPTOGRAFAR SENHA!");
            throw new ErroAoCriptografaSenhaException();
-
         }
         return criptgrafa;
     }

@@ -87,5 +87,4 @@ public class AgendamentoDTO {
 
     public AgendamentoDTO() {
     }
-
 }

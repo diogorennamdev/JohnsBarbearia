@@ -6,5 +6,4 @@ public class ErroAoValidarDadosExecption extends Exception {
     public String getMessage() {
         return "Erro ao validar dados";
     }
-
 }

@@ -36,7 +36,6 @@ public class ControlTelaAgendamento {
         AgendamentoDAO objAgendamentoDAO = new AgendamentoDAO();
         objAgendamentoDAO.Agendar(objAgendamentoDTO);
         return true;
-
     }
 
     public static String TestaAgendamento(
@@ -64,7 +63,6 @@ public class ControlTelaAgendamento {
                 data_agendamento,
                 hora_agendamento,
                 observacao_agendamento)) {
-
         }
         return response;
     }
@@ -88,7 +86,6 @@ public class ControlTelaAgendamento {
                 agendar.getObservacao_agendamento()});
         }
         return TabelaAgendamentoJTable;
-
     }
 
     public static void EditarAgendamento(String nome_cliente,
@@ -112,7 +109,6 @@ public class ControlTelaAgendamento {
         editar.setObservacao_agendamento(observacao_agendamento);
         editar.setID_agendamento(ID_agendamento);
         agendamentoDAO.Editar(editar);
-
     }
 
     public static void ExcluirAgendamento(JTable TabelaAgendamentoJTable)
