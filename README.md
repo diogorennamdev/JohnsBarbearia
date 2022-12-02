@@ -96,12 +96,16 @@ Agora que você ja instalou todas as **<a href="https://github.com/ribeial/Johns
 **<h4>Colocando o Projeto para Rodar</h4>**
 
 - Pronto! Se você executou todo o passo a passo com exito, esse projeto irá executar perfeitamente em seu computador mostrando as telas a seguir ao executar.
+ 
+<p align="center">
+<img align="center" alt="Tela De Login" heigth"300" width="300" src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaLogin.png?raw=true" title="Tela De Login" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img align="center" alt="Tela De Cadastro" heigth"300" width="300"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaCadastro.png?raw=true" title="Tela De Cadastro"/> 
 
-<div style="display inline_blok" align="center"> 
-<img align="center" alt="Tela De Login" heigth"250" width="250" src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaLogin.png?raw=true" title="Tela De Login" /> &nbsp;&nbsp;&nbsp;
-<img align="center" alt="Tela De Cadastro" heigth"250" width="250"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaCadastro.png?raw=true" title="Tela De Cadastro"/> &nbsp;&nbsp;&nbsp;
-<img align="center" alt="Tela De agendamento" heigth"250" width="250"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaAgendamento.png?raw=true" title="Tela De agendamento"/> 
-</div>
+</p>
+<br>
+<p align="center">
+<img align="center" alt="Tela De agendamento" heigth"300" width="300"src="https://github.com/ribeial/JohnsBarbearia/blob/main/JohnsBarbearia/nbproject/example/TelaAgendamento.png?raw=true" title="Tela De agendamento"/> 
+</p>
 <br> 
 
 _ _ _
